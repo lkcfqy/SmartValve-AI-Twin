@@ -1,0 +1,163 @@
+split,operating_condition,load_factor,seed,configured_fault,severity,truth,prediction,decision_state,finding,health_score,evidence_strength,observable_sha256,latency_ms
+development,0,0.8,0,normal,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,68303192feaa10231671c3fc623cf220d33d25f49cbe4ce1eb9d3ad4b5a202f4,13.7778
+development,0,0.8,0,normal,0.5,normal,normal,normal,No actionable deviation,100.0,0.92,68303192feaa10231671c3fc623cf220d33d25f49cbe4ce1eb9d3ad4b5a202f4,11.9678
+development,0,0.8,0,normal,1.0,normal,normal,normal,No actionable deviation,100.0,0.92,68303192feaa10231671c3fc623cf220d33d25f49cbe4ce1eb9d3ad4b5a202f4,11.831
+development,0,0.8,0,friction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,68303192feaa10231671c3fc623cf220d33d25f49cbe4ce1eb9d3ad4b5a202f4,12.0011
+development,0,0.8,0,friction,0.5,friction,normal,normal,No actionable deviation,93.5,0.92,f3b1bd17d4da172cc402f19acfaa718a6f0ea771ce68c9cf67637bb050c95735,12.2678
+development,0,0.8,0,friction,1.0,friction,friction,diagnosed,Friction growth,86.4,0.77,cd4d89f5bbb6b07ec2fe3be5c2a0388cdcbfbfe2a97eab4f05661ac9ab9e1742,11.9599
+development,0,0.8,0,stiction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,68303192feaa10231671c3fc623cf220d33d25f49cbe4ce1eb9d3ad4b5a202f4,12.4803
+development,0,0.8,0,stiction,0.5,stiction,stiction,diagnosed,Persistent localized stiction,28.8,0.92,bd14a267ba07b5de0d453fb175c1aeef8e40ec29104cf93d20b1d7ecc20242b1,19.9945
+development,0,0.8,0,stiction,1.0,stiction,stiction,diagnosed,Persistent localized stiction,25.9,0.92,658be897504c6a3397d62101fc97e8989bc7d6694aa3c86232c78414fcaed5db,14.2545
+development,0,0.8,0,obstruction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,68303192feaa10231671c3fc623cf220d33d25f49cbe4ce1eb9d3ad4b5a202f4,12.0508
+development,0,0.8,0,obstruction,0.5,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,44.9,0.92,dbd9e7406849ca4023f71c135388471b2525cbfb27438d08ec3e286a9c6d9221,18.6672
+development,0,0.8,0,obstruction,1.0,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,24.3,0.92,a3991fc0bec5f722649f445c2e34bed0487668fe96ce15215568199a79f293ec,12.855
+development,0,0.8,0,actuator_degradation,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,68303192feaa10231671c3fc623cf220d33d25f49cbe4ce1eb9d3ad4b5a202f4,13.3947
+development,0,0.8,0,actuator_degradation,0.5,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,92.4,0.76,6123f0dc5ac20295a002d5fff8a969aaa6a4aa9287b52c1c8352f88036abefa3,13.2379
+development,0,0.8,0,actuator_degradation,1.0,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,58.2,0.92,788eb3f1ecef07ddbe593f6596863fb35625104df70c4746e609e2edcd8d0e5e,12.0003
+development,0,0.8,0,sensor_drift,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,68303192feaa10231671c3fc623cf220d33d25f49cbe4ce1eb9d3ad4b5a202f4,12.5876
+development,0,0.8,0,sensor_drift,0.5,sensor_drift,normal,normal,No actionable deviation,97.6,0.92,f8c1633ebb6bcf7944d327480e30e606724ddbe10a7eed961e264fed3d789161,12.4328
+development,0,0.8,0,sensor_drift,1.0,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,95.5,0.66,e412a73ec23a6b109a74d1fc67d999b8ff0e1121fcb2f5a11fd80295f437e274,12.3632
+development,0,0.8,1,normal,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,caae90e2b3fec205882252c9829f5412bf28e91d421b24710b6a0626c876ee89,12.3104
+development,0,0.8,1,normal,0.5,normal,normal,normal,No actionable deviation,100.0,0.92,caae90e2b3fec205882252c9829f5412bf28e91d421b24710b6a0626c876ee89,16.3985
+development,0,0.8,1,normal,1.0,normal,normal,normal,No actionable deviation,100.0,0.92,caae90e2b3fec205882252c9829f5412bf28e91d421b24710b6a0626c876ee89,13.2595
+development,0,0.8,1,friction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,caae90e2b3fec205882252c9829f5412bf28e91d421b24710b6a0626c876ee89,13.4132
+development,0,0.8,1,friction,0.5,friction,normal,normal,No actionable deviation,93.7,0.92,0f482854f51d9db3c07ce4af0c7ba00c978c18912fdfcb1e3af49fc96b77b7ab,14.0352
+development,0,0.8,1,friction,1.0,friction,friction,diagnosed,Friction growth,86.3,0.77,3da108f0d291f48c0edb3186a83c66a806522cb3e4a66e58a24b02a1d6e03792,12.4106
+development,0,0.8,1,stiction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,caae90e2b3fec205882252c9829f5412bf28e91d421b24710b6a0626c876ee89,13.7486
+development,0,0.8,1,stiction,0.5,stiction,stiction,diagnosed,Persistent localized stiction,28.8,0.92,98c3a2f4ed078361536c1d1913359e4c1e9a4c375667394f8a7d3fdc6706eab6,13.1583
+development,0,0.8,1,stiction,1.0,stiction,stiction,diagnosed,Persistent localized stiction,25.9,0.92,52b4e566a8e3113f081f3ce1e92dc57b27440b7a5891c49586100c5c37a15b4b,13.2473
+development,0,0.8,1,obstruction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,caae90e2b3fec205882252c9829f5412bf28e91d421b24710b6a0626c876ee89,12.8876
+development,0,0.8,1,obstruction,0.5,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,44.5,0.92,e1610f533ffa53c31699dc6b55e758727c7f9caf007bdbd33f026b49179a2535,13.1236
+development,0,0.8,1,obstruction,1.0,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,24.1,0.92,8f7372a380c49f3c5a18cc799ad395b8fc67fed08c8a6c3c15348ec615048e65,12.77
+development,0,0.8,1,actuator_degradation,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,caae90e2b3fec205882252c9829f5412bf28e91d421b24710b6a0626c876ee89,12.6361
+development,0,0.8,1,actuator_degradation,0.5,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,92.4,0.76,6ba48041e8eb322b3338d423e0d942f5ea325b38be41f75668a89207b33d0d1f,12.8653
+development,0,0.8,1,actuator_degradation,1.0,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,58.5,0.92,2139f87d31acae4c1a969c49d865b9bca29c3b5489f5c3d7dcad2f9f14073e73,13.5286
+development,0,0.8,1,sensor_drift,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,caae90e2b3fec205882252c9829f5412bf28e91d421b24710b6a0626c876ee89,13.271
+development,0,0.8,1,sensor_drift,0.5,sensor_drift,normal,normal,No actionable deviation,97.7,0.92,9f4fd1c5248fff12ad6a81644e95eac1e5e6a40551a49f72ca785b55c43945e5,12.6502
+development,0,0.8,1,sensor_drift,1.0,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,95.5,0.66,e30667f0e017bd074d5e6690a88d1a8478c14296ff629efd8bf2a39983b9e996,12.7216
+development,0,0.8,2,normal,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,95944fb4026e0c2e361a0d6f4ea6b5ea1775692f7872cd884aa321f675c9d668,12.7251
+development,0,0.8,2,normal,0.5,normal,normal,normal,No actionable deviation,100.0,0.92,95944fb4026e0c2e361a0d6f4ea6b5ea1775692f7872cd884aa321f675c9d668,13.1273
+development,0,0.8,2,normal,1.0,normal,normal,normal,No actionable deviation,100.0,0.92,95944fb4026e0c2e361a0d6f4ea6b5ea1775692f7872cd884aa321f675c9d668,13.7128
+development,0,0.8,2,friction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,95944fb4026e0c2e361a0d6f4ea6b5ea1775692f7872cd884aa321f675c9d668,15.3101
+development,0,0.8,2,friction,0.5,friction,normal,normal,No actionable deviation,93.6,0.92,71cea736bcd71683f4cb39b6d73d3d8edf1e75df566cab05d665da965f7d4852,13.9085
+development,0,0.8,2,friction,1.0,friction,friction,diagnosed,Friction growth,86.2,0.77,3dccd2a16e5796002f7b6f1008ce5cd37df6a03d1ad9fb71caffa62cb9cb87e3,17.462
+development,0,0.8,2,stiction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,95944fb4026e0c2e361a0d6f4ea6b5ea1775692f7872cd884aa321f675c9d668,19.5796
+development,0,0.8,2,stiction,0.5,stiction,stiction,diagnosed,Persistent localized stiction,28.8,0.92,77c696fbd11847d8e4a73e92e958ac53cfb3ccc501dab51a6651f056c5c5f129,15.1465
+development,0,0.8,2,stiction,1.0,stiction,stiction,diagnosed,Persistent localized stiction,25.9,0.92,27ec7532f1e20c596a4680a7aa42fd7c9b466b13de78cf2b95ea03a3dd8968b0,12.5463
+development,0,0.8,2,obstruction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,95944fb4026e0c2e361a0d6f4ea6b5ea1775692f7872cd884aa321f675c9d668,12.6646
+development,0,0.8,2,obstruction,0.5,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,44.5,0.92,56e70236186cb0a6df42bd2203f00ae045672b49a82707f6e300dffdd2db1f05,12.617
+development,0,0.8,2,obstruction,1.0,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,24.4,0.92,7494568c4eac843ff25b99a7d2d2d69e0da29e5e63eda4819d6d27ff147b24d9,13.4835
+development,0,0.8,2,actuator_degradation,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,95944fb4026e0c2e361a0d6f4ea6b5ea1775692f7872cd884aa321f675c9d668,12.404
+development,0,0.8,2,actuator_degradation,0.5,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,92.4,0.76,ec6b7d16327053e63dd4ee2fe0a2c27573850c484b03ff6db29fc0dcf08c0d79,12.4458
+development,0,0.8,2,actuator_degradation,1.0,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,58.0,0.92,653447b624dd040b130570efb5dd173c99f460f21287b2652314e8db74f8aef9,12.4497
+development,0,0.8,2,sensor_drift,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,95944fb4026e0c2e361a0d6f4ea6b5ea1775692f7872cd884aa321f675c9d668,12.4547
+development,0,0.8,2,sensor_drift,0.5,sensor_drift,normal,normal,No actionable deviation,97.7,0.92,a9cf6ffcc42005eaca5841e4dcc2641972e098f28eaa49b9c59b71df7c4f122d,13.1433
+development,0,0.8,2,sensor_drift,1.0,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,95.4,0.66,d43dcf44e45ea2338aedf09c1979a859ccec036b7a6463cbc4e6c4d38f77aa68,12.7038
+development,1,1.0,0,normal,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,f603d84ac22560a3b0ecd30c6379a14cf679e0a54eebdbedd0d697a06c2f3603,12.7355
+development,1,1.0,0,normal,0.5,normal,normal,normal,No actionable deviation,100.0,0.92,f603d84ac22560a3b0ecd30c6379a14cf679e0a54eebdbedd0d697a06c2f3603,13.5447
+development,1,1.0,0,normal,1.0,normal,normal,normal,No actionable deviation,100.0,0.92,f603d84ac22560a3b0ecd30c6379a14cf679e0a54eebdbedd0d697a06c2f3603,12.5225
+development,1,1.0,0,friction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,f603d84ac22560a3b0ecd30c6379a14cf679e0a54eebdbedd0d697a06c2f3603,12.6323
+development,1,1.0,0,friction,0.5,friction,friction,diagnosed,Friction growth,91.6,0.69,615e62025756951894b502dd531a52e97821f4bde3b25189855fe1ac1def3d5a,12.464
+development,1,1.0,0,friction,1.0,friction,friction,diagnosed,Friction growth,80.1,0.77,ad3f577cd13cda746d39792acf68384e84248a879e5b429a0064443852876729,16.6907
+development,1,1.0,0,stiction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,f603d84ac22560a3b0ecd30c6379a14cf679e0a54eebdbedd0d697a06c2f3603,13.3492
+development,1,1.0,0,stiction,0.5,stiction,stiction,diagnosed,Persistent localized stiction,34.0,0.92,7af032bdb319b419dc81c54cd170adb099000c7e5efd8126a305a09b1ffe3129,13.313
+development,1,1.0,0,stiction,1.0,stiction,stiction,diagnosed,Persistent localized stiction,31.8,0.92,42d5c9f6b944230cd7fce62d4fb1af7ed511cc166d07f75238834dda76ddc020,13.4566
+development,1,1.0,0,obstruction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,f603d84ac22560a3b0ecd30c6379a14cf679e0a54eebdbedd0d697a06c2f3603,12.6596
+development,1,1.0,0,obstruction,0.5,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,53.8,0.84,003a1eebc346e24d8735869f3710bcb8852a406d57c1f4eacf416a699709bc76,13.748
+development,1,1.0,0,obstruction,1.0,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,31.3,0.92,99ece18b2926f42500bac28931cb7ad495efda841125641f38e9f3263f8c1eb5,12.6919
+development,1,1.0,0,actuator_degradation,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,f603d84ac22560a3b0ecd30c6379a14cf679e0a54eebdbedd0d697a06c2f3603,12.2103
+development,1,1.0,0,actuator_degradation,0.5,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,91.7,0.75,7fa6513af3ea6224676dfa4088fe6c81f8d948d3a73cb46fe1a5b48b60fcf07c,12.4695
+development,1,1.0,0,actuator_degradation,1.0,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,57.6,0.92,b53e22ad522d17ce0ea2e9d6e1cee6b06d4bc8e8737397f2f705b6d2d9ef9c71,12.476
+development,1,1.0,0,sensor_drift,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,f603d84ac22560a3b0ecd30c6379a14cf679e0a54eebdbedd0d697a06c2f3603,12.2721
+development,1,1.0,0,sensor_drift,0.5,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,97.4,0.64,49974b36d059951c1832cc2c54ee23917d8f269401931c81f9143255715e6ff8,12.8006
+development,1,1.0,0,sensor_drift,1.0,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,95.0,0.67,032bd9ec9458c2c4d0462f7afa15a1384a950d99c2f26c7470b3087c74dba0be,12.9001
+development,1,1.0,1,normal,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,07e44db3d042d9e89d6c30b696a294a71ad0ff2ff02d5dbcddc8bab70ee9c49b,12.4469
+development,1,1.0,1,normal,0.5,normal,normal,normal,No actionable deviation,100.0,0.92,07e44db3d042d9e89d6c30b696a294a71ad0ff2ff02d5dbcddc8bab70ee9c49b,12.5271
+development,1,1.0,1,normal,1.0,normal,normal,normal,No actionable deviation,100.0,0.92,07e44db3d042d9e89d6c30b696a294a71ad0ff2ff02d5dbcddc8bab70ee9c49b,12.3059
+development,1,1.0,1,friction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,07e44db3d042d9e89d6c30b696a294a71ad0ff2ff02d5dbcddc8bab70ee9c49b,12.6175
+development,1,1.0,1,friction,0.5,friction,friction,diagnosed,Friction growth,91.6,0.69,1b991d628f011de1d21017916777b9f20a53ebc9679f39241f5cfe0370ead8d5,12.0436
+development,1,1.0,1,friction,1.0,friction,friction,diagnosed,Friction growth,80.3,0.77,d5b5f46dffb591ce81ae9b82a44f9d91e337a67df55d08ee0eda1533826563e5,12.2904
+development,1,1.0,1,stiction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,07e44db3d042d9e89d6c30b696a294a71ad0ff2ff02d5dbcddc8bab70ee9c49b,12.5317
+development,1,1.0,1,stiction,0.5,stiction,stiction,diagnosed,Persistent localized stiction,34.0,0.92,0951f51778fb47cf4cf1e9a229feb3561021875a8d667b65702d33f28b9032b7,12.8655
+development,1,1.0,1,stiction,1.0,stiction,stiction,diagnosed,Persistent localized stiction,31.8,0.92,d20a908cc1aa7287c081993dfccb22b2a1631a9f56d975684ca8db32843f0d08,12.472
+development,1,1.0,1,obstruction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,07e44db3d042d9e89d6c30b696a294a71ad0ff2ff02d5dbcddc8bab70ee9c49b,12.5486
+development,1,1.0,1,obstruction,0.5,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,53.7,0.84,1c1ea3d3b82498396484c317db66002948007956a9135ab225843100edb69063,12.4002
+development,1,1.0,1,obstruction,1.0,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,31.0,0.92,db97f668705fb7af3e00d539dbdd55b9a8c5be7ce023a4441fc92f44ac39f458,12.4356
+development,1,1.0,1,actuator_degradation,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,07e44db3d042d9e89d6c30b696a294a71ad0ff2ff02d5dbcddc8bab70ee9c49b,12.1712
+development,1,1.0,1,actuator_degradation,0.5,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,91.9,0.75,ba665d2ac70119684f2dbdfbf2bf4bd77c666bf75473b4839fdf34280791f8b6,12.5357
+development,1,1.0,1,actuator_degradation,1.0,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,57.8,0.92,084751e1974341fa120e0aa847c1ba15d10c6b3e298427fd44a617768c2b17d5,12.844
+development,1,1.0,1,sensor_drift,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,07e44db3d042d9e89d6c30b696a294a71ad0ff2ff02d5dbcddc8bab70ee9c49b,13.6393
+development,1,1.0,1,sensor_drift,0.5,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,97.2,0.64,b0faed3170c3bc8677cb8123ec0066f08f0ae61f5ac9b65676f19a8b1324cc3f,12.3688
+development,1,1.0,1,sensor_drift,1.0,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,94.9,0.67,b4e656d4c676d7958d889e9db4dbedcf1ece399d3bbedfd347694d73e1530e6f,12.4992
+development,1,1.0,2,normal,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,4f0bb5536c57cfd83958e642dbb391d1fa759d5a297bf1f832be966b27847e77,14.1896
+development,1,1.0,2,normal,0.5,normal,normal,normal,No actionable deviation,100.0,0.92,4f0bb5536c57cfd83958e642dbb391d1fa759d5a297bf1f832be966b27847e77,13.5994
+development,1,1.0,2,normal,1.0,normal,normal,normal,No actionable deviation,100.0,0.92,4f0bb5536c57cfd83958e642dbb391d1fa759d5a297bf1f832be966b27847e77,13.0961
+development,1,1.0,2,friction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,4f0bb5536c57cfd83958e642dbb391d1fa759d5a297bf1f832be966b27847e77,13.1745
+development,1,1.0,2,friction,0.5,friction,friction,diagnosed,Friction growth,91.6,0.69,223b0a3223e299f95ccd310b3c1b31d0bbfc430ecce1dd6924d1a13b6722d60c,13.8773
+development,1,1.0,2,friction,1.0,friction,friction,diagnosed,Friction growth,80.1,0.77,9564a543c9f76c24f29cde8a4e5439b2b35ebdeea1ea78987365680367631ba5,14.7974
+development,1,1.0,2,stiction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,4f0bb5536c57cfd83958e642dbb391d1fa759d5a297bf1f832be966b27847e77,13.1632
+development,1,1.0,2,stiction,0.5,stiction,stiction,diagnosed,Persistent localized stiction,33.9,0.92,62e3648fab5e49f2d61fa69fc3b5565d234ce1521aee47b5889fc4a9b19ee310,12.997
+development,1,1.0,2,stiction,1.0,stiction,stiction,diagnosed,Persistent localized stiction,31.8,0.92,672f966a8933357eea02bb4c753d88edf0276e9a6341c412bcb26742fe9a9de4,13.1816
+development,1,1.0,2,obstruction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,4f0bb5536c57cfd83958e642dbb391d1fa759d5a297bf1f832be966b27847e77,12.7719
+development,1,1.0,2,obstruction,0.5,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,53.2,0.84,f905749b5c3e2d7e786c6e178181b2af64f63d1a716cc03802ab1f62bb283abf,12.8632
+development,1,1.0,2,obstruction,1.0,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,31.4,0.92,fd6f3163de61cc877ffbb6106423a7ab450e60841019321f4a847ebab59c9117,12.2997
+development,1,1.0,2,actuator_degradation,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,4f0bb5536c57cfd83958e642dbb391d1fa759d5a297bf1f832be966b27847e77,12.4762
+development,1,1.0,2,actuator_degradation,0.5,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,91.6,0.75,be5e866f72ac9c92e180bf6f8fa4473b72618b6b5efe48e790400aa83a158840,12.4703
+development,1,1.0,2,actuator_degradation,1.0,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,57.9,0.92,41235e439a16aab4abb9802e67cd3728e75971d63f8b2978feadfbcadf3e7be8,12.2711
+development,1,1.0,2,sensor_drift,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,4f0bb5536c57cfd83958e642dbb391d1fa759d5a297bf1f832be966b27847e77,12.7027
+development,1,1.0,2,sensor_drift,0.5,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,97.3,0.64,afe8e6ecf644beaf5754aa735699c21f43241a2d122d948b45aedd55e2779445,17.5702
+development,1,1.0,2,sensor_drift,1.0,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,95.1,0.67,16430fe2f0e5c87388417cf703ca2cea3f7f9df19366e5c8e1486fcd8667efeb,12.0832
+holdout,2,1.2,0,normal,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,36accaf79499d65971e7d4b9f9c7ecb8a00f9fc21a2da1c8a26e3f598a01a493,12.6226
+holdout,2,1.2,0,normal,0.5,normal,normal,normal,No actionable deviation,100.0,0.92,36accaf79499d65971e7d4b9f9c7ecb8a00f9fc21a2da1c8a26e3f598a01a493,12.6063
+holdout,2,1.2,0,normal,1.0,normal,normal,normal,No actionable deviation,100.0,0.92,36accaf79499d65971e7d4b9f9c7ecb8a00f9fc21a2da1c8a26e3f598a01a493,12.7614
+holdout,2,1.2,0,friction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,36accaf79499d65971e7d4b9f9c7ecb8a00f9fc21a2da1c8a26e3f598a01a493,12.3972
+holdout,2,1.2,0,friction,0.5,friction,friction,diagnosed,Friction growth,87.1,0.71,27dc69743401e82e514ea5e403d1404e12a320f651e3edecca5b596b3eafa611,12.7755
+holdout,2,1.2,0,friction,1.0,friction,friction,diagnosed,Friction growth,67.0,0.8,80c1e165e3f4935abb4b86b5382b569f2fdbdca00ad8a4808fd9299340464632,12.3841
+holdout,2,1.2,0,stiction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,36accaf79499d65971e7d4b9f9c7ecb8a00f9fc21a2da1c8a26e3f598a01a493,11.9292
+holdout,2,1.2,0,stiction,0.5,stiction,stiction,diagnosed,Persistent localized stiction,37.4,0.92,54ab3d3777350813ac64bf02feb6c424f420a3b2c7df3d55b4fbf0c65430a8c6,14.6411
+holdout,2,1.2,0,stiction,1.0,stiction,stiction,diagnosed,Persistent localized stiction,35.6,0.92,6a8883703c2c30edf4d487cf0a19afa81a3771a2bdc7fdf63a1728c844686e3e,12.0253
+holdout,2,1.2,0,obstruction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,36accaf79499d65971e7d4b9f9c7ecb8a00f9fc21a2da1c8a26e3f598a01a493,12.0628
+holdout,2,1.2,0,obstruction,0.5,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,62.3,0.84,8985f65ff5fc939e41a6d00074ae6b222b1ad8b12c0f5d8773b0cc28d0a72251,12.2992
+holdout,2,1.2,0,obstruction,1.0,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,37.1,0.92,6129d2e6d12173ca843c01c34f4636690598920eb8e52d2f14a195c71aafef93,12.1475
+holdout,2,1.2,0,actuator_degradation,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,36accaf79499d65971e7d4b9f9c7ecb8a00f9fc21a2da1c8a26e3f598a01a493,12.0583
+holdout,2,1.2,0,actuator_degradation,0.5,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,83.6,0.73,2985b32f3ffc9c8a4032d99c47c9269dcedc1449340da5ebe3d0c2b8846fc853,12.4118
+holdout,2,1.2,0,actuator_degradation,1.0,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,60.5,0.92,db001ef99e626d4a0df01b8106cb4d50ef84600430bb99a0e2a5f9fd46ed1df1,11.6018
+holdout,2,1.2,0,sensor_drift,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,36accaf79499d65971e7d4b9f9c7ecb8a00f9fc21a2da1c8a26e3f598a01a493,11.6401
+holdout,2,1.2,0,sensor_drift,0.5,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,97.0,0.65,df6e9e24424aed52d1a9829743886722cdbfe83121cc6ed55c25e286bc1a41ec,11.724
+holdout,2,1.2,0,sensor_drift,1.0,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,94.4,0.68,2f0ce7b2b32d6e8590dde8c74c65a01f7044502a17d909417be6a8d686e7dfe2,11.68
+holdout,2,1.2,1,normal,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,3dd97fed1f0352874ff3850100a33e2faa8f3c980bf169e89fc6743a57f66838,12.1084
+holdout,2,1.2,1,normal,0.5,normal,normal,normal,No actionable deviation,100.0,0.92,3dd97fed1f0352874ff3850100a33e2faa8f3c980bf169e89fc6743a57f66838,13.1465
+holdout,2,1.2,1,normal,1.0,normal,normal,normal,No actionable deviation,100.0,0.92,3dd97fed1f0352874ff3850100a33e2faa8f3c980bf169e89fc6743a57f66838,11.977
+holdout,2,1.2,1,friction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,3dd97fed1f0352874ff3850100a33e2faa8f3c980bf169e89fc6743a57f66838,11.8367
+holdout,2,1.2,1,friction,0.5,friction,friction,diagnosed,Friction growth,87.6,0.71,21f5114db287d378c87f9cf8f3a4ad7682951a4f01262f2c01a2c4bb02c9692d,14.8967
+holdout,2,1.2,1,friction,1.0,friction,friction,diagnosed,Friction growth,67.7,0.8,2dc4a7fb3cb859d62ca24627be84ff6038bddf45c62b341372060f39d5870925,16.7028
+holdout,2,1.2,1,stiction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,3dd97fed1f0352874ff3850100a33e2faa8f3c980bf169e89fc6743a57f66838,11.8374
+holdout,2,1.2,1,stiction,0.5,stiction,stiction,diagnosed,Persistent localized stiction,37.5,0.92,350ad2bbc0c7f3263b6523880be4e4d60882d51971a61864378aa18666a0f00f,11.9278
+holdout,2,1.2,1,stiction,1.0,stiction,stiction,diagnosed,Persistent localized stiction,35.7,0.92,f244bc630c38ecae3354e6e1aa585243d41d2a20e216b7dcef8f9c977415fb38,12.0755
+holdout,2,1.2,1,obstruction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,3dd97fed1f0352874ff3850100a33e2faa8f3c980bf169e89fc6743a57f66838,12.6632
+holdout,2,1.2,1,obstruction,0.5,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,62.4,0.84,62893e5249486d0134053069a3c9461d9d57b56232fa7414963458da452efed7,12.2641
+holdout,2,1.2,1,obstruction,1.0,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,37.3,0.92,1ffb99c3d181624c18a0fe5c9f76b04e7f935e1c52c5740b7741eb45e26f5113,12.4207
+holdout,2,1.2,1,actuator_degradation,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,3dd97fed1f0352874ff3850100a33e2faa8f3c980bf169e89fc6743a57f66838,12.9684
+holdout,2,1.2,1,actuator_degradation,0.5,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,84.1,0.73,d95bd469777a4d8cab84cbd1c367827cde3456bf30869ccb45345c615f788d36,12.1368
+holdout,2,1.2,1,actuator_degradation,1.0,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,60.7,0.92,aa00af802735535efcc14a428b20b516e91f7cfb3e98ea67bbaf4566a20b0700,12.3391
+holdout,2,1.2,1,sensor_drift,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,3dd97fed1f0352874ff3850100a33e2faa8f3c980bf169e89fc6743a57f66838,11.9383
+holdout,2,1.2,1,sensor_drift,0.5,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,97.1,0.65,0abd3379161081a8ba87588be4a5b2fd7024eebdf3dfbaf938f929a033005d47,12.088
+holdout,2,1.2,1,sensor_drift,1.0,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,94.5,0.68,126f257c92c02b992525277eef29f268e8d671d19ba61f93d987c68414ab5c9b,12.1814
+holdout,2,1.2,2,normal,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,2386b8db6329cb95bed24e215579df28063b8ab1e20039b8e0d2a2d8decd4beb,11.84
+holdout,2,1.2,2,normal,0.5,normal,normal,normal,No actionable deviation,100.0,0.92,2386b8db6329cb95bed24e215579df28063b8ab1e20039b8e0d2a2d8decd4beb,11.4793
+holdout,2,1.2,2,normal,1.0,normal,normal,normal,No actionable deviation,100.0,0.92,2386b8db6329cb95bed24e215579df28063b8ab1e20039b8e0d2a2d8decd4beb,11.6436
+holdout,2,1.2,2,friction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,2386b8db6329cb95bed24e215579df28063b8ab1e20039b8e0d2a2d8decd4beb,11.7505
+holdout,2,1.2,2,friction,0.5,friction,friction,diagnosed,Friction growth,87.2,0.71,a4acffb5e0a8b566c22dedf0216914f74bae6bd52f9832e537f73a811f72fb7f,11.6377
+holdout,2,1.2,2,friction,1.0,friction,friction,diagnosed,Friction growth,67.1,0.8,3d2bf47b9e21f13a3449ecd1d7029e553b76f21c713f69803bb3a68ce2c78717,11.9091
+holdout,2,1.2,2,stiction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,2386b8db6329cb95bed24e215579df28063b8ab1e20039b8e0d2a2d8decd4beb,12.109
+holdout,2,1.2,2,stiction,0.5,stiction,stiction,diagnosed,Persistent localized stiction,37.5,0.92,37fa8d0097676fc28929545ba405584f6a462ba5aae48198add324b1142a816c,12.1393
+holdout,2,1.2,2,stiction,1.0,stiction,stiction,diagnosed,Persistent localized stiction,35.6,0.92,737245007f340a0e66ea8ba1e5a5cfd9d24006cdd83054b5d4578aedd66114d5,11.9478
+holdout,2,1.2,2,obstruction,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,2386b8db6329cb95bed24e215579df28063b8ab1e20039b8e0d2a2d8decd4beb,11.8553
+holdout,2,1.2,2,obstruction,0.5,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,62.3,0.84,a94a2cc2a3e2947fd56b2ffa9e47e97275122a6cba371dad961691565c3f59b6,12.052
+holdout,2,1.2,2,obstruction,1.0,obstruction,obstruction,diagnosed,Travel obstruction or persistent stiction,37.3,0.92,35b0253cd05fe0a0de07407e9c5d35fcfad3f67671ab26bae26f8807ff24d8dd,11.9954
+holdout,2,1.2,2,actuator_degradation,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,2386b8db6329cb95bed24e215579df28063b8ab1e20039b8e0d2a2d8decd4beb,11.9335
+holdout,2,1.2,2,actuator_degradation,0.5,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,83.7,0.73,3c78a94dd3224a8a2b81ec6092ce4479ee3c6aaa5110a5062319c0749d6908e1,12.1917
+holdout,2,1.2,2,actuator_degradation,1.0,actuator_degradation,actuator_degradation,diagnosed,Actuator performance degradation,60.7,0.92,018c955a91a3f5e1bbfde7e0e21f84a96ee73807293b5c3b1105975d26e43f72,11.9904
+holdout,2,1.2,2,sensor_drift,0.0,normal,normal,normal,No actionable deviation,100.0,0.92,2386b8db6329cb95bed24e215579df28063b8ab1e20039b8e0d2a2d8decd4beb,11.9944
+holdout,2,1.2,2,sensor_drift,0.5,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,97.0,0.65,5ffb0c6de26c3e43e64175cc8f72cf774cb168626151373231f6b4b3eea86ad8,12.0587
+holdout,2,1.2,2,sensor_drift,1.0,sensor_drift,sensor_drift,diagnosed,Position sensor drift / process inconsistency,94.5,0.68,e16ea4d48ee710827b9b1e0e3a22239927c6c4601cc42e067997ce8132760d03,11.9144

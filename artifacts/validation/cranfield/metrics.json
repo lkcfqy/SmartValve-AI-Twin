@@ -1,0 +1,121 @@
+{
+  "benchmark_version": "cranfield-extra-trees-dev-0.1.0",
+  "generated_at": "2026-07-13T08:46:03.079394+00:00",
+  "dataset": {
+    "name": "Cranfield Real Linear Actuator Rig",
+    "license": "CC BY 4.0",
+    "citation_url": "https://doi.org/10.17862/cranfield.rd.5097649",
+    "physical_scope": "Electromechanical ball-screw actuator; not a water valve",
+    "trials": 180,
+    "motion_load_groups": 6,
+    "classes": 3,
+    "samples_per_trial": 2000,
+    "input_sha256": {
+      "Normal.mat": "5ec388106129477ca190397df93270fa097ba0fee81ffc040fb0bf9cae98c260",
+      "LackLubrication2.mat": "23b12026d5462c9cfb108d75c4c06d7c117c041d5174229331612b8c204b4208",
+      "Backlash2.mat": "2c11d1275e622289641216e14b57035a6a157007bec716490436cdfdc376bbd7"
+    }
+  },
+  "protocol": {
+    "name": "motion-specific leave-one-load-out development cross-validation",
+    "folds": 6,
+    "feature_count": 272,
+    "healthy_reference": "Each trial is compared with a different normal repetition from the same motion/load condition; the evaluated current trial is never its own baseline.",
+    "leakage_control": "Every fold excludes all labelled trials at the test load from model fitting.",
+    "estimator": "ExtraTreesClassifier(n_estimators=500, min_samples_leaf=2, max_features='sqrt', class_weight='balanced', random_state=42)",
+    "library_version": "scikit-learn 1.9.0"
+  },
+  "results": {
+    "accuracy": 0.8722,
+    "macro_f1": 0.8736,
+    "per_class": {
+      "normal": {
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1-score": 0.8571,
+        "support": 60.0
+      },
+      "lack_of_lubrication": {
+        "precision": 0.9796,
+        "recall": 0.8,
+        "f1-score": 0.8807,
+        "support": 60.0
+      },
+      "backlash": {
+        "precision": 0.9608,
+        "recall": 0.8167,
+        "f1-score": 0.8829,
+        "support": 60.0
+      }
+    },
+    "confusion_matrix": {
+      "normal": {
+        "normal": 60,
+        "lack_of_lubrication": 0,
+        "backlash": 0
+      },
+      "lack_of_lubrication": {
+        "normal": 10,
+        "lack_of_lubrication": 48,
+        "backlash": 2
+      },
+      "backlash": {
+        "normal": 10,
+        "lack_of_lubrication": 1,
+        "backlash": 49
+      }
+    },
+    "folds": [
+      {
+        "motion": "trap",
+        "held_out_load_kg": -40,
+        "training_trials": 60,
+        "test_trials": 30,
+        "accuracy": 0.3333
+      },
+      {
+        "motion": "trap",
+        "held_out_load_kg": 20,
+        "training_trials": 60,
+        "test_trials": 30,
+        "accuracy": 1.0
+      },
+      {
+        "motion": "trap",
+        "held_out_load_kg": 40,
+        "training_trials": 60,
+        "test_trials": 30,
+        "accuracy": 0.9333
+      },
+      {
+        "motion": "sin",
+        "held_out_load_kg": -40,
+        "training_trials": 60,
+        "test_trials": 30,
+        "accuracy": 1.0
+      },
+      {
+        "motion": "sin",
+        "held_out_load_kg": 20,
+        "training_trials": 60,
+        "test_trials": 30,
+        "accuracy": 0.9667
+      },
+      {
+        "motion": "sin",
+        "held_out_load_kg": 40,
+        "training_trials": 60,
+        "test_trials": 30,
+        "accuracy": 1.0
+      }
+    ]
+  },
+  "limitations": [
+    "Development cross-validation, not a locked independent final test.",
+    "Hyperparameters were selected while observing this dataset and these group folds.",
+    "Trials are repeated experiments from one public actuator rig, not independent assets.",
+    "The -40 kg trapezoidal fold is a documented failure mode, not hidden from reporting.",
+    "Evidence scores are uncalibrated tree-vote strengths and must not be read as probabilities.",
+    "This benchmark is not served as the generic ValveDNA diagnosis and does not prove water-valve performance."
+  ]
+}

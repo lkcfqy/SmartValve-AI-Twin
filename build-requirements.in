@@ -1,0 +1,4 @@
+build==1.5.1
+numpy==2.5.1
+setuptools==82.0.1
+wheel==0.47.0

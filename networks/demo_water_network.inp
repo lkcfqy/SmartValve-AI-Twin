@@ -1,0 +1,43 @@
+[TITLE]
+SmartValve AI Twin demonstration network
+
+[OPTIONS]
+ UNITS              LPS
+ HEADLOSS           H-W
+ DEMAND MODEL       PDA
+ MINIMUM PRESSURE   10
+ REQUIRED PRESSURE  35
+ PRESSURE EXPONENT  0.5
+
+[JUNCTIONS]
+;ID   Elevation  Demand
+ J1   5          2
+ J2   8          4
+ J3   12         3
+ J4   15         2
+
+[RESERVOIRS]
+;ID   Head
+ R1   60
+
+[PIPES]
+;ID   Node1 Node2 Length Diameter Roughness MinorLoss Status
+ P1   R1    J1    500    200      110       0         Open
+ P2   J2    J3    700    120      105       0         Open
+ P3   J2    J4    500    100      105       0         Open
+
+[VALVES]
+;ID   Node1 Node2 Diameter Type Setting MinorLoss
+ V1   J1    J2    150      TCV  0.1     0
+
+[COORDINATES]
+ R1   0    0
+ J1   100  0
+ J2   200  0
+ J3   300  100
+ J4   300 -100
+
+[TIMES]
+ DURATION 0
+
+[END]

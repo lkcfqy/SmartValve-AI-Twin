@@ -1,0 +1,78 @@
+name: smartvalve
+
+x-runtime-security: &runtime-security
+  read_only: true
+  init: true
+  cap_drop:
+    - ALL
+  security_opt:
+    - no-new-privileges:true
+  pids_limit: 256
+  tmpfs:
+    - /tmp:rw,noexec,nosuid,size=256m,uid=65532,gid=65532
+  user: "65532:65532"
+  restart: unless-stopped
+  stop_grace_period: 20s
+
+services:
+  api:
+    <<: *runtime-security
+    build:
+      context: .
+      target: runtime
+    image: smartvalve-ai-twin:0.4.0
+    ports:
+      - "127.0.0.1:${SMARTVALVE_API_PORT:-8000}:8000"
+    environment:
+      SMARTVALVE_ENVIRONMENT: production
+      SMARTVALVE_API_KEY: ${SMARTVALVE_API_KEY:?copy .env.example to .env and set a 32+ character secret}
+      SMARTVALVE_RATE_LIMIT_PER_MINUTE: ${SMARTVALVE_RATE_LIMIT_PER_MINUTE:-120}
+      SMARTVALVE_REQUIRE_WNTR: "true"
+    volumes:
+      - smartvalve_runtime:/app/data/runtime
+      - ./data/external:/app/data/external:ro
+    mem_limit: 1g
+    cpus: 2.0
+
+  dashboard:
+    <<: *runtime-security
+    image: smartvalve-ai-twin:0.4.0
+    command:
+      [
+        "-m",
+        "streamlit",
+        "run",
+        "dashboard/app.py",
+        "--server.address=0.0.0.0",
+        "--server.port=8501",
+        "--server.fileWatcherType=none",
+        "--browser.gatherUsageStats=false",
+      ]
+    depends_on:
+      api:
+        condition: service_healthy
+    environment:
+      SMARTVALVE_API_URL: http://api:8000
+      SMARTVALVE_ENVIRONMENT: production
+      SMARTVALVE_API_KEY: ${SMARTVALVE_API_KEY:?copy .env.example to .env and set a 32+ character secret}
+      SMARTVALVE_OPERATOR_ID: ${SMARTVALVE_OPERATOR_ID:-dashboard-operator}
+    ports:
+      - "127.0.0.1:${SMARTVALVE_DASHBOARD_PORT:-8501}:8501"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "/venv/bin/python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8501/_stcore/health', timeout=3)",
+        ]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
+    mem_limit: 768m
+    cpus: 1.5
+
+volumes:
+  smartvalve_runtime:
+    name: smartvalve_runtime

@@ -1,0 +1,42 @@
+[
+  {
+    "source_id": "cranfield",
+    "filename": "Normal.mat",
+    "url": "https://cran-test-dspace.koha-ptfs.co.uk/bitstreams/e277afc2-444a-403f-bb64-dfc06549353f/download",
+    "license_name": "CC BY 4.0",
+    "citation_url": "https://doi.org/10.17862/cranfield.rd.5097649",
+    "description": "Cranfield real electromechanical linear-actuator normal tests",
+    "bytes": 1949237,
+    "sha256": "5ec388106129477ca190397df93270fa097ba0fee81ffc040fb0bf9cae98c260"
+  },
+  {
+    "source_id": "cranfield",
+    "filename": "LackLubrication2.mat",
+    "url": "https://cran-test-dspace.koha-ptfs.co.uk/bitstreams/04a1a1ae-7df4-43c8-a03e-25b0987e06a5/download",
+    "license_name": "CC BY 4.0",
+    "citation_url": "https://doi.org/10.17862/cranfield.rd.5097649",
+    "description": "Cranfield real actuator seeded lack-of-lubrication stage 2 tests",
+    "bytes": 1949871,
+    "sha256": "23b12026d5462c9cfb108d75c4c06d7c117c041d5174229331612b8c204b4208"
+  },
+  {
+    "source_id": "cranfield",
+    "filename": "Backlash2.mat",
+    "url": "https://cran-test-dspace.koha-ptfs.co.uk/bitstreams/4eff4df8-0ec1-48ea-af94-25a8af97f1ed/download",
+    "license_name": "CC BY 4.0",
+    "citation_url": "https://doi.org/10.17862/cranfield.rd.5097649",
+    "description": "Cranfield real actuator seeded backlash stage 2 tests",
+    "bytes": 1949290,
+    "sha256": "2c11d1275e622289641216e14b57035a6a157007bec716490436cdfdc376bbd7"
+  },
+  {
+    "source_id": "skab",
+    "filename": "skab_valve1_1.csv",
+    "url": "https://raw.githubusercontent.com/waico/SKAB/master/data/valve1/1.csv",
+    "license_name": "GPL-3.0 repository license",
+    "citation_url": "https://github.com/waico/SKAB",
+    "description": "SKAB real water-loop valve-closure experiment",
+    "bytes": 110330,
+    "sha256": "fe4493bf805baef4e6dfb864094275d8cc2ea80a16b3735e2752b18b6aefd812"
+  }
+]

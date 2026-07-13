@@ -1,0 +1,127 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://smartvalve.local/vex/smartvalve-ai-twin-0.4.0/2026-07-13",
+  "author": "SmartValve AI Twin maintainers",
+  "role": "Document creator",
+  "timestamp": "2026-07-13T18:17:26+08:00",
+  "version": 6,
+  "tooling": "manual threat-path review with Grype 0.112.0",
+  "statements": [
+    {
+      "vulnerability": {"name": "CVE-2026-11940"},
+      "products": [
+        {
+          "@id": "smartvalve-ai-twin:0.4.0",
+          "subcomponents": [
+            {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
+          ]
+        },
+        {
+          "@id": "pkg:oci/smartvalve-ai-twin@sha256:89ee728b34f32f310854521d7aa7130c3ca559d145e8ff05f1aa32e56a2b064f",
+          "subcomponents": [
+            {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
+          ]
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "The service accepts bounded CSV files only and never invokes tarfile extraction on request or artifact data. The runtime is read-only and contains neither pip nor a shell."
+    },
+    {
+      "vulnerability": {"name": "CVE-2026-11972"},
+      "products": [
+        {
+          "@id": "smartvalve-ai-twin:0.4.0",
+          "subcomponents": [
+            {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
+          ]
+        },
+        {
+          "@id": "pkg:oci/smartvalve-ai-twin@sha256:89ee728b34f32f310854521d7aa7130c3ca559d145e8ff05f1aa32e56a2b064f",
+          "subcomponents": [
+            {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
+          ]
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "The service accepts bounded CSV files only and never invokes tarfile extraction on request or artifact data. The runtime is read-only and contains neither pip nor a shell."
+    },
+    {
+      "vulnerability": {"name": "CVE-2026-15308"},
+      "products": [
+        {
+          "@id": "smartvalve-ai-twin:0.4.0",
+          "subcomponents": [
+            {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
+          ]
+        },
+        {
+          "@id": "pkg:oci/smartvalve-ai-twin@sha256:89ee728b34f32f310854521d7aa7130c3ca559d145e8ff05f1aa32e56a2b064f",
+          "subcomponents": [
+            {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
+          ]
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "No API or dashboard path passes adversary-controlled input to html.parser.HTMLParser. CSV fields are parsed as numeric valve telemetry; the dashboard renders fixed templates and escapes dynamic diagnostic text."
+    },
+    {
+      "vulnerability": {"name": "CVE-2025-15366"},
+      "products": [
+        {
+          "@id": "smartvalve-ai-twin:0.4.0",
+          "subcomponents": [
+            {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
+          ]
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "The application does not import or use imaplib and exposes no mail-client command path."
+    },
+    {
+      "vulnerability": {"name": "CVE-2025-15367"},
+      "products": [
+        {
+          "@id": "smartvalve-ai-twin:0.4.0",
+          "subcomponents": [
+            {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
+          ]
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "The application does not import or use poplib and exposes no mail-client command path."
+    },
+    {
+      "vulnerability": {"name": "CVE-2026-4360"},
+      "products": [
+        {
+          "@id": "smartvalve-ai-twin:0.4.0",
+          "subcomponents": [
+            {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
+          ]
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "The service accepts bounded CSV files only and never invokes tarfile extraction on request or artifact data."
+    },
+    {
+      "vulnerability": {"name": "CVE-2026-0864"},
+      "products": [
+        {
+          "@id": "smartvalve-ai-twin:0.4.0",
+          "subcomponents": [
+            {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
+          ]
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+      "impact_statement": "No request path writes configuration through configparser. Runtime configuration is supplied by immutable image files and operator-controlled environment variables on a read-only root filesystem."
+    }
+  ]
+}

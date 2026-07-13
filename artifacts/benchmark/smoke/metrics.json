@@ -1,0 +1,132 @@
+{
+  "model_version": "valvedna-rules-0.3.0",
+  "profile": "smoke",
+  "matrix": {
+    "fault_states": 6,
+    "severity_levels": 3,
+    "operating_conditions": 3,
+    "seeds": 3,
+    "total_runs": 162,
+    "unique_observable_runs": 99,
+    "redundant_parameterizations": 63,
+    "development_runs": 108,
+    "holdout_runs": 54,
+    "holdout_unique_observable_runs": 33
+  },
+  "split_policy": "First 67% of ordered load-factor groups are development; the remaining group is a smoke-test holdout.",
+  "holdout": {
+    "macro_f1_including_rejection_as_error": 1.0,
+    "overall_accuracy": 1.0,
+    "accepted_accuracy": 1.0,
+    "false_positive_rate_normal": 0.0,
+    "rejection_rate": 0.0,
+    "out_of_spec_voltage_rejection_recall": 1.0,
+    "latency_ms": {
+      "p50": 12.061,
+      "p95": 13.67,
+      "max": 16.703
+    },
+    "per_class": {
+      "normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 24
+      },
+      "friction": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6
+      },
+      "stiction": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6
+      },
+      "obstruction": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6
+      },
+      "actuator_degradation": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6
+      },
+      "sensor_drift": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6
+      }
+    },
+    "confusion_matrix": {
+      "normal": {
+        "normal": 24,
+        "friction": 0,
+        "stiction": 0,
+        "obstruction": 0,
+        "actuator_degradation": 0,
+        "sensor_drift": 0,
+        "rejected": 0
+      },
+      "friction": {
+        "normal": 0,
+        "friction": 6,
+        "stiction": 0,
+        "obstruction": 0,
+        "actuator_degradation": 0,
+        "sensor_drift": 0,
+        "rejected": 0
+      },
+      "stiction": {
+        "normal": 0,
+        "friction": 0,
+        "stiction": 6,
+        "obstruction": 0,
+        "actuator_degradation": 0,
+        "sensor_drift": 0,
+        "rejected": 0
+      },
+      "obstruction": {
+        "normal": 0,
+        "friction": 0,
+        "stiction": 0,
+        "obstruction": 6,
+        "actuator_degradation": 0,
+        "sensor_drift": 0,
+        "rejected": 0
+      },
+      "actuator_degradation": {
+        "normal": 0,
+        "friction": 0,
+        "stiction": 0,
+        "obstruction": 0,
+        "actuator_degradation": 6,
+        "sensor_drift": 0,
+        "rejected": 0
+      },
+      "sensor_drift": {
+        "normal": 0,
+        "friction": 0,
+        "stiction": 0,
+        "obstruction": 0,
+        "actuator_degradation": 0,
+        "sensor_drift": 6,
+        "rejected": 0
+      }
+    }
+  },
+  "severity_vs_degradation_spearman": {
+    "friction": 1.0,
+    "stiction": 1.0,
+    "obstruction": 1.0,
+    "actuator_degradation": 1.0,
+    "sensor_drift": 1.0
+  },
+  "claim_boundary": "Simulation benchmark only. Scores do not estimate accuracy on a Weilong valve or any unseen physical product."
+}

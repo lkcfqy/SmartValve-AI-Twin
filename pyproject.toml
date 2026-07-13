@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smartvalve-ai-twin"
+version = "0.4.0"
+description = "ValveDNA and WNTR two-layer digital twin for explainable smart-valve diagnostics"
+readme = "README.md"
+requires-python = ">=3.11,<3.15"
+license = "Apache-2.0"
+authors = [{name = "SmartValve AI Twin contributors"}]
+dependencies = [
+  "fastapi>=0.115,<1",
+  "httpx>=0.27,<1",
+  "numpy>=1.26,<3",
+  "pandas>=2.2,<3",
+  "plotly>=5.20,<7",
+  "pydantic>=2.8,<3",
+  "pyarrow>=23.0.1,<24",
+  "python-multipart>=0.0.10,<1",
+  "reportlab>=4.2,<5",
+  "scipy>=1.13,<2",
+  "streamlit>=1.36,<2",
+  "uvicorn[standard]>=0.30,<1",
+  "wntr>=1.3,<2",
+]
+
+[project.optional-dependencies]
+benchmark = [
+  "scikit-learn>=1.6,<2",
+]
+dev = [
+  "httpx2>=2.5,<3",
+  "pytest>=9.0.3,<10",
+  "pytest-cov>=6,<8",
+  "ruff>=0.5,<1",
+  "scikit-learn>=1.6,<2",
+]
+security = [
+  "bandit>=1.8,<2",
+  "pip-audit>=2.9,<3",
+]
+
+[project.scripts]
+smartvalve-demo = "smartvalve.demo:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.coverage.run]
+source = ["smartvalve"]
+omit = [
+  "src/smartvalve/demo.py",
+  "src/smartvalve/launcher.py",
+  "src/smartvalve/validation.py",
+  "src/smartvalve/experiments/cranfield_benchmark.py",
+]
