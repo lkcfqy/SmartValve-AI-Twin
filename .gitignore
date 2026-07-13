@@ -13,6 +13,8 @@ dist/
 !.env.example
 data/runtime/*
 !data/runtime/.gitkeep
+data/backups/*
+!data/backups/.gitkeep
 data/external/*.mat
 data/external/*.csv
 data/external/*.part

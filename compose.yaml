@@ -20,7 +20,7 @@ services:
     build:
       context: .
       target: runtime
-    image: smartvalve-ai-twin:0.4.0
+    image: smartvalve-ai-twin:0.5.0
     ports:
       - "127.0.0.1:${SMARTVALVE_API_PORT:-8000}:8000"
     environment:
@@ -36,7 +36,7 @@ services:
 
   dashboard:
     <<: *runtime-security
-    image: smartvalve-ai-twin:0.4.0
+    image: smartvalve-ai-twin:0.5.0
     command:
       [
         "-m",
@@ -73,6 +73,63 @@ services:
     mem_limit: 768m
     cpus: 1.5
 
+  backup:
+    <<: *runtime-security
+    profiles: ["operations"]
+    image: smartvalve-ai-twin:0.5.0
+    command:
+      [
+        "-m",
+        "smartvalve.storage.backup",
+        "backup",
+        "--database",
+        "/app/data/runtime/smartvalve.db",
+        "--output-directory",
+        "/app/data/backups",
+      ]
+    environment:
+      SMARTVALVE_BACKUP_SIGNING_KEY: ${SMARTVALVE_BACKUP_SIGNING_KEY:-}
+    volumes:
+      # SQLite mode=ro still needs directory write access for WAL shared-memory locking.
+      # The application-level source connection remains read-only.
+      - smartvalve_runtime:/app/data/runtime
+      - smartvalve_backups:/app/data/backups
+    healthcheck:
+      disable: true
+    restart: "no"
+    mem_limit: 256m
+    cpus: 0.5
+
+  restore:
+    <<: *runtime-security
+    profiles: ["operations"]
+    image: smartvalve-ai-twin:0.5.0
+    command:
+      [
+        "-m",
+        "smartvalve.storage.backup",
+        "restore",
+        "--backup",
+        "/app/data/backups/${SMARTVALVE_BACKUP_FILE:-}",
+        "--manifest",
+        "/app/data/backups/${SMARTVALVE_BACKUP_FILE:-}.manifest.json",
+        "--database",
+        "/app/data/runtime/smartvalve.db",
+        "--replace-existing",
+      ]
+    environment:
+      SMARTVALVE_BACKUP_SIGNING_KEY: ${SMARTVALVE_BACKUP_SIGNING_KEY:-}
+    volumes:
+      - smartvalve_runtime:/app/data/runtime
+      - smartvalve_backups:/app/data/backups:ro
+    healthcheck:
+      disable: true
+    restart: "no"
+    mem_limit: 256m
+    cpus: 0.5
+
 volumes:
   smartvalve_runtime:
     name: smartvalve_runtime
+  smartvalve_backups:
+    name: smartvalve_backups

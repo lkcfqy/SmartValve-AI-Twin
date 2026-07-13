@@ -11,6 +11,8 @@ data/external/*
 data/runtime/*
 !data/external/.gitkeep
 !data/runtime/.gitkeep
+data/backups/*
+!data/backups/.gitkeep
 artifacts/benchmark/*/records.csv
 artifacts/validation/*/records.csv
 artifacts/sbom*.json

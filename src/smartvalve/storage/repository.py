@@ -57,6 +57,53 @@ def _record_hash(
     return _sha256_text(material)
 
 
+def verify_chain_rows(rows: list[sqlite3.Row]) -> dict[str, Any]:
+    """Verify rows in immutable append order, independent of wall-clock changes."""
+
+    previous = GENESIS_HASH
+    for index, row in enumerate(rows, start=1):
+        run_id = str(row["run_id"])
+        try:
+            request_json = row["request_json"]
+            result_payload = json.loads(row["result_json"])
+            result_payload.pop("audit", None)
+            result_sha = _sha256_text(_canonical_json(result_payload))
+            request_sha = _sha256_text(request_json)
+            expected = _record_hash(
+                previous_hash=previous,
+                run_id=run_id,
+                created_at=row["created_at"],
+                operator_id=row["operator_id"],
+                evidence_grade=row["evidence_grade"],
+                baseline_sha256=row["baseline_sha256"],
+                current_sha256=row["data_sha256"],
+                request_sha256=request_sha,
+                result_sha256=result_sha,
+            )
+            valid = (
+                row["previous_record_sha256"] == previous
+                and row["request_sha256"] == request_sha
+                and row["result_sha256"] == result_sha
+                and row["record_sha256"] == expected
+            )
+        except (AttributeError, KeyError, TypeError, ValueError, json.JSONDecodeError):
+            valid = False
+        if not valid:
+            return {
+                "valid": False,
+                "checked_records": index,
+                "first_invalid_run_id": run_id,
+                "head_record_sha256": previous,
+            }
+        previous = expected
+    return {
+        "valid": True,
+        "checked_records": len(rows),
+        "first_invalid_run_id": None,
+        "head_record_sha256": previous,
+    }
+
+
 class RunRepository:
     def __init__(self, path: str | Path | None = None) -> None:
         configured = path or os.getenv("SMARTVALVE_DATABASE")
@@ -148,7 +195,7 @@ class RunRepository:
             """
             SELECT * FROM diagnostic_runs
             WHERE record_sha256 = ''
-            ORDER BY created_at ASC, rowid ASC
+            ORDER BY rowid ASC
             """
         ).fetchall()
         if not pending:
@@ -157,7 +204,7 @@ class RunRepository:
             """
             SELECT record_sha256 FROM diagnostic_runs
             WHERE record_sha256 != ''
-            ORDER BY created_at DESC, rowid DESC LIMIT 1
+            ORDER BY rowid DESC LIMIT 1
             """
         ).fetchone()
         previous = previous_row["record_sha256"] if previous_row else GENESIS_HASH
@@ -314,43 +361,9 @@ class RunRepository:
     def verify_chain(self) -> dict[str, Any]:
         with self._connect() as connection:
             rows = connection.execute(
-                "SELECT * FROM diagnostic_runs ORDER BY created_at ASC, rowid ASC"
+                # The chain is appended under BEGIN IMMEDIATE and therefore follows
+                # SQLite insertion order. Wall clocks can move backwards (NTP, RTC
+                # correction, operator error); created_at must never reorder history.
+                "SELECT * FROM diagnostic_runs ORDER BY rowid ASC"
             ).fetchall()
-        previous = GENESIS_HASH
-        for index, row in enumerate(rows, start=1):
-            request_json = row["request_json"]
-            result_payload = json.loads(row["result_json"])
-            result_payload.pop("audit", None)
-            result_sha = _sha256_text(_canonical_json(result_payload))
-            request_sha = _sha256_text(request_json)
-            expected = _record_hash(
-                previous_hash=previous,
-                run_id=row["run_id"],
-                created_at=row["created_at"],
-                operator_id=row["operator_id"],
-                evidence_grade=row["evidence_grade"],
-                baseline_sha256=row["baseline_sha256"],
-                current_sha256=row["data_sha256"],
-                request_sha256=request_sha,
-                result_sha256=result_sha,
-            )
-            valid = (
-                row["previous_record_sha256"] == previous
-                and row["request_sha256"] == request_sha
-                and row["result_sha256"] == result_sha
-                and row["record_sha256"] == expected
-            )
-            if not valid:
-                return {
-                    "valid": False,
-                    "checked_records": index,
-                    "first_invalid_run_id": row["run_id"],
-                    "head_record_sha256": previous,
-                }
-            previous = expected
-        return {
-            "valid": True,
-            "checked_records": len(rows),
-            "first_invalid_run_id": None,
-            "head_record_sha256": previous,
-        }
+        return verify_chain_rows(rows)

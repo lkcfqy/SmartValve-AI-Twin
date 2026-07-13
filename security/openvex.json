@@ -1,6 +1,6 @@
 {
   "@context": "https://openvex.dev/ns/v0.2.0",
-  "@id": "https://smartvalve.local/vex/smartvalve-ai-twin-0.4.0/2026-07-13",
+  "@id": "https://smartvalve.local/vex/smartvalve-ai-twin-0.5.0/2026-07-13",
   "author": "SmartValve AI Twin maintainers",
   "role": "Document creator",
   "timestamp": "2026-07-13T18:17:26+08:00",
@@ -11,13 +11,13 @@
       "vulnerability": {"name": "CVE-2026-11940"},
       "products": [
         {
-          "@id": "smartvalve-ai-twin:0.4.0",
+          "@id": "smartvalve-ai-twin:0.5.0",
           "subcomponents": [
             {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
           ]
         },
         {
-          "@id": "pkg:oci/smartvalve-ai-twin@sha256:89ee728b34f32f310854521d7aa7130c3ca559d145e8ff05f1aa32e56a2b064f",
+          "@id": "pkg:oci/smartvalve-ai-twin@sha256:9bd10f977239caaf04fad26ab2e2236682e1978bdecf6cecaa6c0abf2a2d608d",
           "subcomponents": [
             {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
           ]
@@ -31,13 +31,13 @@
       "vulnerability": {"name": "CVE-2026-11972"},
       "products": [
         {
-          "@id": "smartvalve-ai-twin:0.4.0",
+          "@id": "smartvalve-ai-twin:0.5.0",
           "subcomponents": [
             {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
           ]
         },
         {
-          "@id": "pkg:oci/smartvalve-ai-twin@sha256:89ee728b34f32f310854521d7aa7130c3ca559d145e8ff05f1aa32e56a2b064f",
+          "@id": "pkg:oci/smartvalve-ai-twin@sha256:9bd10f977239caaf04fad26ab2e2236682e1978bdecf6cecaa6c0abf2a2d608d",
           "subcomponents": [
             {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
           ]
@@ -51,13 +51,13 @@
       "vulnerability": {"name": "CVE-2026-15308"},
       "products": [
         {
-          "@id": "smartvalve-ai-twin:0.4.0",
+          "@id": "smartvalve-ai-twin:0.5.0",
           "subcomponents": [
             {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
           ]
         },
         {
-          "@id": "pkg:oci/smartvalve-ai-twin@sha256:89ee728b34f32f310854521d7aa7130c3ca559d145e8ff05f1aa32e56a2b064f",
+          "@id": "pkg:oci/smartvalve-ai-twin@sha256:9bd10f977239caaf04fad26ab2e2236682e1978bdecf6cecaa6c0abf2a2d608d",
           "subcomponents": [
             {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
           ]
@@ -71,7 +71,7 @@
       "vulnerability": {"name": "CVE-2025-15366"},
       "products": [
         {
-          "@id": "smartvalve-ai-twin:0.4.0",
+          "@id": "smartvalve-ai-twin:0.5.0",
           "subcomponents": [
             {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
           ]
@@ -85,7 +85,7 @@
       "vulnerability": {"name": "CVE-2025-15367"},
       "products": [
         {
-          "@id": "smartvalve-ai-twin:0.4.0",
+          "@id": "smartvalve-ai-twin:0.5.0",
           "subcomponents": [
             {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
           ]
@@ -99,7 +99,7 @@
       "vulnerability": {"name": "CVE-2026-4360"},
       "products": [
         {
-          "@id": "smartvalve-ai-twin:0.4.0",
+          "@id": "smartvalve-ai-twin:0.5.0",
           "subcomponents": [
             {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
           ]
@@ -113,7 +113,7 @@
       "vulnerability": {"name": "CVE-2026-0864"},
       "products": [
         {
-          "@id": "smartvalve-ai-twin:0.4.0",
+          "@id": "smartvalve-ai-twin:0.5.0",
           "subcomponents": [
             {"@id": "pkg:apk/wolfi/python-3.14@3.14.6-r2?arch=x86_64&distro=wolfi-20230201"}
           ]

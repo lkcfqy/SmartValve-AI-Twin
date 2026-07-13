@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "smartvalve-ai-twin"
-version = "0.4.0"
+version = "0.5.0"
 description = "ValveDNA and WNTR two-layer digital twin for explainable smart-valve diagnostics"
 readme = "README.md"
 requires-python = ">=3.11,<3.15"
@@ -44,6 +44,7 @@ security = [
 
 [project.scripts]
 smartvalve-demo = "smartvalve.demo:main"
+smartvalve-ops = "smartvalve.storage.backup:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

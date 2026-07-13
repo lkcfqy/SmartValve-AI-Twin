@@ -1,8 +1,8 @@
-# SmartValve AI Twin 0.4.0 VEX review
+# SmartValve AI Twin 0.5.0 VEX review
 
 Review date: 2026-07-13
-Image: `smartvalve-ai-twin:0.4.0`
-Immutable image digest: `sha256:89ee728b34f32f310854521d7aa7130c3ca559d145e8ff05f1aa32e56a2b064f`
+Image: `smartvalve-ai-twin:0.5.0`
+Immutable image digest: `sha256:9bd10f977239caaf04fad26ab2e2236682e1978bdecf6cecaa6c0abf2a2d608d`
 
 The raw Grype scan reports three high-severity CPython findings and four medium findings. All seven findings are retained in the raw report and assessed in `openvex.json`; they are not silently deleted.
 
@@ -25,6 +25,8 @@ The raw Grype scan reports three high-severity CPython findings and four medium 
 - read-only root filesystem, all Linux capabilities dropped, `no-new-privileges`, PID/memory/CPU limits;
 - API key, operator identity, request-size and row-count bounds, rate limiting;
 - localhost-only published ports in the reference Compose deployment.
+- backup ingestion accepts only an operator-selected local SQLite snapshot plus a matching signed
+  JSON manifest; it never treats either file as an archive, HTML, mail command, or INI document.
 
 ## Mandatory re-review triggers
 

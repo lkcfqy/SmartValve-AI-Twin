@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-Security fixes are applied to the current `0.4.x` engineering-pilot line. Older local
+Security fixes are applied to the current `0.5.x` engineering-pilot line. Older local
 snapshots are unsupported.
 
 ## Reporting a vulnerability
@@ -24,8 +24,9 @@ acknowledgement time is three business days.
   and are never executed.
 - Public data downloads are restricted to an explicit HTTPS hostname allow-list and are
   verified against the local synchronization manifest.
-- Diagnostic records are append-only and SHA-256 chained. This detects database tampering;
-  it does not replace encrypted, access-controlled, off-host backups.
+- Diagnostic records are append-only and SHA-256 chained. Signed snapshot manifests anchor the
+  chain head and detect replacement without the independent HMAC key; neither mechanism encrypts
+  data or replaces access-controlled, immutable off-host storage.
 
 ## Maintainer checks
 

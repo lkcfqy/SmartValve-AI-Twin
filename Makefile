@@ -1,4 +1,6 @@
-.PHONY: install test lint security sbom image-scan demo dashboard cli api data validate benchmark benchmark-smoke benchmark-challenge benchmark-cranfield docker-build docker-up docker-down
+.PHONY: install test lint security sbom image-scan demo dashboard cli api data validate benchmark benchmark-smoke benchmark-challenge benchmark-cranfield backup docker-build docker-up docker-down
+
+IMAGE := smartvalve-ai-twin:0.5.0
 
 SYFT_IMAGE := anchore/syft@sha256:473a60e3a58e29aca3aedb3e99e787bb4ef273917e44d10fcbea4330a07320bb
 GRYPE_IMAGE := anchore/grype@sha256:decd87500a90c1e4faa1706f77b0b2cbc1d2f9364e976f1898ce9037de09cc3a
@@ -17,10 +19,10 @@ security:
 	.venv/bin/pip-audit -r requirements.lock --disable-pip
 
 sbom:
-	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock $(SYFT_IMAGE) smartvalve-ai-twin:0.4.0 -o spdx-json > artifacts/sbom.spdx.json
+	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock $(SYFT_IMAGE) $(IMAGE) -o spdx-json > artifacts/sbom.spdx.json
 
 image-scan:
-	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$(CURDIR)/security:/work/security:ro" $(GRYPE_IMAGE) smartvalve-ai-twin:0.4.0 --vex /work/security/openvex.json --fail-on high
+	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$(CURDIR)/security:/work/security:ro" $(GRYPE_IMAGE) $(IMAGE) --vex /work/security/openvex.json --fail-on high
 
 demo:
 	.venv/bin/python -m smartvalve.launcher
@@ -51,6 +53,9 @@ benchmark-challenge:
 
 benchmark-cranfield:
 	.venv/bin/python -m smartvalve.experiments.cranfield_benchmark
+
+backup:
+	.venv/bin/python -m smartvalve.storage.backup backup --database data/runtime/smartvalve.db --output-directory data/backups
 
 docker-build:
 	docker compose build

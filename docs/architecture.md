@@ -27,6 +27,9 @@ flowchart LR
   O --> API[FastAPI v1 + OpenAPI]
   API --> DB[Append-only SQLite WAL audit]
   DB --> H[SHA-256 hash-chain verification]
+  DB --> BK[Consistent SQLite snapshot]
+  BK --> HM[Independent HMAC manifest]
+  HM --> DR[Offline verified restore]
   DB --> PDF[Immutable PDF report]
   API --> UI[Industrial operations console]
 ```
@@ -40,6 +43,8 @@ flowchart LR
 - The validation replay uses a dedicated read-only Cranfield sample endpoint; only explicit
   diagnostic commands append to the audit chain.
 - SQLite uses WAL, append-only triggers, full result payloads and a verifiable SHA-256 record chain.
+- Backup operations use SQLite's online backup API, verify `PRAGMA integrity_check`, bind the
+  record count and chain head into an HMAC-SHA256 manifest, and restore atomically while offline.
 - Production mode requires a 32+ character API key and `X-Operator-ID`; development can run locally without a key.
 - `/health/live`, `/health/ready` and `/metrics` support deployment probes.
 - `make demo` binds to loopback and supervises API/dashboard together. Compose adds digest-pinned

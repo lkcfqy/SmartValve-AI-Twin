@@ -23,7 +23,7 @@ RUN python -m build --wheel --no-isolation --outdir /dist \
 FROM cgr.dev/chainguard/python:latest@sha256:4d908c6a44ba22460e34a2f6dd665b8fcb82bd3e6c887e749bd6fef243e10094 AS runtime
 
 LABEL org.opencontainers.image.title="SmartValve AI Twin" \
-      org.opencontainers.image.version="0.4.0" \
+      org.opencontainers.image.version="0.5.0" \
       org.opencontainers.image.description="Auditable valve-condition engineering platform" \
       org.opencontainers.image.licenses="Apache-2.0"
 
@@ -46,6 +46,7 @@ COPY --chown=65532:65532 .streamlit ./.streamlit
 COPY --chown=65532:65532 artifacts ./artifacts
 COPY --chown=65532:65532 data/runtime/.gitkeep ./data/runtime/.gitkeep
 COPY --chown=65532:65532 data/external/.gitkeep ./data/external/.gitkeep
+COPY --chown=65532:65532 data/backups/.gitkeep ./data/backups/.gitkeep
 
 USER 65532:65532
 EXPOSE 8000

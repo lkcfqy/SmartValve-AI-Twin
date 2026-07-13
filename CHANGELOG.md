@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.5.0 — 2026-07-13
+
+- Fixed audit-chain verification to follow immutable insertion order, so NTP/RTC clock rollback no
+  longer reorders valid records and produces a false tamper alarm.
+- Added consistent online SQLite snapshots with mode-0600 output and atomic publication.
+- Added HMAC-SHA256 manifests covering file hash/size, SQLite integrity, audit record count and chain
+  head; signing keys must be independent and at least 32 bytes.
+- Added fail-closed verification, explicit offline atomic restore, tamper/wrong-key regression tests,
+  independent backup volume and one-shot Compose operations services.
+
+The diagnostic rule model remains `valvedna-rules-0.3.0`; this is an operational-resilience release,
+not an algorithm retraining claim.
+
 ## 0.4.0 — 2026-07-13
 
 - Added source-correct Cranfield electromechanical animation and removed hydraulic implication

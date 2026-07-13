@@ -2,7 +2,7 @@
 
 ValveDNA 单阀状态诊断与 WNTR 管网后果计算组成的双层数字孪生工程平台。
 
-软件版本 `0.4.0`；透明规则模型 `valvedna-rules-0.3.0`。两者刻意分开：安全、审计和
+软件版本 `0.5.0`；透明规则模型 `valvedna-rules-0.3.0`。两者刻意分开：安全、审计和
 界面升级不冒充算法重新训练。
 
 ## 当前定位
@@ -19,6 +19,7 @@ ValveDNA 单阀状态诊断与 WNTR 管网后果计算组成的双层数字孪�
 - WNTR 1.5 压力驱动管网后果计算；
 - FastAPI 版本化接口和受控执行的 Streamlit 工业控制台；
 - 完整基线/当前载荷、操作员与相关 ID 的不可变 SHA-256 链式审计；
+- 一致性 SQLite 快照、独立 HMAC 签名清单、逐字节/审计锚校验与离线原子恢复；
 - PDF 报告、Prometheus 文本指标、真实健康探针和公开数据 SHA-256 校验；
 - 依赖哈希锁定、无 shell 的 Chainguard Python 3.14 非 root/只读容器、密钥门禁和 CI 骨架；
 - SPDX 2.3 SBOM、原始漏洞报告与逐项 OpenVEX 可达性复核证据。
@@ -43,7 +44,7 @@ OpenAPI：`http://127.0.0.1:8000/docs`
 ```bash
 cp .env.example .env
 python -c "import secrets; print(secrets.token_urlsafe(48))"
-# 把生成值写入 .env 的 SMARTVALVE_API_KEY
+# 分别生成 API Key 和备份签名密钥，禁止复用
 make data
 docker compose build
 docker compose up -d
@@ -124,6 +125,9 @@ make sbom
 make image-scan
 ```
 
+正式卷的在线签名备份与离线恢复命令见[部署说明](docs/deployment.md)。HMAC 只证明快照
+真实性，不提供加密；备份仍必须加密并离机保存，签名密钥必须与备份分开保管。
+
 公开原始数据不进入仓库；`make data` 只允许从 HTTPS 白名单下载并写入 URL、许可、大小与
 SHA-256 清单。
 
@@ -133,7 +137,7 @@ SHA-256 清单。
 ## 文档
 
 - [确定版项目计划](SmartValve_AI_Twin_Project_Plan.md)
-- [0.4.0 验收报告](docs/acceptance_report_0.4.0.md)
+- [0.5.0 验收报告](docs/acceptance_report_0.5.0.md)
 - [系统架构](docs/architecture.md)
 - [部署与扩展边界](docs/deployment.md)
 - [限制与声明政策](docs/limitations.md)
