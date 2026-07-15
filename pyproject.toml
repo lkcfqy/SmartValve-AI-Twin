@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "smartvalve-ai-twin"
-version = "0.5.0"
+version = "0.6.0"
 description = "ValveDNA and WNTR two-layer digital twin for explainable smart-valve diagnostics"
 readme = "README.md"
 requires-python = ">=3.11,<3.15"
@@ -17,6 +17,7 @@ dependencies = [
   "pandas>=2.2,<3",
   "plotly>=5.20,<7",
   "pydantic>=2.8,<3",
+  "PyJWT[crypto]>=2.13,<3",
   "pyarrow>=23.0.1,<24",
   "python-multipart>=0.0.10,<1",
   "reportlab>=4.2,<5",

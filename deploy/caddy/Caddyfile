@@ -1,0 +1,47 @@
+{
+	admin off
+	email {$SMARTVALVE_TLS_EMAIL}
+}
+
+(security_headers) {
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "no-referrer"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		-Server
+	}
+}
+
+{$SMARTVALVE_DASHBOARD_DOMAIN} {
+	import security_headers
+	encode zstd gzip
+	reverse_proxy dashboard:8501 {
+		transport http {
+			dial_timeout 3s
+		}
+	}
+	log {
+		output stdout
+		format json
+	}
+}
+
+{$SMARTVALVE_API_DOMAIN} {
+	import security_headers
+	encode zstd gzip
+	reverse_proxy api:8000 {
+		health_uri /health/ready
+		health_interval 30s
+		health_timeout 5s
+		transport http {
+			dial_timeout 3s
+			response_header_timeout 60s
+		}
+	}
+	log {
+		output stdout
+		format json
+	}
+}

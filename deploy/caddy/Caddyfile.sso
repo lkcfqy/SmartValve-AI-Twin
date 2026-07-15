@@ -1,0 +1,70 @@
+{
+	admin off
+	email {$SMARTVALVE_TLS_EMAIL}
+}
+
+(security_headers) {
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "no-referrer"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		-Server
+	}
+}
+
+{$SMARTVALVE_DASHBOARD_DOMAIN} {
+	import security_headers
+	encode zstd gzip
+
+	handle /oauth2/* {
+		reverse_proxy oauth2-proxy:4180 {
+			header_up X-Real-IP {remote_host}
+			header_up X-Forwarded-Uri {uri}
+		}
+	}
+
+	handle {
+		forward_auth oauth2-proxy:4180 {
+			uri /oauth2/auth
+			header_up X-Real-IP {remote_host}
+			copy_headers {
+				X-Auth-Request-Access-Token>X-SmartValve-Access-Token
+				X-Auth-Request-Preferred-Username>X-SmartValve-Username
+			}
+			@unauthorized status 401
+			handle_response @unauthorized {
+				redir * /oauth2/sign_in?rd={scheme}://{host}{uri}
+			}
+		}
+		reverse_proxy dashboard:8501 {
+			transport http {
+				dial_timeout 3s
+			}
+		}
+	}
+
+	log {
+		output stdout
+		format json
+	}
+}
+
+{$SMARTVALVE_API_DOMAIN} {
+	import security_headers
+	encode zstd gzip
+	reverse_proxy api:8000 {
+		health_uri /health/ready
+		health_interval 30s
+		health_timeout 5s
+		transport http {
+			dial_timeout 3s
+			response_header_timeout 60s
+		}
+	}
+	log {
+		output stdout
+		format json
+	}
+}

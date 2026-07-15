@@ -1,6 +1,6 @@
 .PHONY: install test lint security sbom image-scan demo dashboard cli api data validate benchmark benchmark-smoke benchmark-challenge benchmark-cranfield backup docker-build docker-up docker-down
 
-IMAGE := smartvalve-ai-twin:0.5.0
+IMAGE := smartvalve-ai-twin:0.6.0
 
 SYFT_IMAGE := anchore/syft@sha256:473a60e3a58e29aca3aedb3e99e787bb4ef273917e44d10fcbea4330a07320bb
 GRYPE_IMAGE := anchore/grype@sha256:decd87500a90c1e4faa1706f77b0b2cbc1d2f9364e976f1898ce9037de09cc3a

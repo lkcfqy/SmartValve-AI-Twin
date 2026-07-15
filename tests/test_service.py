@@ -157,6 +157,15 @@ def test_production_refuses_weak_or_missing_authentication(tmp_path, monkeypatch
     ):
         pass
 
+    monkeypatch.setenv(
+        "SMARTVALVE_API_KEY", "replace-with-a-random-secret-of-at-least-32-characters"
+    )
+    with (
+        pytest.raises(RuntimeError, match="production requires SMARTVALVE_API_KEY"),
+        TestClient(app),
+    ):
+        pass
+
 
 def test_degraded_readiness_returns_service_unavailable(tmp_path, monkeypatch) -> None:
     monkeypatch.setenv("SMARTVALVE_DATABASE", str(tmp_path / "degraded.db"))

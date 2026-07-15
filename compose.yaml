@@ -20,12 +20,20 @@ services:
     build:
       context: .
       target: runtime
-    image: smartvalve-ai-twin:0.5.0
+    image: smartvalve-ai-twin:0.6.0
     ports:
       - "127.0.0.1:${SMARTVALVE_API_PORT:-8000}:8000"
     environment:
       SMARTVALVE_ENVIRONMENT: production
-      SMARTVALVE_API_KEY: ${SMARTVALVE_API_KEY:?copy .env.example to .env and set a 32+ character secret}
+      SMARTVALVE_AUTH_MODE: ${SMARTVALVE_AUTH_MODE:-api_key}
+      SMARTVALVE_API_KEY: ${SMARTVALVE_API_KEY:-}
+      SMARTVALVE_OIDC_ISSUER: ${SMARTVALVE_OIDC_ISSUER:-}
+      SMARTVALVE_OIDC_AUDIENCE: ${SMARTVALVE_OIDC_AUDIENCE:-}
+      SMARTVALVE_OIDC_JWKS_URL: ${SMARTVALVE_OIDC_JWKS_URL:-}
+      SMARTVALVE_OIDC_ALGORITHMS: ${SMARTVALVE_OIDC_ALGORITHMS:-RS256}
+      SMARTVALVE_OIDC_TOKEN_TYPES: ${SMARTVALVE_OIDC_TOKEN_TYPES:-at+jwt,JWT}
+      SMARTVALVE_OIDC_USERNAME_CLAIM: ${SMARTVALVE_OIDC_USERNAME_CLAIM:-preferred_username}
+      SMARTVALVE_OIDC_ROLES_CLAIM: ${SMARTVALVE_OIDC_ROLES_CLAIM:-roles}
       SMARTVALVE_RATE_LIMIT_PER_MINUTE: ${SMARTVALVE_RATE_LIMIT_PER_MINUTE:-120}
       SMARTVALVE_REQUIRE_WNTR: "true"
     volumes:
@@ -36,7 +44,7 @@ services:
 
   dashboard:
     <<: *runtime-security
-    image: smartvalve-ai-twin:0.5.0
+    image: smartvalve-ai-twin:0.6.0
     command:
       [
         "-m",
@@ -54,7 +62,8 @@ services:
     environment:
       SMARTVALVE_API_URL: http://api:8000
       SMARTVALVE_ENVIRONMENT: production
-      SMARTVALVE_API_KEY: ${SMARTVALVE_API_KEY:?copy .env.example to .env and set a 32+ character secret}
+      SMARTVALVE_API_KEY: ${SMARTVALVE_API_KEY:-}
+      SMARTVALVE_ACCESS_TOKEN: ${SMARTVALVE_DASHBOARD_ACCESS_TOKEN:-}
       SMARTVALVE_OPERATOR_ID: ${SMARTVALVE_OPERATOR_ID:-dashboard-operator}
     ports:
       - "127.0.0.1:${SMARTVALVE_DASHBOARD_PORT:-8501}:8501"
@@ -76,7 +85,7 @@ services:
   backup:
     <<: *runtime-security
     profiles: ["operations"]
-    image: smartvalve-ai-twin:0.5.0
+    image: smartvalve-ai-twin:0.6.0
     command:
       [
         "-m",
@@ -103,7 +112,7 @@ services:
   restore:
     <<: *runtime-security
     profiles: ["operations"]
-    image: smartvalve-ai-twin:0.5.0
+    image: smartvalve-ai-twin:0.6.0
     command:
       [
         "-m",

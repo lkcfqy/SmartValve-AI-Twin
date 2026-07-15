@@ -2,7 +2,7 @@
 
 ValveDNA 单阀状态诊断与 WNTR 管网后果计算组成的双层数字孪生工程平台。
 
-软件版本 `0.5.0`；透明规则模型 `valvedna-rules-0.3.0`。两者刻意分开：安全、审计和
+软件版本 `0.6.0`；透明规则模型 `valvedna-rules-0.3.0`。两者刻意分开：安全、审计和
 界面升级不冒充算法重新训练。
 
 ## 当前定位
@@ -21,6 +21,8 @@ ValveDNA 单阀状态诊断与 WNTR 管网后果计算组成的双层数字孪�
 - 完整基线/当前载荷、操作员与相关 ID 的不可变 SHA-256 链式审计；
 - 一致性 SQLite 快照、独立 HMAC 签名清单、逐字节/审计锚校验与离线原子恢复；
 - PDF 报告、Prometheus 文本指标、真实健康探针和公开数据 SHA-256 校验；
+- OIDC/JWT 严格验签、读/诊断/审计 RBAC、可信目录身份入链与浏览器 SSO 参考部署；
+- Caddy 自动 HTTPS、HSTS、安全头、敏感日志字段脱敏和非 root TLS 网关；
 - 依赖哈希锁定、无 shell 的 Chainguard Python 3.14 非 root/只读容器、密钥门禁和 CI 骨架；
 - SPDX 2.3 SBOM、原始漏洞报告与逐项 OpenVEX 可达性复核证据。
 
@@ -51,8 +53,9 @@ docker compose up -d
 docker compose ps
 ```
 
-Compose 仅绑定本机回环地址。远程试点必须另外配置经过评审的 TLS 反向代理或 VPN。详见
-[部署说明](docs/deployment.md)。
+基础 Compose 仅绑定本机回环地址；项目另附 TLS 与 OIDC 浏览器 SSO 叠加配置。远程试点必须
+按组织 DNS、身份源和密钥策略完成验收。详见[部署说明](docs/deployment.md)和
+[认证与授权](docs/authentication.md)。
 
 ## 使用流程
 
@@ -138,6 +141,7 @@ SHA-256 清单。
 
 - [确定版项目计划](SmartValve_AI_Twin_Project_Plan.md)
 - [0.5.0 验收报告](docs/acceptance_report_0.5.0.md)
+- [认证与授权](docs/authentication.md)
 - [系统架构](docs/architecture.md)
 - [部署与扩展边界](docs/deployment.md)
 - [限制与声明政策](docs/limitations.md)

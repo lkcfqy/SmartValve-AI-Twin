@@ -1,0 +1,51 @@
+services:
+  gateway:
+    build:
+      context: .
+      dockerfile: deploy/caddy/Dockerfile
+    image: smartvalve-tls-gateway:2.10.2
+    depends_on:
+      api:
+        condition: service_healthy
+      dashboard:
+        condition: service_healthy
+    environment:
+      SMARTVALVE_DASHBOARD_DOMAIN: ${SMARTVALVE_DASHBOARD_DOMAIN:?set the dashboard DNS name}
+      SMARTVALVE_API_DOMAIN: ${SMARTVALVE_API_DOMAIN:?set the API DNS name}
+      SMARTVALVE_TLS_EMAIL: ${SMARTVALVE_TLS_EMAIL:?set the ACME account email}
+    ports:
+      - "${SMARTVALVE_HTTP_PORT:-80}:80"
+      - "${SMARTVALVE_HTTPS_PORT:-443}:443"
+      - "${SMARTVALVE_HTTPS_PORT:-443}:443/udp"
+    volumes:
+      - ./deploy/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - smartvalve_caddy_data:/data
+      - smartvalve_caddy_config:/config
+    read_only: true
+    init: true
+    user: "65532:65532"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    sysctls:
+      net.ipv4.ip_unprivileged_port_start: 0
+    pids_limit: 128
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m,uid=65532,gid=65532
+    restart: unless-stopped
+    stop_grace_period: 20s
+    mem_limit: 256m
+    cpus: 0.5
+    healthcheck:
+      test: ["CMD", "caddy", "validate", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+
+volumes:
+  smartvalve_caddy_data:
+    name: smartvalve_caddy_data
+  smartvalve_caddy_config:
+    name: smartvalve_caddy_config

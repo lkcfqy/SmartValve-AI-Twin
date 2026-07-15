@@ -1,4 +1,4 @@
-"""Deployable HTTP service with validation, audit persistence and optional API key."""
+"""Deployable HTTP service with validation, trusted identity and audit persistence."""
 
 from __future__ import annotations
 
@@ -8,10 +8,10 @@ import os
 import re
 import time
 from collections import defaultdict, deque
+from collections.abc import Callable
 from contextlib import asynccontextmanager
 from datetime import UTC, datetime
 from hashlib import sha256
-from hmac import compare_digest
 from typing import Annotated, Literal
 from uuid import uuid4
 
@@ -44,6 +44,14 @@ from smartvalve.data.skab import run_skab_validation
 from smartvalve.network_twin.model import simulate_network_impact
 from smartvalve.pipeline import TwinRun, run_from_frames, run_twin
 from smartvalve.reporting import build_diagnostic_pdf
+from smartvalve.service.auth import (
+    AUDIT_PERMISSION,
+    DIAGNOSE_PERMISSION,
+    READ_PERMISSION,
+    AuthenticationError,
+    Principal,
+    build_authenticator,
+)
 from smartvalve.service.schemas import CranfieldRequest, DiagnosticResponse, SimulationRequest
 from smartvalve.simulation.model import FaultConfig
 from smartvalve.storage.repository import RunRepository
@@ -57,11 +65,7 @@ logging.basicConfig(
 
 @asynccontextmanager
 async def lifespan(application: FastAPI):
-    api_key = os.getenv("SMARTVALVE_API_KEY", "")
-    if production_mode() and (
-        len(api_key) < 32 or api_key == "replace-me-in-shared-environments"
-    ):
-        raise RuntimeError("production requires SMARTVALVE_API_KEY with at least 32 characters")
+    application.state.authenticator = build_authenticator(production=production_mode())
     application.state.repository = RunRepository()
     application.state.request_count = 0
     application.state.error_count = 0
@@ -152,21 +156,56 @@ async def missing_artifact_handler(request: Request, exc: FileNotFoundError) -> 
     )
 
 
-def require_api_key(
-    x_api_key: Annotated[str | None, Header()] = None,
-    x_operator_id: Annotated[str | None, Header()] = None,
-) -> str:
-    expected = os.getenv("SMARTVALVE_API_KEY")
-    if production_mode() and not expected:
-        raise HTTPException(status_code=503, detail="API authentication is not configured")
-    if expected and (x_api_key is None or not compare_digest(expected, x_api_key)):
-        raise HTTPException(status_code=401, detail="invalid or missing API key")
-    operator_id = (x_operator_id or "local-demo").strip()
-    if production_mode() and x_operator_id is None:
-        raise HTTPException(status_code=401, detail="missing X-Operator-ID")
-    if not re.fullmatch(r"[A-Za-z0-9._@:-]{1,80}", operator_id):
-        raise HTTPException(status_code=422, detail="invalid X-Operator-ID")
-    return operator_id
+def require_permission(permission: str) -> Callable[..., Principal]:
+    def dependency(
+        request: Request,
+        authorization: Annotated[str | None, Header()] = None,
+        x_api_key: Annotated[str | None, Header()] = None,
+        x_operator_id: Annotated[str | None, Header()] = None,
+    ) -> Principal:
+        authenticator = request.app.state.authenticator
+        try:
+            principal = authenticator.authenticate(
+                authorization=authorization,
+                api_key=x_api_key,
+                operator_id=x_operator_id,
+            )
+        except AuthenticationError as exc:
+            headers = (
+                {"WWW-Authenticate": 'Bearer realm="smartvalve"'}
+                if authenticator.mode == "oidc"
+                else {}
+            )
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="invalid or missing credentials",
+                headers=headers,
+            ) from exc
+        if not principal.can(permission):
+            headers = (
+                {
+                    "WWW-Authenticate": (
+                        f'Bearer realm="smartvalve", error="insufficient_scope", '
+                        f'scope="{permission}"'
+                    )
+                }
+                if authenticator.mode == "oidc"
+                else {}
+            )
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="insufficient permission",
+                headers=headers,
+            )
+        request.state.principal = principal
+        return principal
+
+    return dependency
+
+
+require_read = require_permission(READ_PERMISSION)
+require_diagnose = require_permission(DIAGNOSE_PERMISSION)
+require_audit = require_permission(AUDIT_PERMISSION)
 
 
 MAX_UPLOAD_BYTES = 10 * 1024 * 1024
@@ -214,7 +253,7 @@ def _diagnostic_response(
     run_id: str,
     correlation_id: str,
     created_at: str,
-    operator_id: str,
+    principal: Principal,
     asset_id: str,
     source: str,
     evidence_grade: str,
@@ -224,7 +263,8 @@ def _diagnostic_response(
         run_id=run_id,
         correlation_id=correlation_id,
         created_at=created_at,
-        operator_id=operator_id,
+        operator_id=principal.operator_id,
+        identity=principal.identity_dict(),
         asset_id=asset_id,
         source=source,
         evidence_grade=evidence_grade,
@@ -285,13 +325,13 @@ def _persisted_diagnostic_response(
     limitations: list[str],
     request_payload: dict[str, object],
 ) -> DiagnosticResponse:
-    operator_id = request.headers.get("X-Operator-ID", "local-demo").strip()
+    principal: Principal = request.state.principal
     response = _diagnostic_response(
         run,
         run_id=str(uuid4()),
         correlation_id=request.state.correlation_id,
         created_at=datetime.now(UTC).isoformat(),
-        operator_id=operator_id,
+        principal=principal,
         asset_id=asset_id,
         source=source,
         evidence_grade=evidence_grade,
@@ -301,7 +341,7 @@ def _persisted_diagnostic_response(
         run,
         result=response.model_dump(mode="json"),
         request_payload=request_payload,
-        operator_id=operator_id,
+        operator_id=principal.operator_id,
         evidence_grade=evidence_grade,
     )
     return response.model_copy(update={"audit": seal})
@@ -315,6 +355,7 @@ def live() -> dict[str, str]:
 @app.get("/health/ready", tags=["health"])
 def ready(request: Request) -> JSONResponse:
     database_ready = request.app.state.repository.ping()
+    authentication_ready = request.app.state.authenticator.ready()
     try:
         network_probe = simulate_network_impact(100.0)
         hydraulic_engine = network_probe.engine
@@ -325,10 +366,12 @@ def ready(request: Request) -> JSONResponse:
         LOGGER.exception("hydraulic_readiness_failed")
         hydraulic_engine = "unavailable"
         hydraulic_ready = False
-    is_ready = database_ready and hydraulic_ready
+    is_ready = database_ready and hydraulic_ready and authentication_ready
     payload = {
         "status": "ready" if is_ready else "degraded",
         "database": database_ready,
+        "authentication_ready": authentication_ready,
+        "auth_mode": request.app.state.authenticator.mode,
         "hydraulic_ready": hydraulic_ready,
         "hydraulic_engine": hydraulic_engine,
         "model_version": MODEL_VERSION,
@@ -346,6 +389,8 @@ def metrics(request: Request) -> str:
         f"smartvalve_errors_total {request.app.state.error_count}",
         "# TYPE smartvalve_uptime_seconds gauge",
         f"smartvalve_uptime_seconds {uptime:.3f}",
+        "# TYPE smartvalve_authentication_ready gauge",
+        f"smartvalve_authentication_ready {int(request.app.state.authenticator.ready())}",
         "# TYPE smartvalve_http_requests_total counter",
     ]
     for (method, path, response_status), values in sorted(request.app.state.route_metrics.items()):
@@ -362,7 +407,7 @@ def metrics(request: Request) -> str:
     return "\n".join(lines)
 
 
-@app.get("/v1/sources", dependencies=[Depends(require_api_key)], tags=["sources"])
+@app.get("/v1/sources", dependencies=[Depends(require_read)], tags=["sources"])
 def sources() -> dict[str, object]:
     return {
         "sources": [
@@ -388,7 +433,7 @@ def sources() -> dict[str, object]:
 @app.post(
     "/v1/diagnostics/simulation",
     response_model=DiagnosticResponse,
-    dependencies=[Depends(require_api_key)],
+    dependencies=[Depends(require_diagnose)],
     tags=["diagnostics"],
 )
 def diagnose_simulation(payload: SimulationRequest, request: Request) -> DiagnosticResponse:
@@ -419,7 +464,7 @@ def diagnose_simulation(payload: SimulationRequest, request: Request) -> Diagnos
 @app.post(
     "/v1/diagnostics/cranfield",
     response_model=DiagnosticResponse,
-    dependencies=[Depends(require_api_key)],
+    dependencies=[Depends(require_diagnose)],
     tags=["diagnostics"],
 )
 def diagnose_cranfield(payload: CranfieldRequest, request: Request) -> DiagnosticResponse:
@@ -451,7 +496,7 @@ def diagnose_cranfield(payload: CranfieldRequest, request: Request) -> Diagnosti
 @app.get(
     "/v1/validation/cranfield/sample",
     response_model=DiagnosticResponse,
-    dependencies=[Depends(require_api_key)],
+    dependencies=[Depends(require_read)],
     tags=["validation"],
 )
 def cranfield_validation_sample(request: Request) -> DiagnosticResponse:
@@ -469,7 +514,7 @@ def cranfield_validation_sample(request: Request) -> DiagnosticResponse:
         run_id=f"preview-{uuid4()}",
         correlation_id=request.state.correlation_id,
         created_at=datetime.now(UTC).isoformat(),
-        operator_id=request.headers.get("X-Operator-ID", "local-demo").strip(),
+        principal=request.state.principal,
         asset_id="CRANFIELD-EMA-01",
         source="cranfield_real_actuator_read_only_sample",
         evidence_grade=EvidenceGrade.S1_PUBLIC_RIG.value,
@@ -484,7 +529,7 @@ def cranfield_validation_sample(request: Request) -> DiagnosticResponse:
 @app.post(
     "/v1/diagnostics/csv",
     response_model=DiagnosticResponse,
-    dependencies=[Depends(require_api_key)],
+    dependencies=[Depends(require_diagnose)],
     tags=["diagnostics"],
 )
 async def diagnose_csv(
@@ -556,7 +601,7 @@ async def diagnose_csv(
 
 @app.get(
     "/v1/validation/skab",
-    dependencies=[Depends(require_api_key)],
+    dependencies=[Depends(require_read)],
     tags=["validation"],
 )
 def validate_skab() -> dict[str, object]:
@@ -574,7 +619,7 @@ def validate_skab() -> dict[str, object]:
 
 @app.get(
     "/v1/validation/benchmark",
-    dependencies=[Depends(require_api_key)],
+    dependencies=[Depends(require_read)],
     tags=["validation"],
 )
 def validation_benchmark(
@@ -589,7 +634,7 @@ def validation_benchmark(
 
 @app.get(
     "/v1/validation/cranfield",
-    dependencies=[Depends(require_api_key)],
+    dependencies=[Depends(require_read)],
     tags=["validation"],
 )
 def validation_cranfield() -> dict[str, object]:
@@ -604,7 +649,7 @@ def validation_cranfield() -> dict[str, object]:
     return json.loads(metrics_path.read_text(encoding="utf-8"))
 
 
-@app.get("/v1/runs", dependencies=[Depends(require_api_key)], tags=["audit"])
+@app.get("/v1/runs", dependencies=[Depends(require_audit)], tags=["audit"])
 def list_runs(
     request: Request,
     limit: Annotated[int, Query(ge=1, le=200)] = 50,
@@ -612,12 +657,12 @@ def list_runs(
     return {"items": request.app.state.repository.list(limit)}
 
 
-@app.get("/v1/audit/verify", dependencies=[Depends(require_api_key)], tags=["audit"])
+@app.get("/v1/audit/verify", dependencies=[Depends(require_audit)], tags=["audit"])
 def verify_audit_chain(request: Request) -> dict[str, object]:
     return request.app.state.repository.verify_chain()
 
 
-@app.get("/v1/runs/{run_id}", dependencies=[Depends(require_api_key)], tags=["audit"])
+@app.get("/v1/runs/{run_id}", dependencies=[Depends(require_audit)], tags=["audit"])
 def get_run(run_id: str, request: Request) -> dict[str, object]:
     result = request.app.state.repository.get(run_id)
     if result is None:
@@ -627,7 +672,7 @@ def get_run(run_id: str, request: Request) -> dict[str, object]:
 
 @app.get(
     "/v1/runs/{run_id}/report.pdf",
-    dependencies=[Depends(require_api_key)],
+    dependencies=[Depends(require_audit)],
     response_class=Response,
     tags=["audit"],
 )

@@ -54,6 +54,7 @@ class DiagnosticResponse(BaseModel):
     correlation_id: str
     created_at: str
     operator_id: str
+    identity: dict[str, object]
     asset_id: str
     source: str
     evidence_grade: str

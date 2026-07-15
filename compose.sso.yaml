@@ -1,0 +1,58 @@
+services:
+  api:
+    environment:
+      SMARTVALVE_AUTH_MODE: oidc
+
+  dashboard:
+    environment:
+      SMARTVALVE_TRUST_PROXY_ACCESS_TOKEN: "true"
+      SMARTVALVE_ACCESS_TOKEN: ""
+
+  gateway:
+    command: ["caddy", "run", "--config", "/etc/caddy/Caddyfile.sso", "--adapter", "caddyfile"]
+    depends_on:
+      oauth2-proxy:
+        condition: service_started
+    volumes:
+      - ./deploy/caddy/Caddyfile.sso:/etc/caddy/Caddyfile.sso:ro
+
+  oauth2-proxy:
+    image: quay.io/oauth2-proxy/oauth2-proxy:v7.15.2@sha256:aa0bd8dd5ab0c78e4c91c92755ad573a5f92241f88138b4141b8ec803463b4fd
+    environment:
+      OAUTH2_PROXY_PROVIDER: oidc
+      OAUTH2_PROXY_OIDC_ISSUER_URL: ${SMARTVALVE_OIDC_ISSUER:?set the OIDC issuer}
+      OAUTH2_PROXY_CLIENT_ID: ${SMARTVALVE_OIDC_CLIENT_ID:?set the OIDC client ID}
+      OAUTH2_PROXY_CLIENT_SECRET: ${SMARTVALVE_OIDC_CLIENT_SECRET:?set the OIDC client secret}
+      OAUTH2_PROXY_COOKIE_SECRET: ${SMARTVALVE_OIDC_COOKIE_SECRET:?set a random cookie secret}
+      OAUTH2_PROXY_REDIRECT_URL: https://${SMARTVALVE_DASHBOARD_DOMAIN:?set the dashboard DNS name}/oauth2/callback
+      OAUTH2_PROXY_EMAIL_DOMAINS: ${SMARTVALVE_OIDC_ALLOWED_EMAIL_DOMAINS:?set approved email domains}
+      OAUTH2_PROXY_SCOPE: ${SMARTVALVE_OIDC_SCOPE:-openid profile email}
+      OAUTH2_PROXY_HTTP_ADDRESS: 0.0.0.0:4180
+      OAUTH2_PROXY_UPSTREAMS: static://202
+      OAUTH2_PROXY_REVERSE_PROXY: "true"
+      OAUTH2_PROXY_TRUSTED_PROXY_IPS: 172.16.0.0/12
+      OAUTH2_PROXY_SET_XAUTHREQUEST: "true"
+      OAUTH2_PROXY_PASS_ACCESS_TOKEN: "true"
+      OAUTH2_PROXY_SKIP_PROVIDER_BUTTON: "true"
+      OAUTH2_PROXY_CODE_CHALLENGE_METHOD: S256
+      OAUTH2_PROXY_COOKIE_SECURE: "true"
+      OAUTH2_PROXY_COOKIE_HTTPONLY: "true"
+      OAUTH2_PROXY_COOKIE_SAMESITE: lax
+      OAUTH2_PROXY_COOKIE_NAME: _smartvalve_sso
+      OAUTH2_PROXY_COOKIE_EXPIRE: 8h
+      OAUTH2_PROXY_COOKIE_REFRESH: 5m
+      OAUTH2_PROXY_SILENCE_PING_LOGGING: "true"
+    read_only: true
+    init: true
+    user: "65532:65532"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m,uid=65532,gid=65532
+    restart: unless-stopped
+    stop_grace_period: 20s
+    mem_limit: 256m
+    cpus: 0.5

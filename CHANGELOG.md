@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.6.0 — 2026-07-13
+
+- Added fail-closed OIDC access-token validation with fixed asymmetric algorithm/type allowlists,
+  HTTPS JWKS discovery, exact issuer/audience checks and mandatory registered claims.
+- Added read, diagnose and audit RBAC; OIDC operator identity now comes only from signed claims and
+  its subject/issuer/permissions/token-ID digest enter the result before audit hashing.
+- Added Bearer-aware API/dashboard clients and regressions for forged operator headers, expired or
+  mis-issued tokens, algorithm confusion, missing configuration and cross-role access.
+- Added a digest-pinned non-root Caddy automatic-HTTPS overlay and an optional OAuth2 Proxy browser
+  SSO overlay that passes the authenticated access token through a private trusted header.
+- Rejected known example API-key values in production and added authentication/JWKS readiness.
+
+The diagnostic rule model remains `valvedna-rules-0.3.0`; this is an identity and transport-security
+release, not an algorithm retraining claim.
+
 ## 0.5.0 — 2026-07-13
 
 - Fixed audit-chain verification to follow immutable insertion order, so NTP/RTC clock rollback no

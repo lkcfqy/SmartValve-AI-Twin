@@ -15,6 +15,7 @@ import streamlit as st
 from plotly.subplots import make_subplots
 
 from smartvalve import MODEL_VERSION, __version__
+from smartvalve.config import env_bool
 from smartvalve.network_twin.model import LINKS, NODE_COORDINATES
 from smartvalve.service.client import (
     ApiClientError,
@@ -680,9 +681,20 @@ def _fleet_map(frame: pd.DataFrame) -> go.Figure:
     return _plot_style(figure, height=390)
 
 
-@st.cache_resource
 def _api_client() -> SmartValveApiClient:
-    return SmartValveApiClient()
+    access_token: str | None = None
+    try:
+        if env_bool("SMARTVALVE_TRUST_PROXY_ACCESS_TOKEN", False):
+            forwarded = st.context.headers.get("X-SmartValve-Access-Token", "").strip()
+            access_token = forwarded or None
+        else:
+            authorization = st.context.headers.get("Authorization", "").strip()
+            scheme, separator, token = authorization.partition(" ")
+            if separator and scheme.lower() == "bearer" and token.strip():
+                access_token = token.strip()
+    except (AttributeError, RuntimeError):
+        pass
+    return SmartValveApiClient(access_token=access_token)
 
 
 @st.cache_data(show_spinner=False, ttl=60)

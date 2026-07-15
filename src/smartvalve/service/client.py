@@ -59,6 +59,7 @@ class RemoteTwinRun:
     correlation_id: str
     created_at: str
     operator_id: str
+    identity: AttributeRecord
     asset_id: str
     source: str
     evidence_grade: str
@@ -86,6 +87,19 @@ class RemoteTwinRun:
             correlation_id=payload["correlation_id"],
             created_at=payload["created_at"],
             operator_id=payload["operator_id"],
+            identity=AttributeRecord(
+                payload.get(
+                    "identity",
+                    {
+                        "auth_mode": "legacy",
+                        "subject": payload["operator_id"],
+                        "issuer": "not-recorded",
+                        "roles": [],
+                        "permissions": [],
+                        "token_id_sha256": None,
+                    },
+                )
+            ),
             asset_id=payload["asset_id"],
             source=payload["source"],
             evidence_grade=payload["evidence_grade"],
@@ -150,17 +164,23 @@ class SmartValveApiClient:
         self,
         base_url: str | None = None,
         api_key: str | None = None,
+        access_token: str | None = None,
         timeout_s: float = 45.0,
     ) -> None:
         self.base_url = (base_url or os.getenv("SMARTVALVE_API_URL", "http://127.0.0.1:8000")).rstrip(
             "/"
         )
         self.api_key = api_key if api_key is not None else os.getenv("SMARTVALVE_API_KEY")
+        self.access_token = (
+            access_token if access_token is not None else os.getenv("SMARTVALVE_ACCESS_TOKEN")
+        )
         self.operator_id = os.getenv("SMARTVALVE_OPERATOR_ID", "dashboard-demo")
         self.timeout_s = timeout_s
 
     @property
     def headers(self) -> dict[str, str]:
+        if self.access_token:
+            return {"Authorization": f"Bearer {self.access_token}"}
         headers = {"X-Operator-ID": self.operator_id}
         if self.api_key:
             headers["X-API-Key"] = self.api_key

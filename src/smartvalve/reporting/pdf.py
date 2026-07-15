@@ -29,6 +29,7 @@ def build_diagnostic_pdf(payload: dict[str, Any]) -> bytes:
     network = payload["network"]
     quality = payload["quality"]["current"]
     audit = payload.get("audit", {})
+    identity = payload.get("identity", {})
     buffer = BytesIO()
     document = SimpleDocTemplate(
         buffer,
@@ -75,7 +76,10 @@ def build_diagnostic_pdf(payload: dict[str, Any]) -> bytes:
             f"Run ID: {_text(payload['run_id'])}<br/>"
             f"Correlation ID: {_text(payload.get('correlation_id', 'not recorded'))}<br/>"
             f"Created at: {_text(payload.get('created_at', 'not recorded'))}<br/>"
-            f"Operator: {_text(payload.get('operator_id', 'not recorded'))}",
+            f"Operator: {_text(payload.get('operator_id', 'not recorded'))}<br/>"
+            f"Authenticated subject: {_text(identity.get('subject', 'not recorded'))}<br/>"
+            f"Identity issuer: {_text(identity.get('issuer', 'not recorded'))}<br/>"
+            f"Authentication mode: {_text(identity.get('auth_mode', 'legacy'))}",
             body,
         ),
         Spacer(1, 3 * mm),
