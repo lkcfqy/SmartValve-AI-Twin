@@ -12,11 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
-      SMARTVALVE_EXTERNAL_DATA: ${{ runner.temp }}/smartvalve-public-data
-      SMARTVALVE_CI_BUILD_SOURCE: ${{ runner.temp }}/smartvalve-ci-build-source
-      SMARTVALVE_CI_PYTEST_XML: ${{ runner.temp }}/smartvalve-ci-pytest.xml
-      SMARTVALVE_CI_VENV: ${{ runner.temp }}/smartvalve-ci-venv
-      COVERAGE_FILE: ${{ runner.temp }}/smartvalve-ci.coverage
       PYTHONDONTWRITEBYTECODE: "1"
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
@@ -29,6 +24,15 @@ jobs:
             requirements-research.lock
             requirements.lock
             build-requirements.lock
+      - name: Configure runner paths
+        run: |
+          {
+            echo "SMARTVALVE_EXTERNAL_DATA=${RUNNER_TEMP}/smartvalve-public-data"
+            echo "SMARTVALVE_CI_BUILD_SOURCE=${RUNNER_TEMP}/smartvalve-ci-build-source"
+            echo "SMARTVALVE_CI_PYTEST_XML=${RUNNER_TEMP}/smartvalve-ci-pytest.xml"
+            echo "SMARTVALVE_CI_VENV=${RUNNER_TEMP}/smartvalve-ci-venv"
+            echo "COVERAGE_FILE=${RUNNER_TEMP}/smartvalve-ci.coverage"
+          } >> "${GITHUB_ENV}"
       - name: Install locked dependencies
         run: |
           set -o pipefail
