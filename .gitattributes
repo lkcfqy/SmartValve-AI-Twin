@@ -8,6 +8,8 @@
 *.json text eol=lf
 *.csv text eol=lf
 *.lock text eol=lf
+# Hash-locked paper artifacts must retain the generator's exact CSV bytes.
+paper/generated/*.csv -text -eol
 Dockerfile text eol=lf
 Makefile text eol=lf
 

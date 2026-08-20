@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import tarfile
 from pathlib import Path
 
@@ -538,9 +539,23 @@ def test_default_release_inputs_exist_and_source_globs_exclude_raw_data() -> Non
     } <= {path.name for path in source_paths if path.parent.name == "generated"}
     generated_manifests = sorted((root / "paper" / "generated").glob("*_manifest.json"))
     assert len(generated_manifests) == 2
+    source_only_ci = os.getenv("SMARTVALVE_SOURCE_ONLY_CI") == "1"
+    if source_only_ci:
+        assert "artifacts/research/runs/" in (root / ".gitignore").read_text(
+            encoding="utf-8"
+        )
     for generated_manifest in generated_manifests:
         payload = json.loads(generated_manifest.read_text(encoding="utf-8"))
-        assert all((root / item["path"]).is_file() for item in payload["inputs"].values())
+        for item in payload["inputs"].values():
+            relative = item["path"]
+            path = root / relative
+            if path.is_file():
+                continue
+            assert source_only_ci
+            assert relative.startswith("artifacts/research/runs/")
+            assert ".." not in Path(relative).parts
+            assert len(item["sha256"]) == 64
+            assert all(character in "0123456789abcdef" for character in item["sha256"])
     assert (
         root / "research" / "scripts" / "validate_paderborn_split_manifest.py"
     ) in source_paths

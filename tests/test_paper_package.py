@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 from hashlib import sha256
 from pathlib import Path
@@ -67,6 +68,11 @@ def test_bearing_reidentification_baseline_is_not_mislabeled_as_chance() -> None
 def test_generated_paper_manifest_matches_inputs_and_outputs() -> None:
     root = project_root()
     generated = root / "paper" / "generated"
+    source_only_ci = os.getenv("SMARTVALVE_SOURCE_ONLY_CI") == "1"
+    if source_only_ci:
+        assert "artifacts/research/runs/" in (root / ".gitignore").read_text(
+            encoding="utf-8"
+        )
     manifest_names = {"artifact_manifest.json", "multirig_artifact_manifest.json"}
     manifests = [
         json.loads((generated / name).read_text(encoding="utf-8"))
@@ -81,8 +87,13 @@ def test_generated_paper_manifest_matches_inputs_and_outputs() -> None:
             assert not relative.startswith("/")
             assert not re.match(r"^[A-Za-z]:[\\/]", relative)
             path = root / relative
-            assert path.is_file()
-            assert _digest(path) == item["sha256"]
+            if path.is_file():
+                assert _digest(path) == item["sha256"]
+            else:
+                assert source_only_ci
+                assert relative.startswith("artifacts/research/runs/")
+                assert ".." not in Path(relative).parts
+                assert re.fullmatch(r"[0-9a-f]{64}", item["sha256"])
 
         manifest_outputs = {item["path"] for item in manifest["outputs"]}
         assert not declared_outputs.intersection(manifest_outputs)
