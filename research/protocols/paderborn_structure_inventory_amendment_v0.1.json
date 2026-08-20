@@ -1,0 +1,70 @@
+{
+  "schema_version": "smartvalve-paderborn-structure-inventory-amendment-0.1.0",
+  "status": "authorized_k001_shape_dtype_inventory_only",
+  "frozen_date": "2026-08-18",
+  "original_seal": {
+    "path": "artifacts/research/runs/EXP-374-PADERBORN-SEAL__20260818T130717.492129Z__final-31-role-pre-d2-prospective-seal/outputs/prospective_seal.json",
+    "sha256": "b907e1e0e6876e1e35166a526a6d019df83e1587246784588fb0bda44a71efe1"
+  },
+  "structure_probe": {
+    "path": "artifacts/research/runs/EXP-378-PADERBORN-PROBE-RERUN__20260818T131429.982867Z__amendment-gated-same-mat-structure-probe/outputs/structure_probe.json",
+    "sha256": "779cf7f2a96e6ef6b5b920360598f5c63f3f1d219ad4ce00876fd589bdede44c"
+  },
+  "feature_amendment": {
+    "path": "research/protocols/paderborn_feature_contract_amendment_v0.3.json",
+    "sha256": "1f1ffaf605c8281daef509c5788928c36e1a759ab7fd72ec4743b0007fc7bd99"
+  },
+  "authorization": {
+    "archive": "K001.rar",
+    "expected_mat_count": 80,
+    "emitted_fields": [
+      "filename",
+      "member_path",
+      "bytes",
+      "sha256",
+      "root_key",
+      "semantic_name",
+      "semantic_path",
+      "stored_shape",
+      "shape",
+      "dtype",
+      "samples"
+    ],
+    "signal_values_or_statistics_permitted": false,
+    "feature_computation_permitted": false,
+    "model_fitting_or_outcomes_permitted": false
+  },
+  "attestation": {
+    "actual_failing_length_known_before_freeze": false,
+    "signal_values_or_statistics_observed": false,
+    "persisted_feature_values_observed": false,
+    "model_outcomes_inspected": false
+  },
+  "artifacts": {
+    "protocol": {
+      "path": "research/protocols/paderborn_structure_inventory_amendment_v0.1.md",
+      "bytes": 3330,
+      "sha256": "a41a048678f97124dd06f6906035520861ebf8d29ffa9e87e32bd78a1168ae08"
+    },
+    "failed_bulk_metadata": {
+      "path": "artifacts/research/runs/EXP-388-PADERBORN-FEATURES__20260818T133235.528756Z__v03-optional-endpoint-outcome-blind-features/metadata.json",
+      "bytes": 11707,
+      "sha256": "cb3923765cf8948600db59fced19911bc3e4b6cf7dbcf95d5713ba989243345c"
+    },
+    "failed_bulk_stderr": {
+      "path": "artifacts/research/runs/EXP-388-PADERBORN-FEATURES__20260818T133235.528756Z__v03-optional-endpoint-outcome-blind-features/stderr.log",
+      "bytes": 1674,
+      "sha256": "1ae8db8b24d1f17cd9e3f79ca14b361a5f78069ce65811669053e4e585b0677b"
+    },
+    "inventory_script": {
+      "path": "scripts/paderborn_archive_structure_inventory.py",
+      "bytes": 13267,
+      "sha256": "f5d0a8f41a447679609fe7594401c1576a57b6aa0f12914e2555fdb2edcb24ed"
+    },
+    "inventory_tests": {
+      "path": "tests/test_paderborn_archive_structure_inventory.py",
+      "bytes": 1338,
+      "sha256": "1157943fa8ea3accceb20b162a2926d5ce55f2967dea4c1cf89301a3eeda72ca"
+    }
+  }
+}

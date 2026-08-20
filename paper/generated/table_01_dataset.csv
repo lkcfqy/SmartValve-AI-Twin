@@ -1,0 +1,11 @@
+Item,Value
+Dataset,Cranfield Real Linear Actuator Rig
+Physical rigs,1
+Analyzed trials,180
+Motions,"trap, sin"
+Loads (kgf),"-40, 20, 40"
+Classes,"normal, lack_of_lubrication, backlash"
+Repetitions per cell,10
+Outer folds,6 motion-specific leave-one-load-out folds
+Train/test trials per fold,60 / 30
+License,CC BY 4.0

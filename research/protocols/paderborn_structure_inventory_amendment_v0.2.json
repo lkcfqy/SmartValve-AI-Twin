@@ -1,0 +1,71 @@
+{
+  "schema_version": "smartvalve-paderborn-structure-inventory-amendment-0.2.0",
+  "status": "authorized_full_corpus_shape_dtype_inventory_only",
+  "frozen_date": "2026-08-18",
+  "original_seal": {
+    "path": "artifacts/research/runs/EXP-374-PADERBORN-SEAL__20260818T130717.492129Z__final-31-role-pre-d2-prospective-seal/outputs/prospective_seal.json",
+    "sha256": "b907e1e0e6876e1e35166a526a6d019df83e1587246784588fb0bda44a71efe1"
+  },
+  "structure_probe": {
+    "path": "artifacts/research/runs/EXP-378-PADERBORN-PROBE-RERUN__20260818T131429.982867Z__amendment-gated-same-mat-structure-probe/outputs/structure_probe.json",
+    "sha256": "779cf7f2a96e6ef6b5b920360598f5c63f3f1d219ad4ce00876fd589bdede44c"
+  },
+  "feature_amendment": {
+    "path": "research/protocols/paderborn_feature_contract_amendment_v0.4.json",
+    "sha256": "fe731f62c37a7730f677d171b36b981590d87ae7307e23116d25074d9ad11a6e"
+  },
+  "authorization": {
+    "archive_count": 32,
+    "expected_mat_count": 2560,
+    "emitted_fields": [
+      "archive",
+      "filename",
+      "member_path",
+      "bytes",
+      "sha256",
+      "root_key",
+      "semantic_name",
+      "semantic_path",
+      "stored_shape",
+      "shape",
+      "dtype",
+      "samples"
+    ],
+    "signal_values_or_statistics_permitted": false,
+    "feature_computation_permitted": false,
+    "model_fitting_or_outcomes_permitted": false
+  },
+  "attestation": {
+    "actual_k002_failing_length_known_before_freeze": false,
+    "signal_values_or_statistics_observed": false,
+    "persisted_feature_values_observed": false,
+    "model_outcomes_inspected": false
+  },
+  "artifacts": {
+    "protocol": {
+      "path": "research/protocols/paderborn_structure_inventory_amendment_v0.2.md",
+      "bytes": 3444,
+      "sha256": "b6f5ebb6f3aea15e090a163066cda67aa7de94f7039fed001a77a69c15fab900"
+    },
+    "failed_bulk_metadata": {
+      "path": "artifacts/research/runs/EXP-394-PADERBORN-FEATURES__20260818T134222.499444Z__v04-final-window-outcome-blind-features/metadata.json",
+      "bytes": 11746,
+      "sha256": "cd9bd8e903701b043f4ae262e9793eae52ca116f5f73b66a96e48c0d25ae87ea"
+    },
+    "failed_bulk_stderr": {
+      "path": "artifacts/research/runs/EXP-394-PADERBORN-FEATURES__20260818T134222.499444Z__v04-final-window-outcome-blind-features/stderr.log",
+      "bytes": 1788,
+      "sha256": "0520ab97dd097c12816b8b19df33f30c0c46e2024b548e437f0909a3f71886fd"
+    },
+    "inventory_script": {
+      "path": "scripts/paderborn_archive_structure_inventory.py",
+      "bytes": 14679,
+      "sha256": "9fb297b584bdfaa72fb61ee757330000003328dbdd3ac349c486e5eaa377f341"
+    },
+    "inventory_tests": {
+      "path": "tests/test_paderborn_archive_structure_inventory.py",
+      "bytes": 1338,
+      "sha256": "1157943fa8ea3accceb20b162a2926d5ce55f2967dea4c1cf89301a3eeda72ca"
+    }
+  }
+}

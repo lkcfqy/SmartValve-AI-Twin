@@ -1,0 +1,10 @@
+| Claim | Experiment | JSON field |
+|---|---|---|
+| C1 P1 macro-F1 harm | EXP-011 | paired_comparisons.P1_minus_P0.macro_f1 |
+| C2 P2 macro-F1 difference | EXP-011 | paired_comparisons.P2_minus_P0.macro_f1 |
+| C2 P2 Brier harm | EXP-011 | paired_comparisons.P2_minus_P0.multiclass_brier |
+| C3 chance failure | EXP-011 | results.<P0\|P1\|P2>.chance_failure_probability |
+| C4 model-independence failure | EXP-020 | fault_classification.model_independence |
+| C5/C6 load decodability | EXP-020 | environment_probe.results.<P0\|P2>.summary |
+| C7 conformal accepted errors | EXP-012 | results.source_ood_conformal.summary |
+| C8 hybrid coverage/errors | EXP-012 | results.hybrid.summary |

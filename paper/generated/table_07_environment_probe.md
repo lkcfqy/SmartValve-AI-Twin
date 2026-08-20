@@ -1,0 +1,4 @@
+| Representation | Load macro F1 | trap macro F1 | sin macro F1 | Held-out repetition used as reference |
+|---|---|---|---|---|
+| P0 | 1.0000 ± 0.0000 | 1.0000 ± 0.0000 | 1.0000 ± 0.0000 | no |
+| P2 | 0.9034 ± 0.0050 | 0.9075 ± 0.0063 | 0.9000 ± 0.0077 | no |

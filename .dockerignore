@@ -15,8 +15,12 @@ data/backups/*
 !data/backups/.gitkeep
 artifacts/benchmark/*/records.csv
 artifacts/validation/*/records.csv
+artifacts/external/
+artifacts/research/
 artifacts/sbom*.json
 artifacts/security/*
+output/
+tmp/
 SmartValve_AI_Twin_Project_Plan.md:Zone.Identifier
 build
 dist

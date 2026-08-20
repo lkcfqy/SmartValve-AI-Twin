@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=69", "wheel"]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -9,6 +9,7 @@ description = "ValveDNA and WNTR two-layer digital twin for explainable smart-va
 readme = "README.md"
 requires-python = ">=3.11,<3.15"
 license = "Apache-2.0"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
 authors = [{name = "SmartValve AI Twin contributors"}]
 dependencies = [
   "fastapi>=0.115,<1",
@@ -31,8 +32,15 @@ dependencies = [
 benchmark = [
   "scikit-learn>=1.6,<2",
 ]
+research = [
+  "scikit-learn>=1.6,<2",
+  "torch==2.13.0",
+]
 dev = [
+  "CairoSVG==2.9.0",
+  "defusedxml==0.7.1",
   "httpx2>=2.5,<3",
+  "pypdf==6.16.1",
   "pytest>=9.0.3,<10",
   "pytest-cov>=6,<8",
   "ruff>=0.5,<1",
@@ -72,4 +80,17 @@ omit = [
   "src/smartvalve/launcher.py",
   "src/smartvalve/validation.py",
   "src/smartvalve/experiments/cranfield_benchmark.py",
+  "src/smartvalve/experiments/cranfield_baselines.py",
+  "src/smartvalve/experiments/cranfield_bootstrap.py",
+  "src/smartvalve/experiments/cranfield_causal_audit.py",
+  "src/smartvalve/experiments/cranfield_selective.py",
+  "src/smartvalve/experiments/dg_losses.py",
+  "src/smartvalve/experiments/dg_training.py",
+  "src/smartvalve/experiments/paper_artifacts.py",
+  "src/smartvalve/experiments/pirl_sore.py",
+  "src/smartvalve/experiments/pirl_development.py",
+  "src/smartvalve/experiments/pirl_ablation.py",
+  "src/smartvalve/experiments/pirl_ratio_selection.py",
+  "src/smartvalve/experiments/uci_hydraulic_access.py",
+  "src/smartvalve/experiments/uci_hydraulic_bootstrap.py",
 ]

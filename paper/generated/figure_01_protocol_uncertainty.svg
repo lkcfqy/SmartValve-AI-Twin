@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="515" viewBox="0 0 1040 515" role="img" aria-labelledby="title desc">
+<title id="title">Reference-access bootstrap intervals</title>
+<desc id="desc">Generated deterministically from locked SmartValve experiment metrics.</desc>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="500.0" y="32.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">Reference access changes average and calibration risk</text>
+<text x="500.0" y="54.0" text-anchor="middle" font-size="13" font-weight="400" fill="#475569">Point estimates and paired physical-block 95% percentile intervals</text>
+<line x1="75" y1="420" x2="465" y2="420" stroke="#334155"/>
+<line x1="75" y1="85" x2="75" y2="420" stroke="#334155"/>
+<line x1="75" y1="420.0" x2="465" y2="420.0" stroke="#e2e8f0" stroke-width="1"/>
+<text x="65.0" y="425.0" text-anchor="end" font-size="12" font-weight="400" fill="#0f172a">0.70</text>
+<line x1="75" y1="343.8636363636363" x2="465" y2="343.8636363636363" stroke="#e2e8f0" stroke-width="1"/>
+<text x="65.0" y="348.9" text-anchor="end" font-size="12" font-weight="400" fill="#0f172a">0.75</text>
+<line x1="75" y1="267.72727272727263" x2="465" y2="267.72727272727263" stroke="#e2e8f0" stroke-width="1"/>
+<text x="65.0" y="272.7" text-anchor="end" font-size="12" font-weight="400" fill="#0f172a">0.80</text>
+<line x1="75" y1="191.59090909090915" x2="465" y2="191.59090909090915" stroke="#e2e8f0" stroke-width="1"/>
+<text x="65.0" y="196.6" text-anchor="end" font-size="12" font-weight="400" fill="#0f172a">0.85</text>
+<line x1="75" y1="115.45454545454544" x2="465" y2="115.45454545454544" stroke="#e2e8f0" stroke-width="1"/>
+<text x="65.0" y="120.5" text-anchor="end" font-size="12" font-weight="400" fill="#0f172a">0.90</text>
+<text x="23.0" y="252.5" text-anchor="middle" font-size="13" font-weight="400" fill="#0f172a" transform="rotate(-90 23 252.5)">Macro F1</text>
+<line x1="580" y1="420" x2="970" y2="420" stroke="#334155"/>
+<line x1="580" y1="85" x2="580" y2="420" stroke="#334155"/>
+<line x1="580" y1="420.0" x2="970" y2="420.0" stroke="#e2e8f0" stroke-width="1"/>
+<text x="570.0" y="425.0" text-anchor="end" font-size="12" font-weight="400" fill="#0f172a">0.15</text>
+<line x1="580" y1="365.96774193548384" x2="970" y2="365.96774193548384" stroke="#e2e8f0" stroke-width="1"/>
+<text x="570.0" y="371.0" text-anchor="end" font-size="12" font-weight="400" fill="#0f172a">0.20</text>
+<line x1="580" y1="311.93548387096774" x2="970" y2="311.93548387096774" stroke="#e2e8f0" stroke-width="1"/>
+<text x="570.0" y="316.9" text-anchor="end" font-size="12" font-weight="400" fill="#0f172a">0.25</text>
+<line x1="580" y1="257.90322580645164" x2="970" y2="257.90322580645164" stroke="#e2e8f0" stroke-width="1"/>
+<text x="570.0" y="262.9" text-anchor="end" font-size="12" font-weight="400" fill="#0f172a">0.30</text>
+<line x1="580" y1="203.87096774193552" x2="970" y2="203.87096774193552" stroke="#e2e8f0" stroke-width="1"/>
+<text x="570.0" y="208.9" text-anchor="end" font-size="12" font-weight="400" fill="#0f172a">0.35</text>
+<line x1="580" y1="149.8387096774194" x2="970" y2="149.8387096774194" stroke="#e2e8f0" stroke-width="1"/>
+<text x="570.0" y="154.8" text-anchor="end" font-size="12" font-weight="400" fill="#0f172a">0.40</text>
+<line x1="580" y1="95.80645161290323" x2="970" y2="95.80645161290323" stroke="#e2e8f0" stroke-width="1"/>
+<text x="570.0" y="100.8" text-anchor="end" font-size="12" font-weight="400" fill="#0f172a">0.45</text>
+<text x="528.0" y="252.5" text-anchor="middle" font-size="13" font-weight="400" fill="#0f172a" transform="rotate(-90 528 252.5)">Multiclass Brier (lower is better)</text>
+<text x="270.0" y="78.0" text-anchor="middle" font-size="15" font-weight="600" fill="#0f172a">Fault classification</text>
+<text x="775.0" y="78.0" text-anchor="middle" font-size="15" font-weight="600" fill="#0f172a">Probability quality</text>
+<line x1="155" y1="207.28" x2="155" y2="159.57" stroke="#2563eb" stroke-width="4"/>
+<line x1="147" y1="207.28" x2="163" y2="207.28" stroke="#2563eb" stroke-width="3"/>
+<line x1="147" y1="159.57" x2="163" y2="159.57" stroke="#2563eb" stroke-width="3"/>
+<circle cx="155" cy="184.27" r="7" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<line x1="660" y1="369.05" x2="660" y2="343.32" stroke="#2563eb" stroke-width="4"/>
+<line x1="652" y1="369.05" x2="668" y2="369.05" stroke="#2563eb" stroke-width="3"/>
+<line x1="652" y1="343.32" x2="668" y2="343.32" stroke="#2563eb" stroke-width="3"/>
+<circle cx="660" cy="356.56" r="7" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="155.0" y="445.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">P0</text>
+<text x="660.0" y="445.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">P0</text>
+<line x1="270" y1="371.18" x2="270" y2="308.36" stroke="#d97706" stroke-width="4"/>
+<line x1="262" y1="371.18" x2="278" y2="371.18" stroke="#d97706" stroke-width="3"/>
+<line x1="262" y1="308.36" x2="278" y2="308.36" stroke="#d97706" stroke-width="3"/>
+<circle cx="270" cy="340.31" r="7" fill="#d97706" stroke="#ffffff" stroke-width="2"/>
+<line x1="775" y1="147.75" x2="775" y2="114.07" stroke="#d97706" stroke-width="4"/>
+<line x1="767" y1="147.75" x2="783" y2="147.75" stroke="#d97706" stroke-width="3"/>
+<line x1="767" y1="114.07" x2="783" y2="114.07" stroke="#d97706" stroke-width="3"/>
+<circle cx="775" cy="131.53" r="7" fill="#d97706" stroke="#ffffff" stroke-width="2"/>
+<text x="270.0" y="445.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">P1</text>
+<text x="775.0" y="445.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">P1</text>
+<line x1="385" y1="190.88" x2="385" y2="137.22" stroke="#059669" stroke-width="4"/>
+<line x1="377" y1="190.88" x2="393" y2="190.88" stroke="#059669" stroke-width="3"/>
+<line x1="377" y1="137.22" x2="393" y2="137.22" stroke="#059669" stroke-width="3"/>
+<circle cx="385" cy="161.26" r="7" fill="#059669" stroke="#ffffff" stroke-width="2"/>
+<line x1="890" y1="329.60" x2="890" y2="301.88" stroke="#059669" stroke-width="4"/>
+<line x1="882" y1="329.60" x2="898" y2="329.60" stroke="#059669" stroke-width="3"/>
+<line x1="882" y1="301.88" x2="898" y2="301.88" stroke="#059669" stroke-width="3"/>
+<circle cx="890" cy="316.08" r="7" fill="#059669" stroke="#ffffff" stroke-width="2"/>
+<text x="385.0" y="445.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">P2</text>
+<text x="890.0" y="445.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">P2</text>
+<circle cx="180" cy="485" r="6" fill="#2563eb"/>
+<text x="192.0" y="490.0" text-anchor="start" font-size="12" font-weight="400" fill="#0f172a">P0: no target trace</text>
+<circle cx="455" cy="485" r="6" fill="#d97706"/>
+<text x="467.0" y="490.0" text-anchor="start" font-size="12" font-weight="400" fill="#0f172a">P1: source-linear reference</text>
+<circle cx="730" cy="485" r="6" fill="#059669"/>
+<text x="742.0" y="490.0" text-anchor="start" font-size="12" font-weight="400" fill="#0f172a">P2: matched target reference</text>
+</g>
+</svg>

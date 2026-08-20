@@ -2,7 +2,7 @@
   {
     "source_id": "cranfield",
     "filename": "Normal.mat",
-    "url": "https://cran-test-dspace.koha-ptfs.co.uk/bitstreams/e277afc2-444a-403f-bb64-dfc06549353f/download",
+    "url": "https://cran-test-dspace.koha-ptfs.co.uk/server/api/core/bitstreams/e277afc2-444a-403f-bb64-dfc06549353f/content",
     "license_name": "CC BY 4.0",
     "citation_url": "https://doi.org/10.17862/cranfield.rd.5097649",
     "description": "Cranfield real electromechanical linear-actuator normal tests",
@@ -12,7 +12,7 @@
   {
     "source_id": "cranfield",
     "filename": "LackLubrication2.mat",
-    "url": "https://cran-test-dspace.koha-ptfs.co.uk/bitstreams/04a1a1ae-7df4-43c8-a03e-25b0987e06a5/download",
+    "url": "https://cran-test-dspace.koha-ptfs.co.uk/server/api/core/bitstreams/04a1a1ae-7df4-43c8-a03e-25b0987e06a5/content",
     "license_name": "CC BY 4.0",
     "citation_url": "https://doi.org/10.17862/cranfield.rd.5097649",
     "description": "Cranfield real actuator seeded lack-of-lubrication stage 2 tests",
@@ -22,7 +22,7 @@
   {
     "source_id": "cranfield",
     "filename": "Backlash2.mat",
-    "url": "https://cran-test-dspace.koha-ptfs.co.uk/bitstreams/4eff4df8-0ec1-48ea-af94-25a8af97f1ed/download",
+    "url": "https://cran-test-dspace.koha-ptfs.co.uk/server/api/core/bitstreams/4eff4df8-0ec1-48ea-af94-25a8af97f1ed/content",
     "license_name": "CC BY 4.0",
     "citation_url": "https://doi.org/10.17862/cranfield.rd.5097649",
     "description": "Cranfield real actuator seeded backlash stage 2 tests",
@@ -32,11 +32,21 @@
   {
     "source_id": "skab",
     "filename": "skab_valve1_1.csv",
-    "url": "https://raw.githubusercontent.com/waico/SKAB/master/data/valve1/1.csv",
+    "url": "https://raw.githubusercontent.com/waico/SKAB/b2c0d46c2971dcbfe71e26087b6d231998bb91c2/data/valve1/1.csv",
     "license_name": "GPL-3.0 repository license",
     "citation_url": "https://github.com/waico/SKAB",
     "description": "SKAB real water-loop valve-closure experiment",
     "bytes": 110330,
     "sha256": "fe4493bf805baef4e6dfb864094275d8cc2ea80a16b3735e2752b18b6aefd812"
+  },
+  {
+    "source_id": "uci_hydraulic",
+    "filename": "uci_hydraulic.zip",
+    "url": "https://archive.ics.uci.edu/static/public/447/condition%2Bmonitoring%2Bof%2Bhydraulic%2Bsystems.zip",
+    "license_name": "CC BY 4.0",
+    "citation_url": "https://doi.org/10.24432/C5CW21",
+    "description": "UCI physical hydraulic-rig cycles with factorial valve and context conditions",
+    "bytes": 76601704,
+    "sha256": "24128aad2ee45eea7e6b63ebbd9992cdf25d0483a2cebefbfc13bc69079af1f2"
   }
 ]

@@ -1,0 +1,58 @@
+{
+  "schema_version": "smartvalve-paderborn-selective-index-reconciliation-addendum-0.1.0",
+  "status": "authorized_after_matching_unmodified_validator_failure",
+  "attestation": {
+    "unmodified_selective_validator_failed_first": true,
+    "failure_preceded_selective_metric_interpretation": true,
+    "failure_field": "compound_predictions.row_index",
+    "model_outputs_modified": false,
+    "performance_dependent_logic": false
+  },
+  "artifacts": {
+    "selective_reconciliation_source": {
+      "path": "scripts/paderborn_selective_compound_index_reconciliation.py",
+      "bytes": 7861,
+      "sha256": "b64118ce6bc8a3644b41d401949556765fe8d6b06eace00312f0a24e22027057"
+    },
+    "base_reconciliation_source": {
+      "path": "scripts/paderborn_compound_index_reconciliation.py",
+      "bytes": 16768,
+      "sha256": "9535cfadf5204759f94a345574fae56618d8b23902dc308644643bade8e9c4de"
+    },
+    "reconciliation_protocol": {
+      "path": "research/protocols/paderborn_compound_row_index_reconciliation_v0.1.md",
+      "bytes": 4534,
+      "sha256": "72702a2d66e01dafe5a911d503364cc7b888f69d4f1cb118e675883d73f4cddd"
+    },
+    "base_reconciliation_spec": {
+      "path": "research/protocols/paderborn_compound_row_index_reconciliation_spec_v0.1.json",
+      "bytes": 3509,
+      "sha256": "39b13483e6a9bc7dfeccfb1895726971295106fbd88c1e68a94eed304391c7db"
+    },
+    "selective_expected_manifest": {
+      "path": "artifacts/research/runs/EXP-411-PADERBORN-SELECTIVE-EXPECTED-AMENDED__20260818T143741.643416Z__frozen-amended-selective-expected-topology/outputs/expected_manifest.json",
+      "bytes": 11391,
+      "sha256": "aa73cf687ec7ba3a0a88b1c4e4a57c176d62f1c8cb77a6627073c6fbd08c0a43"
+    },
+    "selective_metrics": {
+      "path": "artifacts/research/runs/EXP-419-PADERBORN-D2-SELECTIVE__20260818T155301.056559Z__sealed-source-oof-selective-evaluation/outputs/metrics.json",
+      "bytes": 5125859,
+      "sha256": "234a9b3f3d2809be7d5f670dfb752248596d0d8c1171cc47434aa96ea92247aa"
+    },
+    "failed_selective_validation_command": {
+      "path": "artifacts/research/runs/EXP-420-PADERBORN-D2-SELECTIVE-VALIDATE__20260818T161904.131102Z__unmodified-manifest-locked-selective-validation/command.json",
+      "bytes": 780,
+      "sha256": "48e4f40baf56f89e79ab6742f56dcb73af7059e6b021d2e2b500d24d9a6e0f2f"
+    },
+    "failed_selective_validation_metadata": {
+      "path": "artifacts/research/runs/EXP-420-PADERBORN-D2-SELECTIVE-VALIDATE__20260818T161904.131102Z__unmodified-manifest-locked-selective-validation/metadata.json",
+      "bytes": 11607,
+      "sha256": "b053a700f3977b6a37473e1eb7142c5d0369391b34fd3d67dfc5fa06c6463b81"
+    },
+    "failed_selective_validation_stderr": {
+      "path": "artifacts/research/runs/EXP-420-PADERBORN-D2-SELECTIVE-VALIDATE__20260818T161904.131102Z__unmodified-manifest-locked-selective-validation/stderr.log",
+      "bytes": 875,
+      "sha256": "1cc211cb0d9bd7f9a197871e1117b6400890d46583092e886b736b1ecce594ac"
+    }
+  }
+}

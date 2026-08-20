@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from pathlib import Path
-
 import pandas as pd
 import pytest
 
+from smartvalve.config import project_root
 from smartvalve.data.contract import validate_valve_frame
 from smartvalve.data.cranfield import load_cranfield_pair
 from smartvalve.data.external import cache_directory
@@ -52,4 +51,7 @@ def test_real_skab_validation_reports_honest_metrics() -> None:
 
 
 def test_external_cache_is_outside_generated_data() -> None:
-    assert Path("external") in cache_directory().parents or cache_directory().name == "external"
+    cache = cache_directory().resolve()
+    generated = (project_root() / "data" / "generated").resolve()
+    assert cache != generated
+    assert generated not in cache.parents

@@ -1,0 +1,4 @@
+| Method | Target coverage | Selective risk | Effective accuracy | Macro F1 (abstention=error) | Minimum environment coverage | Zero-coverage groups |
+| --- | --- | --- | --- | --- | --- | --- |
+| ERM | 0.708244 | 0.614684 | 0.295410 | 0.236134 | 0.164557 | 0.000000 |
+| PIRL (ratio) | 0.717568 | 0.611661 | 0.278209 | 0.227618 | 0.000000 | 3.000000 |

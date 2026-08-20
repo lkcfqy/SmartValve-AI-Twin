@@ -1,0 +1,14 @@
+\begin{tabular}{lrr}
+\hline
+Claim & Experiment & JSON field \\
+\hline
+C1 P1 macro-F1 harm & EXP-011 & paired\_comparisons.P1\_minus\_P0.macro\_f1 \\
+C2 P2 macro-F1 difference & EXP-011 & paired\_comparisons.P2\_minus\_P0.macro\_f1 \\
+C2 P2 Brier harm & EXP-011 & paired\_comparisons.P2\_minus\_P0.multiclass\_brier \\
+C3 chance failure & EXP-011 & results.<P0|P1|P2>.chance\_failure\_probability \\
+C4 model-independence failure & EXP-020 & fault\_classification.model\_independence \\
+C5/C6 load decodability & EXP-020 & environment\_probe.results.<P0|P2>.summary \\
+C7 conformal accepted errors & EXP-012 & results.source\_ood\_conformal.summary \\
+C8 hybrid coverage/errors & EXP-012 & results.hybrid.summary \\
+\hline
+\end{tabular}

@@ -1,0 +1,147 @@
+{
+  "schema_version": "smartvalve-paderborn-feature-contract-amendment-0.5.0",
+  "status": "authorized_outcome_blind_bulk_feature_extraction",
+  "frozen_date": "2026-08-18",
+  "original_seal": {
+    "path": "artifacts/research/runs/EXP-374-PADERBORN-SEAL__20260818T130717.492129Z__final-31-role-pre-d2-prospective-seal/outputs/prospective_seal.json",
+    "sha256": "b907e1e0e6876e1e35166a526a6d019df83e1587246784588fb0bda44a71efe1"
+  },
+  "structure_probe": {
+    "path": "artifacts/research/runs/EXP-378-PADERBORN-PROBE-RERUN__20260818T131429.982867Z__amendment-gated-same-mat-structure-probe/outputs/structure_probe.json",
+    "sha256": "779cf7f2a96e6ef6b5b920360598f5c63f3f1d219ad4ce00876fd589bdede44c"
+  },
+  "predecessor_amendment": {
+    "path": "research/protocols/paderborn_feature_contract_amendment_v0.4.json",
+    "sha256": "fe731f62c37a7730f677d171b36b981590d87ae7307e23116d25074d9ad11a6e"
+  },
+  "structure_inventory": {
+    "path": "artifacts/research/runs/EXP-400-FULL-STRUCTURE-INVENTORY__20260818T135002.829285Z__fault-tolerant-2560-mat-shape-dtype-inventory/outputs/full_structure_inventory.json",
+    "sha256": "da1252d65af1dd99fa3b7cf410317905c62f72668fc0e5f6305c59f208a83895"
+  },
+  "structure_inventory_amendment": {
+    "path": "research/protocols/paderborn_structure_inventory_amendment_v0.3.json",
+    "sha256": "d59b33bebf439409d08d581530fe5d14ac344f7bf7d4c64219a51dcb582c0bfc"
+  },
+  "mat_recovery_probe": {
+    "path": "artifacts/research/runs/EXP-403-MAT-RECOVERY-PROBE__20260818T135759.607969Z__documented-root-isolation-on-ka08-failure/outputs/mat_recovery_probe.json",
+    "sha256": "d9e7eebb77ba3647f6e15e2e43ed6cc677a50e2f3e244916f5ffce74e502b437"
+  },
+  "mat_recovery_amendment": {
+    "path": "research/protocols/paderborn_mat_recovery_amendment_v0.1.json",
+    "sha256": "bba4325a4a835e5471c7c9f46da4548b27240d14bfe125591224d1a3259dc025"
+  },
+  "feature_contract": {
+    "channels": [
+      "vibration",
+      "current_u",
+      "current_v"
+    ],
+    "sampling_hz": 64000,
+    "probe_stored_samples_per_channel": 256001,
+    "observed_minimum_stored_samples_per_channel": 249940,
+    "observed_maximum_stored_samples_per_channel": 299038,
+    "within_measurement_channel_lengths_must_match": true,
+    "retained_samples_per_channel": 256000,
+    "endpoint_policy": "linear_resample_full_measurement_to_256000",
+    "feature_count": 72,
+    "structurally_excluded_filenames": [
+      "N15_M01_F10_KA08_2.mat"
+    ]
+  },
+  "authorization": {
+    "archive_count": 32,
+    "locked_measurement_count": 2560,
+    "retained_measurement_count": 2559,
+    "structurally_excluded_measurement_count": 1,
+    "bulk_extraction_permitted": true,
+    "feature_computation_permitted": true,
+    "model_fitting_permitted": false,
+    "model_outcome_access_permitted": false,
+    "target_guided_reselection_permitted": false
+  },
+  "non_mat_policy": {
+    "exact_expected_mat_inventory_required": true,
+    "regular_non_mat_files": "hash_record_and_quarantine_without_parsing",
+    "links_and_special_files": "reject",
+    "quarantined_files_may_influence_features_or_models": false
+  },
+  "attestation": {
+    "structure_only_information_used_for_final_rule": true,
+    "signal_values_or_statistics_observed": false,
+    "transient_features_computed_before_final_rule": true,
+    "persisted_feature_values_observed": false,
+    "model_outcomes_inspected": false
+  },
+  "artifacts": {
+    "amendment_protocol": {
+      "path": "research/protocols/paderborn_feature_contract_amendment_v0.5.md",
+      "bytes": 7116,
+      "sha256": "4a5f8b4e6b51c81afb2384079eb2bdf0fc786d1ca8abfe61d84ece70536f9a31"
+    },
+    "structure_probe_metadata": {
+      "path": "artifacts/research/runs/EXP-378-PADERBORN-PROBE-RERUN__20260818T131429.982867Z__amendment-gated-same-mat-structure-probe/metadata.json",
+      "bytes": 11533,
+      "sha256": "e2732717aebd7bd1fb1a5b95d7812fb25636517226243eca345adeae2df43e78"
+    },
+    "structure_inventory_metadata": {
+      "path": "artifacts/research/runs/EXP-400-FULL-STRUCTURE-INVENTORY__20260818T135002.829285Z__fault-tolerant-2560-mat-shape-dtype-inventory/metadata.json",
+      "bytes": 12124,
+      "sha256": "6716c15a5ed891590f341d79eef5c01d362906f12b6fe808b41b64f229d8849b"
+    },
+    "mat_recovery_probe_metadata": {
+      "path": "artifacts/research/runs/EXP-403-MAT-RECOVERY-PROBE__20260818T135759.607969Z__documented-root-isolation-on-ka08-failure/metadata.json",
+      "bytes": 11633,
+      "sha256": "256696afcde0b0a50cdd79757f59520be67ded0027dac6a93401844b551a4132"
+    },
+    "feature_contract_source": {
+      "path": "src/smartvalve/data/paderborn_features.py",
+      "bytes": 4436,
+      "sha256": "ef6b78e6daff233c607e118bb56e5e96c291018f2a0a6844cc83fc6c69091e63"
+    },
+    "mat_parser_source": {
+      "path": "src/smartvalve/data/paderborn_mat.py",
+      "bytes": 8926,
+      "sha256": "1c858ef261a1a38f956742365a50e78a66b8f486905994c411c9117b90c7f728"
+    },
+    "feature_run_source": {
+      "path": "src/smartvalve/experiments/paderborn_feature_run.py",
+      "bytes": 31589,
+      "sha256": "e88cc5aa8a78d18a47c1deab04b2634a3d2ce9c45bd02555213bda55bd0643cd"
+    },
+    "partition_source": {
+      "path": "src/smartvalve/experiments/paderborn_partitions.py",
+      "bytes": 9395,
+      "sha256": "b5e3b663dd6181a505c4c4710862e313087010b557f018e565ff4e8b7e7481bf"
+    },
+    "domain_source": {
+      "path": "src/smartvalve/experiments/paderborn_domain.py",
+      "bytes": 5949,
+      "sha256": "41e070c236a5000f63fc6bafb2a765dd00d53a51a0a5722fba8673ebf3b46aee"
+    },
+    "feature_contract_tests": {
+      "path": "tests/test_paderborn_features.py",
+      "bytes": 2684,
+      "sha256": "77af5bfdf7a2ed8ccdca7ff4d44d22ad4c8a37369c71c2f5d6e973f11b7062f3"
+    },
+    "mat_parser_tests": {
+      "path": "tests/test_paderborn_mat.py",
+      "bytes": 5963,
+      "sha256": "374b7ce2d3400efffc7d4fadfbf2575479584ba3740d42af5f9637121ff8ae08"
+    },
+    "feature_run_tests": {
+      "path": "tests/test_paderborn_feature_run.py",
+      "bytes": 12743,
+      "sha256": "2411522836c623d33d5d2fccf9053efcece60d03925bdf256950f38ea64414f6"
+    },
+    "partition_tests": {
+      "path": "tests/test_paderborn_partitions.py",
+      "bytes": 5900,
+      "sha256": "a917e7c83e48c912936b22c2d9c6e0b61c738119460a55369ad34ec5d27a06ee"
+    },
+    "domain_tests": {
+      "path": "tests/test_paderborn_domain.py",
+      "bytes": 3663,
+      "sha256": "acad8ce02104f3014e30f233adcccde8426c86ad7f58496db7d4fc3a5e5bfd15"
+    }
+  }
+}

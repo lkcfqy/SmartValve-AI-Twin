@@ -1,0 +1,106 @@
+{
+  "schema_version": "smartvalve-paderborn-feature-contract-amendment-0.3.0",
+  "status": "authorized_outcome_blind_bulk_feature_extraction",
+  "frozen_date": "2026-08-18",
+  "original_seal": {
+    "path": "artifacts/research/runs/EXP-374-PADERBORN-SEAL__20260818T130717.492129Z__final-31-role-pre-d2-prospective-seal/outputs/prospective_seal.json",
+    "sha256": "b907e1e0e6876e1e35166a526a6d019df83e1587246784588fb0bda44a71efe1"
+  },
+  "structure_probe": {
+    "path": "artifacts/research/runs/EXP-378-PADERBORN-PROBE-RERUN__20260818T131429.982867Z__amendment-gated-same-mat-structure-probe/outputs/structure_probe.json",
+    "sha256": "779cf7f2a96e6ef6b5b920360598f5c63f3f1d219ad4ce00876fd589bdede44c"
+  },
+  "predecessor_amendment": {
+    "path": "research/protocols/paderborn_feature_contract_amendment_v0.2.json",
+    "sha256": "64230ca30dff300ff14286b21f23ab784cb1fa793516f53a3eb4e829b6e58ae9"
+  },
+  "feature_contract": {
+    "channels": [
+      "vibration",
+      "current_u",
+      "current_v"
+    ],
+    "sampling_hz": 64000,
+    "probe_stored_samples_per_channel": 256001,
+    "allowed_stored_samples_per_channel": [
+      256000,
+      256001
+    ],
+    "retained_samples_per_channel": 256000,
+    "endpoint_policy": "retain_first_256000_drop_optional_final_endpoint",
+    "feature_count": 72
+  },
+  "authorization": {
+    "archive_count": 32,
+    "measurement_count": 2560,
+    "bulk_extraction_permitted": true,
+    "feature_computation_permitted": true,
+    "model_fitting_permitted": false,
+    "model_outcome_access_permitted": false,
+    "target_guided_reselection_permitted": false
+  },
+  "non_mat_policy": {
+    "exact_expected_mat_inventory_required": true,
+    "regular_non_mat_files": "hash_record_and_quarantine_without_parsing",
+    "links_and_special_files": "reject",
+    "quarantined_files_may_influence_features_or_models": false
+  },
+  "attestation": {
+    "structure_only_information_used": true,
+    "signal_values_or_statistics_observed": false,
+    "signal_features_computed": false,
+    "model_outcomes_inspected": false
+  },
+  "artifacts": {
+    "amendment_protocol": {
+      "path": "research/protocols/paderborn_feature_contract_amendment_v0.3.md",
+      "bytes": 4270,
+      "sha256": "e5b938fa6b69d486d107d67f573dd39c20e7ef458a6e396a72440e0a9bbe08a5"
+    },
+    "structure_probe_metadata": {
+      "path": "artifacts/research/runs/EXP-378-PADERBORN-PROBE-RERUN__20260818T131429.982867Z__amendment-gated-same-mat-structure-probe/metadata.json",
+      "bytes": 11533,
+      "sha256": "e2732717aebd7bd1fb1a5b95d7812fb25636517226243eca345adeae2df43e78"
+    },
+    "failed_bulk_metadata": {
+      "path": "artifacts/research/runs/EXP-385-PADERBORN-FEATURES__20260818T132849.722218Z__v02-quarantined-outcome-blind-features/metadata.json",
+      "bytes": 11665,
+      "sha256": "c36c685ea804d3a320e149859c1d7e6b55fca355ab7f8577a30258dae4d1ee23"
+    },
+    "failed_bulk_stderr": {
+      "path": "artifacts/research/runs/EXP-385-PADERBORN-FEATURES__20260818T132849.722218Z__v02-quarantined-outcome-blind-features/stderr.log",
+      "bytes": 1665,
+      "sha256": "f8a9dde4f0ca3996250d776b722811ac245b23995fed4310b1389a52ca92e81a"
+    },
+    "feature_contract_source": {
+      "path": "src/smartvalve/data/paderborn_features.py",
+      "bytes": 4174,
+      "sha256": "477970c99170b45256196430b09807d37c043379b82576147a62fb2ce2269bda"
+    },
+    "mat_parser_source": {
+      "path": "src/smartvalve/data/paderborn_mat.py",
+      "bytes": 7122,
+      "sha256": "07ab9b5c4a4ecdbee597bf6b5dc03d8ced93e24df91960e330310af828a72ab8"
+    },
+    "feature_run_source": {
+      "path": "src/smartvalve/experiments/paderborn_feature_run.py",
+      "bytes": 27027,
+      "sha256": "f40a0647901eba13631c614ced94961f27b4abe9f9989672a8934553b42ea9c8"
+    },
+    "feature_contract_tests": {
+      "path": "tests/test_paderborn_features.py",
+      "bytes": 2433,
+      "sha256": "1853da59462bfef56cef269a724ae0b93d65308a8be2f0c8cd09d2e002765aa6"
+    },
+    "mat_parser_tests": {
+      "path": "tests/test_paderborn_mat.py",
+      "bytes": 4824,
+      "sha256": "83286457632a942e629371249a9752af3d442e00364ec69513d65f21d4f69fa8"
+    },
+    "feature_run_tests": {
+      "path": "tests/test_paderborn_feature_run.py",
+      "bytes": 9669,
+      "sha256": "3e59e20022a34eb1ea77c646a700d4f0897edf5f7e69f629561e0b85eb0b2fcd"
+    }
+  }
+}

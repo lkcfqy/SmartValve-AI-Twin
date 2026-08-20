@@ -1,0 +1,114 @@
+{
+  "generator_version": "smartvalve-multirig-paper-artifacts-0.1.0",
+  "inputs": {
+    "base_metrics": {
+      "path": "artifacts/research/runs/EXP-417-PADERBORN-D2-BASE__20260818T150037.112666Z__sealed-one-shot-nine-method-external-evaluation/outputs/metrics.json",
+      "sha256": "167d2e04bede2dfbd5b37eb6c63bbef8b51b6c3c58d8f68624fca3cf64fa1c95"
+    },
+    "selective_metrics": {
+      "path": "artifacts/research/runs/EXP-419-PADERBORN-D2-SELECTIVE__20260818T155301.056559Z__sealed-source-oof-selective-evaluation/outputs/metrics.json",
+      "sha256": "234a9b3f3d2809be7d5f670dfb752248596d0d8c1171cc47434aa96ea92247aa"
+    },
+    "bootstrap_metrics": {
+      "path": "artifacts/research/runs/EXP-421B-PADERBORN-D2-BOOTSTRAP__20260818T162752.972286Z__reconciled-frozen-bearing-identity-paired-bootst/outputs/metrics.json",
+      "sha256": "465cfe62da9b60c75484992b6b0d2b13cb97197f5e9b390955086160986b69f8"
+    },
+    "family_metrics": {
+      "path": "artifacts/research/runs/EXP-422B-CONFIRMATORY-FAMILY__20260818T163128.647362Z__reconciled-six-test-holm-family/outputs/metrics.json",
+      "sha256": "0143b1e6703a1941f636001b298ce29837386258127068e715fe4ffe73854476"
+    }
+  },
+  "decision": {
+    "family_size": 6,
+    "alpha": 0.05,
+    "correction": "Holm step-down family-wise error control",
+    "positive_test_count": 1,
+    "materially_harmful_test_count": 0,
+    "all_six_confirmatory_positive": false,
+    "dataset_decisions": {
+      "cranfield": {
+        "confirmatory_positive_endpoints": [],
+        "materially_harmful_endpoints": []
+      },
+      "paderborn": {
+        "confirmatory_positive_endpoints": [],
+        "materially_harmful_endpoints": []
+      },
+      "uci_hydraulic": {
+        "confirmatory_positive_endpoints": [
+          "selective_risk_at_source_50pct"
+        ],
+        "materially_harmful_endpoints": []
+      }
+    },
+    "datasets_with_confirmatory_improvement": [
+      "uci_hydraulic"
+    ],
+    "datasets_with_material_harm": [],
+    "internal_multi_dataset_evidence_gate_passed": false,
+    "internal_multi_dataset_evidence_gate_rule": "At least one confirmatory-positive endpoint on at least two datasets and no materially harmful endpoint with CI excluding zero on any dataset.",
+    "claim_rule": "Each dataset-endpoint claim requires effect >= 0.01, percentile CI low > 0, and Holm-adjusted p <= 0.05; no subset or pooled replacement is permitted."
+  },
+  "outputs": [
+    {
+      "path": "MULTIRIG_FIGURE_CAPTIONS.md",
+      "bytes": 361,
+      "sha256": "506c5cd9012d6b3e842ef239a6cea5fdbf75e299ad5a292bca3fbe313cd2947e"
+    },
+    {
+      "path": "figure_05_confirmatory_forest.svg",
+      "bytes": 4463,
+      "sha256": "43a046084b4d1d55c0e4ab421d1ec63ebc84cb3bd8f98f6fc6625a13a0c272d6"
+    },
+    {
+      "path": "table_08_paderborn_closed_set.csv",
+      "bytes": 931,
+      "sha256": "c1d1b836f2cae688c9f830d6923f302afaf414fb1892e0357561f29622e2872f"
+    },
+    {
+      "path": "table_08_paderborn_closed_set.md",
+      "bytes": 1109,
+      "sha256": "de0d0180efbcde2fcc0f0425bc3bae4c94e9f3e82735f4f5c0a1afaca93a1aba"
+    },
+    {
+      "path": "table_08_paderborn_closed_set.tex",
+      "bytes": 1130,
+      "sha256": "e16ea5eee0f8e988ef5cb6ffe3570fa36345575ec8995fdb89d1cbcd4354564a"
+    },
+    {
+      "path": "table_09_paderborn_selective.csv",
+      "bytes": 330,
+      "sha256": "2b7ccef9f7188803add16d784f2cebeb9a037a79d51f52061e6ed5fceecadf05"
+    },
+    {
+      "path": "table_09_paderborn_selective.md",
+      "bytes": 352,
+      "sha256": "8749b91f9d4e968f3293216c9e0d262aa1b1ca2c933aea0c6d5a9fbc49a0ede3"
+    },
+    {
+      "path": "table_09_paderborn_selective.tex",
+      "bytes": 361,
+      "sha256": "0264f5a4f01fc1aea4242cad8f350bcbd170e5bff305f96b7ce54958da9b534c"
+    },
+    {
+      "path": "table_10_confirmatory_family.csv",
+      "bytes": 915,
+      "sha256": "a88fc0bf5b16a4047544ec15e8a5d0a7a8a5286f331a72e166fd2f2fc08dedd8"
+    },
+    {
+      "path": "table_10_confirmatory_family.md",
+      "bytes": 813,
+      "sha256": "32bbd046710f685153e7635d9f0b9a80a39eb990f7405706424dda52cf71f551"
+    },
+    {
+      "path": "table_10_confirmatory_family.tex",
+      "bytes": 866,
+      "sha256": "de8831fa86883aef7a1f55e95f3e828eac4e825b430a2ae18cec967b83122d65"
+    }
+  ],
+  "deterministic": true,
+  "notes": [
+    "All numerical artifacts are derived from four SHA-256-locked JSON inputs.",
+    "The manifest excludes its own digest."
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "smartvalve-paderborn-structure-probe-amendment-0.1.0",
+  "status": "authorized_single_same_member_structure_rerun",
+  "frozen_date": "2026-08-18",
+  "original_seal": {
+    "path": "artifacts/research/runs/EXP-374-PADERBORN-SEAL__20260818T130717.492129Z__final-31-role-pre-d2-prospective-seal/outputs/prospective_seal.json",
+    "sha256": "b907e1e0e6876e1e35166a526a6d019df83e1587246784588fb0bda44a71efe1"
+  },
+  "authorization": {
+    "scope": "same_single_mat_key_shape_dtype_probe_only",
+    "archive": "K001.rar",
+    "filename": "N15_M07_F10_K001_1.mat",
+    "member_candidates": [
+      "N15_M07_F10_K001_1.mat",
+      "K001/N15_M07_F10_K001_1.mat"
+    ],
+    "max_additional_extractions": 1,
+    "bulk_extraction_permitted": false,
+    "model_outcome_access_permitted": false
+  },
+  "attestation": {
+    "failed_probe_observed_only_length_mismatch": true,
+    "exact_actual_shapes_observed": false,
+    "values_or_statistics_emitted": false,
+    "signal_features_computed": false,
+    "model_outcomes_inspected": false
+  },
+  "artifacts": {
+    "amendment_protocol": {
+      "path": "research/protocols/paderborn_structure_probe_amendment_v0.1.md",
+      "bytes": 3800,
+      "sha256": "bd308e810e639793747809737bc88e21d3283ab10f9194e940bf92780da07696"
+    },
+    "failed_probe_metadata": {
+      "path": "artifacts/research/runs/EXP-375-PADERBORN-PROBE__20260818T131002.236178Z__sealed-single-mat-structure-probe/metadata.json",
+      "bytes": 11104,
+      "sha256": "72022435187abcfda5fbe250770f01a872ff32b88ae1b12e9542699f3d5219b3"
+    },
+    "failed_probe_stderr": {
+      "path": "artifacts/research/runs/EXP-375-PADERBORN-PROBE__20260818T131002.236178Z__sealed-single-mat-structure-probe/stderr.log",
+      "bytes": 1241,
+      "sha256": "8acf7c9fba9da73079515f2944efc53bfb3263dab946c8cae888fa9fcd9fa539"
+    },
+    "structure_inspector_source": {
+      "path": "src/smartvalve/data/paderborn_mat.py",
+      "bytes": 6917,
+      "sha256": "ea58fc7cf50151730e444c40b90b546dbce2f7578e793f293f97630473eaa325"
+    },
+    "structure_probe_source": {
+      "path": "src/smartvalve/experiments/paderborn_structure_probe.py",
+      "bytes": 15505,
+      "sha256": "0a7ae25c0d6faa72b66ec234a4671164172772b8428c083476466a67fba4b857"
+    },
+    "structure_inspector_tests": {
+      "path": "tests/test_paderborn_mat.py",
+      "bytes": 4194,
+      "sha256": "125b730af7cc21712fdd71d00725b89dd284099876cd997ee4863f6fddabf509"
+    },
+    "structure_probe_tests": {
+      "path": "tests/test_paderborn_structure_probe.py",
+      "bytes": 8946,
+      "sha256": "8d0e589ddddbd165e69f9cbd133de1059b082065e6d8c351a8ca53940071f2ee"
+    }
+  }
+}

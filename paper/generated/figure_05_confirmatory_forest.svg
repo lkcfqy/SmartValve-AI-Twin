@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="560" viewBox="0 0 1040 560">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#16202a}.title{font-size:23px;font-weight:700}.sub{font-size:13px;fill:#52606d}.label{font-size:14px}.tick{font-size:12px;fill:#52606d}</style>
+<text x="32" y="36" class="title">Frozen six-test confirmatory family</text>
+<text x="32" y="59" class="sub">Point effects and 95% physical-unit bootstrap intervals; positive favors PIRL</text>
+<rect x="652.35" y="72" width="63.53" height="390" fill="#f4f6f8"/>
+<line x1="684.12" y1="72" x2="684.12" y2="462" stroke="#29323c" stroke-width="1.5"/>
+<line x1="652.35" y1="72" x2="652.35" y2="462" stroke="#b8c2cc" stroke-dasharray="5 5"/>
+<line x1="715.88" y1="72" x2="715.88" y2="462" stroke="#b8c2cc" stroke-dasharray="5 5"/>
+<text x="32" y="91.00" class="label">Cranfield — minimum-environment macro F1</text>
+<line x1="633.13" y1="86.00" x2="782.97" y2="86.00" stroke="#5b6770" stroke-width="4" stroke-linecap="round"/>
+<line x1="633.13" y1="79.00" x2="633.13" y2="93.00" stroke="#5b6770" stroke-width="2"/>
+<line x1="782.97" y1="79.00" x2="782.97" y2="93.00" stroke="#5b6770" stroke-width="2"/>
+<circle cx="708.85" cy="86.00" r="7" fill="#5b6770"/>
+<text x="32" y="153.00" class="label">Cranfield — selective risk at source 50%</text>
+<line x1="661.38" y1="148.00" x2="703.94" y2="148.00" stroke="#5b6770" stroke-width="4" stroke-linecap="round"/>
+<line x1="661.38" y1="141.00" x2="661.38" y2="155.00" stroke="#5b6770" stroke-width="2"/>
+<line x1="703.94" y1="141.00" x2="703.94" y2="155.00" stroke="#5b6770" stroke-width="2"/>
+<circle cx="683.57" cy="148.00" r="7" fill="#5b6770"/>
+<text x="32" y="215.00" class="label">UCI Hydraulic — minimum-environment macro F1</text>
+<line x1="684.12" y1="210.00" x2="691.97" y2="210.00" stroke="#5b6770" stroke-width="4" stroke-linecap="round"/>
+<line x1="684.12" y1="203.00" x2="684.12" y2="217.00" stroke="#5b6770" stroke-width="2"/>
+<line x1="691.97" y1="203.00" x2="691.97" y2="217.00" stroke="#5b6770" stroke-width="2"/>
+<circle cx="686.85" cy="210.00" r="7" fill="#5b6770"/>
+<text x="32" y="277.00" class="label">UCI Hydraulic — selective risk at source 50%</text>
+<line x1="807.97" y1="272.00" x2="840.72" y2="272.00" stroke="#087e8b" stroke-width="4" stroke-linecap="round"/>
+<line x1="807.97" y1="265.00" x2="807.97" y2="279.00" stroke="#087e8b" stroke-width="2"/>
+<line x1="840.72" y1="265.00" x2="840.72" y2="279.00" stroke="#087e8b" stroke-width="2"/>
+<circle cx="824.10" cy="272.00" r="7" fill="#087e8b"/>
+<text x="980" y="277.00" text-anchor="end" class="tick" fill="#087e8b">Holm-positive</text>
+<text x="32" y="339.00" class="label">Paderborn — minimum-environment macro F1</text>
+<line x1="538.13" y1="334.00" x2="942.18" y2="334.00" stroke="#5b6770" stroke-width="4" stroke-linecap="round"/>
+<line x1="538.13" y1="327.00" x2="538.13" y2="341.00" stroke="#5b6770" stroke-width="2"/>
+<line x1="942.18" y1="327.00" x2="942.18" y2="341.00" stroke="#5b6770" stroke-width="2"/>
+<circle cx="750.57" cy="334.00" r="7" fill="#5b6770"/>
+<text x="32" y="401.00" class="label">Paderborn — selective risk at source 50%</text>
+<line x1="458.85" y1="396.00" x2="706.83" y2="396.00" stroke="#5b6770" stroke-width="4" stroke-linecap="round"/>
+<line x1="458.85" y1="389.00" x2="458.85" y2="403.00" stroke="#5b6770" stroke-width="2"/>
+<line x1="706.83" y1="389.00" x2="706.83" y2="403.00" stroke="#5b6770" stroke-width="2"/>
+<circle cx="583.18" cy="396.00" r="7" fill="#5b6770"/>
+<line x1="430.00" y1="481.00" x2="430.00" y2="491.00" stroke="#52606d"/>
+<text x="430.00" y="511.00" text-anchor="middle" class="tick">-0.08</text>
+<line x1="557.06" y1="481.00" x2="557.06" y2="491.00" stroke="#52606d"/>
+<text x="557.06" y="511.00" text-anchor="middle" class="tick">-0.04</text>
+<line x1="684.12" y1="481.00" x2="684.12" y2="491.00" stroke="#52606d"/>
+<text x="684.12" y="511.00" text-anchor="middle" class="tick">+0.00</text>
+<line x1="811.18" y1="481.00" x2="811.18" y2="491.00" stroke="#52606d"/>
+<text x="811.18" y="511.00" text-anchor="middle" class="tick">+0.04</text>
+<line x1="938.24" y1="481.00" x2="938.24" y2="491.00" stroke="#52606d"/>
+<text x="938.24" y="511.00" text-anchor="middle" class="tick">+0.08</text>
+<line x1="430.00" y1="486.00" x2="970.00" y2="486.00" stroke="#52606d"/>
+<text x="700" y="540" text-anchor="middle" class="sub">Effect size</text>
+</svg>

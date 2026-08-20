@@ -1,0 +1,63 @@
+{
+  "schema_version": "smartvalve-paderborn-confirmatory-reconciliation-spec-0.1.0",
+  "status": "authorized_before_any_six_test_holm_result",
+  "attestation": {
+    "raw_d2_endpoints_interpreted_before_adapter": true,
+    "holm_family_result_generated_before_adapter": false,
+    "family_membership_or_algorithm_changed": false,
+    "bootstrap_inputs_modified": false,
+    "performance_dependent_logic": false
+  },
+  "artifacts": {
+    "reconciliation_protocol": {
+      "path": "research/protocols/paderborn_confirmatory_structural_reconciliation_v0.1.md",
+      "bytes": 2172,
+      "sha256": "2f294ac79ca3736b2603a279676170fc0d28949bbe81c15a8be74f78fd0ecce3"
+    },
+    "reconciliation_source": {
+      "path": "scripts/paderborn_confirmatory_structural_reconciliation.py",
+      "bytes": 9998,
+      "sha256": "a1e1af9f3816149b213778bf7ced4d7f34d22fed7fdb031da4be866839af1351"
+    },
+    "sealed_confirmatory_source": {
+      "path": "src/smartvalve/experiments/confirmatory_family.py",
+      "bytes": 13606,
+      "sha256": "359708ef6a318da401de4a3af603ebab9601e07542f4760fc6f29ea432191ef1"
+    },
+    "development_metrics": {
+      "path": "artifacts/research/runs/EXP-344-BOOTSTRAP__20260818T111000.613209Z__frozen-selective-physical-block-bootstrap/outputs/metrics.json",
+      "bytes": 5503,
+      "sha256": "cfcaf5a16e8d30a4b52a0a6bcb6237fe3dff8b1fe416d5e8e8ac1dafe503e246"
+    },
+    "paderborn_metrics": {
+      "path": "artifacts/research/runs/EXP-421B-PADERBORN-D2-BOOTSTRAP__20260818T162752.972286Z__reconciled-frozen-bearing-identity-paired-bootst/outputs/metrics.json",
+      "bytes": 7578,
+      "sha256": "465cfe62da9b60c75484992b6b0d2b13cb97197f5e9b390955086160986b69f8"
+    },
+    "bootstrap_reconciliation_protocol": {
+      "path": "research/protocols/paderborn_bootstrap_structural_exclusion_reconciliation_v0.1.md",
+      "bytes": 3499,
+      "sha256": "c1e01dcf46ef18aca241eb86b7fae2c28906a7b5cd3b45b4f5e540d362e98887"
+    },
+    "bootstrap_reconciliation_spec": {
+      "path": "research/protocols/paderborn_bootstrap_structural_reconciliation_spec_v0.1.json",
+      "bytes": 3879,
+      "sha256": "9b1879e7cfbed63bb77c34d5896f03d9ca541bfa01e172925e5620161d60f547"
+    },
+    "failed_confirmatory_command": {
+      "path": "artifacts/research/runs/EXP-422-CONFIRMATORY-FAMILY__20260818T162833.435068Z__unmodified-six-test-holm-assembler/command.json",
+      "bytes": 814,
+      "sha256": "f52ffd2df60b444c812b92321fba2b37b663b0f5bff4b5a41208775a8923e784"
+    },
+    "failed_confirmatory_metadata": {
+      "path": "artifacts/research/runs/EXP-422-CONFIRMATORY-FAMILY__20260818T162833.435068Z__unmodified-six-test-holm-assembler/metadata.json",
+      "bytes": 11606,
+      "sha256": "ca914adbc40d3dfec629457fb3a3dde22ca2d0070e9406cd1cfbc4a38285701a"
+    },
+    "failed_confirmatory_stderr": {
+      "path": "artifacts/research/runs/EXP-422-CONFIRMATORY-FAMILY__20260818T162833.435068Z__unmodified-six-test-holm-assembler/stderr.log",
+      "bytes": 1232,
+      "sha256": "07212358b8d3b640a6408b5c724c6e488aaeedc7f9e3ae26b2f8781fe6a6bd76"
+    }
+  }
+}

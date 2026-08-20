@@ -1,0 +1,46 @@
+{
+  "schema_version": "smartvalve-paderborn-mat-recovery-amendment-0.1.0",
+  "status": "authorized_single_mat_root_recovery_probe",
+  "frozen_date": "2026-08-18",
+  "original_seal_sha256": "b907e1e0e6876e1e35166a526a6d019df83e1587246784588fb0bda44a71efe1",
+  "full_inventory_sha256": "da1252d65af1dd99fa3b7cf410317905c62f72668fc0e5f6305c59f208a83895",
+  "full_inventory_amendment_sha256": "d59b33bebf439409d08d581530fe5d14ac344f7bf7d4c64219a51dcb582c0bfc",
+  "authorization": {
+    "archive": "KA08.rar",
+    "filename": "N15_M01_F10_KA08_2.mat",
+    "member_candidates": [
+      "N15_M01_F10_KA08_2.mat",
+      "KA08/N15_M01_F10_KA08_2.mat"
+    ],
+    "expected_bytes": 8714872,
+    "expected_sha256": "e137cbb2368caa8bd56889eff8609d2569d2c196a85107e16aa4740437f2ccb3",
+    "strategies": [
+      "loadmat_variable_names",
+      "varmats_split_root"
+    ],
+    "signal_values_or_statistics_permitted": false,
+    "features_or_model_outcomes_permitted": false
+  },
+  "artifacts": {
+    "protocol": {
+      "path": "research/protocols/paderborn_mat_recovery_amendment_v0.1.md",
+      "bytes": 3258,
+      "sha256": "b655cf669d3211b0aaec243ad8b7e80581bdf1ff41f5dc7a3c226a3b13e8fadf"
+    },
+    "full_inventory": {
+      "path": "artifacts/research/runs/EXP-400-FULL-STRUCTURE-INVENTORY__20260818T135002.829285Z__fault-tolerant-2560-mat-shape-dtype-inventory/outputs/full_structure_inventory.json",
+      "bytes": 4073292,
+      "sha256": "da1252d65af1dd99fa3b7cf410317905c62f72668fc0e5f6305c59f208a83895"
+    },
+    "recovery_script": {
+      "path": "scripts/paderborn_mat_recovery_probe.py",
+      "bytes": 13077,
+      "sha256": "1fbb99115a89deb5fda2c9b5791f74c46718948e963d7635786443b4b49322ee"
+    },
+    "recovery_tests": {
+      "path": "tests/test_paderborn_mat_recovery_probe.py",
+      "bytes": 1153,
+      "sha256": "d085290eb2f8e312c0a360b9c2282da0b719c13c712ff2c64f1385da0bbcbfa8"
+    }
+  }
+}

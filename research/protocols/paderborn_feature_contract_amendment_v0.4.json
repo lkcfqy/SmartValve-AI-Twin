@@ -1,0 +1,107 @@
+{
+  "schema_version": "smartvalve-paderborn-feature-contract-amendment-0.4.0",
+  "status": "authorized_outcome_blind_bulk_feature_extraction",
+  "frozen_date": "2026-08-18",
+  "original_seal": {
+    "path": "artifacts/research/runs/EXP-374-PADERBORN-SEAL__20260818T130717.492129Z__final-31-role-pre-d2-prospective-seal/outputs/prospective_seal.json",
+    "sha256": "b907e1e0e6876e1e35166a526a6d019df83e1587246784588fb0bda44a71efe1"
+  },
+  "structure_probe": {
+    "path": "artifacts/research/runs/EXP-378-PADERBORN-PROBE-RERUN__20260818T131429.982867Z__amendment-gated-same-mat-structure-probe/outputs/structure_probe.json",
+    "sha256": "779cf7f2a96e6ef6b5b920360598f5c63f3f1d219ad4ce00876fd589bdede44c"
+  },
+  "predecessor_amendment": {
+    "path": "research/protocols/paderborn_feature_contract_amendment_v0.3.json",
+    "sha256": "1f1ffaf605c8281daef509c5788928c36e1a759ab7fd72ec4743b0007fc7bd99"
+  },
+  "structure_inventory": {
+    "path": "artifacts/research/runs/EXP-391-K001-STRUCTURE-INVENTORY__20260818T133653.393384Z__amendment-gated-80-mat-shape-dtype-inventory/outputs/k001_structure_inventory.json",
+    "sha256": "c95510888bc851a7fb60644626f11e5448c1eef4613514e1b88873fb35408d5e"
+  },
+  "structure_inventory_amendment": {
+    "path": "research/protocols/paderborn_structure_inventory_amendment_v0.1.json",
+    "sha256": "b5dc4bc84fd4f3c34522b1de7a09cead0d17c437201d2c64fb62d4ec8a11b812"
+  },
+  "feature_contract": {
+    "channels": [
+      "vibration",
+      "current_u",
+      "current_v"
+    ],
+    "sampling_hz": 64000,
+    "probe_stored_samples_per_channel": 256001,
+    "minimum_stored_samples_per_channel": 256000,
+    "within_measurement_channel_lengths_must_match": true,
+    "retained_samples_per_channel": 256000,
+    "endpoint_policy": "retain_first_256000_from_equal_length_channels",
+    "feature_count": 72
+  },
+  "authorization": {
+    "archive_count": 32,
+    "measurement_count": 2560,
+    "bulk_extraction_permitted": true,
+    "feature_computation_permitted": true,
+    "model_fitting_permitted": false,
+    "model_outcome_access_permitted": false,
+    "target_guided_reselection_permitted": false
+  },
+  "non_mat_policy": {
+    "exact_expected_mat_inventory_required": true,
+    "regular_non_mat_files": "hash_record_and_quarantine_without_parsing",
+    "links_and_special_files": "reject",
+    "quarantined_files_may_influence_features_or_models": false
+  },
+  "attestation": {
+    "structure_only_information_used_for_final_rule": true,
+    "signal_values_or_statistics_observed": false,
+    "persisted_feature_values_observed": false,
+    "model_outcomes_inspected": false
+  },
+  "artifacts": {
+    "amendment_protocol": {
+      "path": "research/protocols/paderborn_feature_contract_amendment_v0.4.md",
+      "bytes": 4262,
+      "sha256": "254ba603ec3fd18cd061157ce4d48c30bc9afff1c0f36ca4c38ae86f3e66523c"
+    },
+    "structure_probe_metadata": {
+      "path": "artifacts/research/runs/EXP-378-PADERBORN-PROBE-RERUN__20260818T131429.982867Z__amendment-gated-same-mat-structure-probe/metadata.json",
+      "bytes": 11533,
+      "sha256": "e2732717aebd7bd1fb1a5b95d7812fb25636517226243eca345adeae2df43e78"
+    },
+    "structure_inventory_metadata": {
+      "path": "artifacts/research/runs/EXP-391-K001-STRUCTURE-INVENTORY__20260818T133653.393384Z__amendment-gated-80-mat-shape-dtype-inventory/metadata.json",
+      "bytes": 12100,
+      "sha256": "c354cf4486f9205f749e18db5000aa7e3d42bb79530d6b69c19ab5e3675ef32c"
+    },
+    "feature_contract_source": {
+      "path": "src/smartvalve/data/paderborn_features.py",
+      "bytes": 4127,
+      "sha256": "00bab4e4e2b9bf7e2557177a5cc2072f11b9dd5e105f448e562b11f9e408df9a"
+    },
+    "mat_parser_source": {
+      "path": "src/smartvalve/data/paderborn_mat.py",
+      "bytes": 8047,
+      "sha256": "c7e85d3503fe5c1072f5663d4ed5e364d5b074bc1621f8e79cbd770aa1483eae"
+    },
+    "feature_run_source": {
+      "path": "src/smartvalve/experiments/paderborn_feature_run.py",
+      "bytes": 27948,
+      "sha256": "54918a4dd49fdeb264482ad3272e58f16e462d8601e49552418b68bf76a39390"
+    },
+    "feature_contract_tests": {
+      "path": "tests/test_paderborn_features.py",
+      "bytes": 2433,
+      "sha256": "1853da59462bfef56cef269a724ae0b93d65308a8be2f0c8cd09d2e002765aa6"
+    },
+    "mat_parser_tests": {
+      "path": "tests/test_paderborn_mat.py",
+      "bytes": 5346,
+      "sha256": "f6ebdd8c55703d4ef72754e93f489874cef56aef6825a3c5da6a4eaf2b92dfe1"
+    },
+    "feature_run_tests": {
+      "path": "tests/test_paderborn_feature_run.py",
+      "bytes": 10520,
+      "sha256": "4cb8a2681039724af86e73abc86d5c6dd4a9ba4b06881aaedc45c584533534a1"
+    }
+  }
+}

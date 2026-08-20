@@ -14,7 +14,7 @@ COPY build-requirements.lock requirements.lock ./
 RUN python -m pip install --require-hashes -r build-requirements.lock \
     && python -m pip install --require-hashes --no-build-isolation -r requirements.lock
 
-COPY pyproject.toml README.md ./
+COPY pyproject.toml README.md LICENSE THIRD_PARTY_NOTICES.md ./
 COPY src ./src
 RUN python -m build --wheel --no-isolation --outdir /dist \
     && python -m pip install --no-deps /dist/*.whl \

@@ -3,6 +3,7 @@
 .ruff_cache/
 .coverage
 htmlcov/
+.research-tools/
 **/__pycache__/
 *.py[cod]
 *.egg-info/
@@ -17,5 +18,19 @@ data/backups/*
 !data/backups/.gitkeep
 data/external/*.mat
 data/external/*.csv
+data/external/*.zip
 data/external/*.part
+data/external/paderborn/*.rar
+data/external/paderborn/*.part
+data/external/paderborn/archive_lock.json
+# Local research downloads, timestamped runs, and release archives are hash-locked evidence,
+# not repository source. Paper manifests and the append-only ledger remain trackable.
+artifacts/external/
+artifacts/research/runs/
+artifacts/research/launch/*
+!artifacts/research/launch/run_*.sh
+artifacts/releases/
+# Local manuscript renders and page-by-page visual-QA scratch files are reproducible derivatives.
+output/
+tmp/
 SmartValve_AI_Twin_Project_Plan.md:Zone.Identifier

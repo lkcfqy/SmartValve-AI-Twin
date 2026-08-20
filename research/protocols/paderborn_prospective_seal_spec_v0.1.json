@@ -1,0 +1,218 @@
+{
+  "schema_version": "smartvalve-prospective-seal-spec-0.1.0",
+  "decision": {
+    "headline_method": "pirl_ratio_v0.2",
+    "baseline_method": "erm",
+    "development_datasets": [
+      "cranfield",
+      "uci_hydraulic"
+    ],
+    "prospective_dataset": "paderborn",
+    "target_access": "P0",
+    "seeds": [
+      11,
+      23,
+      37,
+      53,
+      71
+    ],
+    "comparison_methods": [
+      "erm",
+      "coral",
+      "vrex",
+      "groupdro",
+      "dann",
+      "lisa",
+      "matchdg",
+      "ccdg"
+    ],
+    "selected_configurations": {
+      "pirl": "r64_l1p0_m0p5",
+      "erm": "erm_r64",
+      "coral": "coral_r64_w1p0",
+      "vrex": "vrex_r32_w0p1",
+      "groupdro": "groupdro_r64_q1p0",
+      "dann": "dann_r64_w1p0",
+      "lisa": "lisa_r64_w1p0",
+      "matchdg": "matchdg_r64_w1p0",
+      "ccdg": "ccdg_r64_w1p0"
+    }
+  },
+  "statistics": {
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20260818,
+    "confidence_level": 0.95,
+    "confirmatory_endpoints": [
+      "minimum_setting_macro_f1",
+      "selective_risk_at_50_percent_coverage"
+    ],
+    "family_size": 6,
+    "multiple_testing": "holm",
+    "minimum_material_effect": 0.01,
+    "d2_resampling_unit": "bearing_identity",
+    "d2_class_stratified": true
+  },
+  "attestation": {
+    "archive_contents_opened": false,
+    "signal_features_computed": false,
+    "paderborn_model_outcomes_inspected": false,
+    "method_reselection_after_d2_forbidden": true
+  },
+  "artifacts": {
+    "frozen_paderborn_protocol": {
+      "path": "research/protocols/paderborn_prospective_evaluation_v0.1.md",
+      "bytes": 20360,
+      "sha256": "13dd812dbdc756ba5e4ad4997f1828a681b9cbbd68536dea8b167a051ddcef33"
+    },
+    "source_selective_protocol": {
+      "path": "research/protocols/source_selective_evaluation_v0.1.md",
+      "bytes": 8449,
+      "sha256": "67288f53f1e68e36901216de3e3b6fc17a50e55f6882dd567b4498930ffc6ae6"
+    },
+    "paderborn_archive_lock": {
+      "path": "data/external/paderborn/archive_lock.json",
+      "bytes": 12735,
+      "sha256": "aadfde07c8b23764208794b0165ac6fe5a90a97345bfa368c01eb047dbedc3d2"
+    },
+    "paderborn_lock_verification": {
+      "path": "artifacts/research/runs/EXP-201-PADERBORN-VERIFY__20260818T052829.541442Z__independent-full-lock-verification/stdout.log",
+      "bytes": 120,
+      "sha256": "c583e65d603febfa9e7a8c00d3f524f25605329949d838adb5c0b439d9c24e86"
+    },
+    "cranfield_normal_data": {
+      "path": "data/external/Normal.mat",
+      "bytes": 1949237,
+      "sha256": "5ec388106129477ca190397df93270fa097ba0fee81ffc040fb0bf9cae98c260"
+    },
+    "cranfield_lack_lubrication_data": {
+      "path": "data/external/LackLubrication2.mat",
+      "bytes": 1949871,
+      "sha256": "23b12026d5462c9cfb108d75c4c06d7c117c041d5174229331612b8c204b4208"
+    },
+    "cranfield_backlash_data": {
+      "path": "data/external/Backlash2.mat",
+      "bytes": 1949290,
+      "sha256": "2c11d1275e622289641216e14b57035a6a157007bec716490436cdfdc376bbd7"
+    },
+    "uci_feature_matrix": {
+      "path": "artifacts/research/runs/EXP-110-UCI-FEATURES__20260818T030851.015050Z__frozen-physical-sensor-features/outputs/feature_matrix.parquet",
+      "bytes": 3415814,
+      "sha256": "4359ce099e421cc9e55c65115d39f4a4c0463255f72f834a49d802fa6a038516"
+    },
+    "pirl_development_metrics": {
+      "path": "artifacts/research/runs/EXP-330-PIRL-RATIO-SELECT__20260818T062351.285563Z__source-only-nonsaturating-ratio-selection-and-ev/outputs/metrics.json",
+      "bytes": 268339,
+      "sha256": "90bf71655ef2dbee9ab46ba2cb614f4c100d4553b6b4e94ffe5db140e21f72f7"
+    },
+    "pirl_development_predictions": {
+      "path": "artifacts/research/runs/EXP-330-PIRL-RATIO-SELECT__20260818T062351.285563Z__source-only-nonsaturating-ratio-selection-and-ev/outputs/predictions.parquet",
+      "bytes": 9426761,
+      "sha256": "a32e0b8bfa7d8a522fa7e26bb26e2ac6f4113d32e5a3589f2b5c106e6f69ed22"
+    },
+    "dg_expected_manifest": {
+      "path": "artifacts/research/runs/EXP-338-DG-MANIFEST__20260818T083150.944218Z__outcome-blind-neural-dg-expected-topology/outputs/expected_manifest.json",
+      "bytes": 29752,
+      "sha256": "79e68f95e9a5d88921fa79c1d50f34aa84db5c156a5e6c5ba516520c97faa862"
+    },
+    "dg_selection_metrics": {
+      "path": "artifacts/research/runs/EXP-340-DG-SELECT__20260818T073103.881960Z__frozen-source-only-neural-dg-selection/outputs/metrics.json",
+      "bytes": 835593,
+      "sha256": "7d885242f5bd74bed650488c7d4dbd4483ab1153ec330914d98edf838a46827b"
+    },
+    "dg_selection_predictions": {
+      "path": "artifacts/research/runs/EXP-340-DG-SELECT__20260818T073103.881960Z__frozen-source-only-neural-dg-selection/outputs/predictions.parquet",
+      "bytes": 80368965,
+      "sha256": "7691980fbd47a209d79629c65bb3490ffc866645eec48f4c07509535fdfbe2d6"
+    },
+    "dg_artifact_validation": {
+      "path": "artifacts/research/runs/EXP-340-VALIDATE__20260818T101131.084837Z__manifest-locked-neural-dg-artifact-validation/outputs/validation.json",
+      "bytes": 3256,
+      "sha256": "f24815fac5af7fb1409a223670ebb96eace55f1f962b086689c48caf81bae031"
+    },
+    "source_selective_metrics": {
+      "path": "artifacts/research/runs/EXP-342-SELECTIVE__20260818T102548.578731Z__frozen-source-oof-selective-refit/outputs/metrics.json",
+      "bytes": 12467,
+      "sha256": "4caa1e4bb2a07b98be6af2752a0b310f751b8bd0f7fda34b03578ebfbd9983e6"
+    },
+    "source_selective_decisions": {
+      "path": "artifacts/research/runs/EXP-342-SELECTIVE__20260818T102548.578731Z__frozen-source-oof-selective-refit/outputs/selection_decisions.parquet",
+      "bytes": 5995880,
+      "sha256": "e49b97f1f63c3d754d1f970a17ba0f9b797cc2841d65e4ef3117b0d54aa99649"
+    },
+    "development_selective_bootstrap_metrics": {
+      "path": "artifacts/research/runs/EXP-344-BOOTSTRAP__20260818T111000.613209Z__frozen-selective-physical-block-bootstrap/outputs/metrics.json",
+      "bytes": 5503,
+      "sha256": "cfcaf5a16e8d30a4b52a0a6bcb6237fe3dff8b1fe416d5e8e8ac1dafe503e246"
+    },
+    "pirl_ablation_metrics": {
+      "path": "artifacts/research/runs/EXP-347-RATIO-ABLATION__20260818T111725.704616Z__frozen-component-attribution/outputs/metrics.json",
+      "bytes": 352676,
+      "sha256": "b7edab2bf7d1703008c93805af90627cba4a63478c468101e183cf7178d2e8a7"
+    },
+    "paderborn_split_manifest": {
+      "path": "artifacts/research/runs/EXP-311-PADERBORN-SPLIT__20260818T065237.888546Z__metadata-only-prospective-split-manifest/outputs/paderborn_split_manifest.json",
+      "bytes": 16484,
+      "sha256": "b5ff36988d70ccff22bfccc8b7108d1ad778616a4b5ebf79ffa9e3c2c278f7e7"
+    },
+    "paderborn_model_fold_manifest": {
+      "path": "artifacts/research/runs/EXP-314-PADERBORN-DOMAIN__20260818T080441.023133Z__metadata-only-quarantine-safe-model-folds/outputs/model_fold_manifest.json",
+      "bytes": 13858,
+      "sha256": "35cbbdedd23ba688a051b2d453e75f33ea5966481966b3780c4d9194db989422"
+    },
+    "paderborn_parser_source": {
+      "path": "src/smartvalve/data/paderborn_mat.py",
+      "bytes": 6841,
+      "sha256": "6581607f41ead0a769b80ee42fb5e71d41f205eba830ff1b2078299d1839b424"
+    },
+    "paderborn_feature_source": {
+      "path": "src/smartvalve/data/paderborn_features.py",
+      "bytes": 3922,
+      "sha256": "a07c308be858f4a327360959ba53502dd2ed8fd706d616393589ae12c727654d"
+    },
+    "paderborn_partition_source": {
+      "path": "src/smartvalve/experiments/paderborn_partitions.py",
+      "bytes": 9128,
+      "sha256": "3d820c444c6b3ad2e2969167ac711cc86b2a4781cd3de04bcffe0331fccd92ca"
+    },
+    "paderborn_bootstrap_source": {
+      "path": "src/smartvalve/experiments/paderborn_bootstrap.py",
+      "bytes": 20980,
+      "sha256": "bb61b60f0e2ddb7828bc553b27993e13defba1b45b78f4605c70cf5636efab93"
+    },
+    "confirmatory_family_source": {
+      "path": "src/smartvalve/experiments/confirmatory_family.py",
+      "bytes": 13606,
+      "sha256": "359708ef6a318da401de4a3af603ebab9601e07542f4760fc6f29ea432191ef1"
+    },
+    "paderborn_evaluation_source": {
+      "path": "src/smartvalve/experiments/paderborn_evaluation.py",
+      "bytes": 51616,
+      "sha256": "869b9d0da99953c3916add2bb32852eb0978f102173e898c551e251db2bb596c"
+    },
+    "paderborn_expected_manifest": {
+      "path": "artifacts/research/runs/EXP-364B-PADERBORN-MANIFEST__20260818T124619.777620Z__frozen-metadata-only-paderborn-expected-topology/outputs/expected_manifest.json",
+      "bytes": 7213,
+      "sha256": "e00e3e4fa080b65e137a7bc670a6bccf73f2041d78c59e3f0918bb048d897e51"
+    },
+    "paderborn_artifact_validation_source": {
+      "path": "src/smartvalve/experiments/paderborn_artifact_validation.py",
+      "bytes": 13001,
+      "sha256": "73cd9694e4859aa078d874abf497b01ef2fe6e81059110fb7f1b45b1298a76d2"
+    },
+    "paderborn_selective_source": {
+      "path": "src/smartvalve/experiments/paderborn_selective.py",
+      "bytes": 28331,
+      "sha256": "3b53eb86f767433a8077da1cb7ba6fce975cfa297c05e1443c1c4fc4bbca1fe4"
+    },
+    "paderborn_selective_expected_manifest": {
+      "path": "artifacts/research/runs/EXP-365-PADERBORN-SELECTIVE-MANIFEST__20260818T124719.980979Z__frozen-metadata-only-paderborn-selective-topolog/outputs/expected_manifest.json",
+      "bytes": 11228,
+      "sha256": "72258bb67dc1b40fb3ef917f93476323c168acc943394b24e18cd581f28e40d1"
+    },
+    "paderborn_selective_artifact_validation_source": {
+      "path": "src/smartvalve/experiments/paderborn_selective_artifact_validation.py",
+      "bytes": 28554,
+      "sha256": "e7648c140416dffe02b87040d3f8b6303a735da4bbcaf1b602ff487b48db6f6f"
+    }
+  }
+}

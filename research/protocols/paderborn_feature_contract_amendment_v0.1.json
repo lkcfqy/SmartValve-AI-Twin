@@ -1,0 +1,82 @@
+{
+  "schema_version": "smartvalve-paderborn-feature-contract-amendment-0.1.0",
+  "status": "authorized_outcome_blind_bulk_feature_extraction",
+  "frozen_date": "2026-08-18",
+  "original_seal": {
+    "path": "artifacts/research/runs/EXP-374-PADERBORN-SEAL__20260818T130717.492129Z__final-31-role-pre-d2-prospective-seal/outputs/prospective_seal.json",
+    "sha256": "b907e1e0e6876e1e35166a526a6d019df83e1587246784588fb0bda44a71efe1"
+  },
+  "structure_probe": {
+    "path": "artifacts/research/runs/EXP-378-PADERBORN-PROBE-RERUN__20260818T131429.982867Z__amendment-gated-same-mat-structure-probe/outputs/structure_probe.json",
+    "sha256": "779cf7f2a96e6ef6b5b920360598f5c63f3f1d219ad4ce00876fd589bdede44c"
+  },
+  "feature_contract": {
+    "channels": [
+      "vibration",
+      "current_u",
+      "current_v"
+    ],
+    "sampling_hz": 64000,
+    "stored_samples_per_channel": 256001,
+    "retained_samples_per_channel": 256000,
+    "endpoint_policy": "retain_first_256000_drop_final_endpoint",
+    "feature_count": 72
+  },
+  "authorization": {
+    "archive_count": 32,
+    "measurement_count": 2560,
+    "bulk_extraction_permitted": true,
+    "feature_computation_permitted": true,
+    "model_fitting_permitted": false,
+    "model_outcome_access_permitted": false,
+    "target_guided_reselection_permitted": false
+  },
+  "attestation": {
+    "structure_only_information_used": true,
+    "signal_values_or_statistics_observed": false,
+    "signal_features_computed": false,
+    "model_outcomes_inspected": false
+  },
+  "artifacts": {
+    "amendment_protocol": {
+      "path": "research/protocols/paderborn_feature_contract_amendment_v0.1.md",
+      "bytes": 4687,
+      "sha256": "4ec36a81f7118fc170f472964554a2df8fa42747f2592c9e90f0d6ddce1c2cf5"
+    },
+    "structure_probe_metadata": {
+      "path": "artifacts/research/runs/EXP-378-PADERBORN-PROBE-RERUN__20260818T131429.982867Z__amendment-gated-same-mat-structure-probe/metadata.json",
+      "bytes": 11533,
+      "sha256": "e2732717aebd7bd1fb1a5b95d7812fb25636517226243eca345adeae2df43e78"
+    },
+    "feature_contract_source": {
+      "path": "src/smartvalve/data/paderborn_features.py",
+      "bytes": 4055,
+      "sha256": "0610d1e79ef7228eba6194e4e629897bc45158b5625ef3fe99536391c71dbba1"
+    },
+    "mat_parser_source": {
+      "path": "src/smartvalve/data/paderborn_mat.py",
+      "bytes": 7095,
+      "sha256": "4592a6d0f88890526d96a463327268e857c9f650ca516cc34c20457f9585aa4c"
+    },
+    "feature_run_source": {
+      "path": "src/smartvalve/experiments/paderborn_feature_run.py",
+      "bytes": 24036,
+      "sha256": "3b898455b1081a650880be24db7e2219b72d326a0bbe8958c0e6be824c7caf3c"
+    },
+    "feature_contract_tests": {
+      "path": "tests/test_paderborn_features.py",
+      "bytes": 2433,
+      "sha256": "1853da59462bfef56cef269a724ae0b93d65308a8be2f0c8cd09d2e002765aa6"
+    },
+    "mat_parser_tests": {
+      "path": "tests/test_paderborn_mat.py",
+      "bytes": 4298,
+      "sha256": "0b48675b723e7b1c1a7c10a2d1e3d4233cbe5d815230f28c69206f59572f3bc8"
+    },
+    "feature_run_tests": {
+      "path": "tests/test_paderborn_feature_run.py",
+      "bytes": 7897,
+      "sha256": "48cb2ad56b3d49ffd139a3df83cc4dc82e1000a7607f9a53b6f5e25c4bebe04a"
+    }
+  }
+}

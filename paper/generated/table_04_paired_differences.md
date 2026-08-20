@@ -1,0 +1,8 @@
+| Comparison | Metric | Difference [95% CI] | Resolved from zero |
+|---|---|---|---|
+| P1 minus P0 | macro_f1 | -0.1025 [-0.1116, -0.0901] | yes |
+| P1 minus P0 | multiclass_brier | 0.2082 [0.1981, 0.2185] | yes |
+| P1 minus P0 | control_ratio | 0.4503 [0.4095, 0.4996] | yes |
+| P2 minus P0 | macro_f1 | 0.0151 [-0.0069, 0.0373] | no |
+| P2 minus P0 | multiclass_brier | 0.0375 [0.0281, 0.0475] | yes |
+| P2 minus P0 | control_ratio | -0.0202 [-0.0528, 0.0101] | no |

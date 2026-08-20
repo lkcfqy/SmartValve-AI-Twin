@@ -1,0 +1,74 @@
+{
+  "schema_version": "smartvalve-paderborn-structure-inventory-amendment-0.3.0",
+  "status": "authorized_full_corpus_shape_dtype_inventory_only",
+  "frozen_date": "2026-08-18",
+  "original_seal": {
+    "path": "artifacts/research/runs/EXP-374-PADERBORN-SEAL__20260818T130717.492129Z__final-31-role-pre-d2-prospective-seal/outputs/prospective_seal.json",
+    "sha256": "b907e1e0e6876e1e35166a526a6d019df83e1587246784588fb0bda44a71efe1"
+  },
+  "structure_probe": {
+    "path": "artifacts/research/runs/EXP-378-PADERBORN-PROBE-RERUN__20260818T131429.982867Z__amendment-gated-same-mat-structure-probe/outputs/structure_probe.json",
+    "sha256": "779cf7f2a96e6ef6b5b920360598f5c63f3f1d219ad4ce00876fd589bdede44c"
+  },
+  "feature_amendment": {
+    "path": "research/protocols/paderborn_feature_contract_amendment_v0.4.json",
+    "sha256": "fe731f62c37a7730f677d171b36b981590d87ae7307e23116d25074d9ad11a6e"
+  },
+  "authorization": {
+    "archive_count": 32,
+    "expected_mat_count": 2560,
+    "emitted_fields": [
+      "archive",
+      "filename",
+      "member_path",
+      "bytes",
+      "sha256",
+      "root_key",
+      "semantic_name",
+      "semantic_path",
+      "stored_shape",
+      "shape",
+      "dtype",
+      "samples",
+      "structure_status",
+      "error_type",
+      "error_message"
+    ],
+    "signal_values_or_statistics_permitted": false,
+    "feature_computation_permitted": false,
+    "model_fitting_or_outcomes_permitted": false
+  },
+  "attestation": {
+    "failing_filename_known_before_freeze": false,
+    "signal_values_or_statistics_observed": false,
+    "persisted_feature_values_observed": false,
+    "model_outcomes_inspected": false
+  },
+  "artifacts": {
+    "protocol": {
+      "path": "research/protocols/paderborn_structure_inventory_amendment_v0.3.md",
+      "bytes": 3080,
+      "sha256": "4db42fb5c2b7891b0b8f7cac5f9eb897556b3753b80c5b5947fa83c1c45eece9"
+    },
+    "failed_bulk_metadata": {
+      "path": "artifacts/research/runs/EXP-397-FULL-STRUCTURE-INVENTORY__20260818T134608.145907Z__amendment-gated-2560-mat-shape-dtype-inventory/metadata.json",
+      "bytes": 11942,
+      "sha256": "bc3d87eaeea67c83f907fe1667cc620bb65b964f6cc92c27bf9d79f58df83d93"
+    },
+    "failed_bulk_stderr": {
+      "path": "artifacts/research/runs/EXP-397-FULL-STRUCTURE-INVENTORY__20260818T134608.145907Z__amendment-gated-2560-mat-shape-dtype-inventory/stderr.log",
+      "bytes": 2343,
+      "sha256": "1c9431d55288ed4bd5ef14d13c1a1238a0935b44a465adce4dfb8d164eb0f2d1"
+    },
+    "inventory_script": {
+      "path": "scripts/paderborn_archive_structure_inventory.py",
+      "bytes": 15965,
+      "sha256": "bb18cfcc63bbebf14cb394995984eaa469ed59765fe7dc293214c3eef7df4248"
+    },
+    "inventory_tests": {
+      "path": "tests/test_paderborn_archive_structure_inventory.py",
+      "bytes": 1599,
+      "sha256": "0cb113357fdf80d559424897ebd90ecf2b6d596856e3d8ecc54fa80c62d2e426"
+    }
+  }
+}

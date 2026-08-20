@@ -1,0 +1,76 @@
+{
+  "schema_version": "smartvalve-paderborn-bootstrap-structural-reconciliation-spec-0.1.0",
+  "status": "authorized_before_any_d2_bootstrap_statistic",
+  "excluded_filenames": [
+    "N15_M01_F10_KA08_2.mat"
+  ],
+  "attestation": {
+    "descriptive_d2_results_interpreted_before_amendment": true,
+    "d2_bootstrap_outcomes_generated_before_amendment": false,
+    "statistical_design_changed": false,
+    "model_or_decision_outputs_modified": false,
+    "performance_dependent_logic": false
+  },
+  "artifacts": {
+    "reconciliation_protocol": {
+      "path": "research/protocols/paderborn_bootstrap_structural_exclusion_reconciliation_v0.1.md",
+      "bytes": 3499,
+      "sha256": "c1e01dcf46ef18aca241eb86b7fae2c28906a7b5cd3b45b4f5e540d362e98887"
+    },
+    "reconciliation_source": {
+      "path": "scripts/paderborn_bootstrap_structural_reconciliation.py",
+      "bytes": 15048,
+      "sha256": "f1eb02f8af89f9b0e05aa77f9fb09c58d35fe369fc554f451aa9b07c32a15645"
+    },
+    "sealed_bootstrap_source": {
+      "path": "src/smartvalve/experiments/paderborn_bootstrap.py",
+      "bytes": 20980,
+      "sha256": "bb61b60f0e2ddb7828bc553b27993e13defba1b45b78f4605c70cf5636efab93"
+    },
+    "d2_execution_amendment": {
+      "path": "research/protocols/paderborn_d2_execution_amendment_v0.1.md",
+      "bytes": 5504,
+      "sha256": "bd00c79fa69ab0aef052b714b8ea7f70a35867e4fa5b78612ac52a968dfdbcba"
+    },
+    "execution_seal": {
+      "path": "artifacts/research/runs/EXP-416-PADERBORN-D2-EXECUTION-SEAL__20260818T145938.087127Z__post-feature-pre-model-outcome-execution-seal/outputs/execution_seal.json",
+      "bytes": 38555,
+      "sha256": "e87ceabf74aa86e41a616fe3f796738d122542412b71ae75aade07644679560b"
+    },
+    "target_predictions": {
+      "path": "artifacts/research/runs/EXP-417-PADERBORN-D2-BASE__20260818T150037.112666Z__sealed-one-shot-nine-method-external-evaluation/outputs/predictions.parquet",
+      "bytes": 45418383,
+      "sha256": "5e3801e9df4636f180e85ccde060fade77422dfbcb65d5699bf7a93a49d9b400"
+    },
+    "selection_decisions": {
+      "path": "artifacts/research/runs/EXP-419-PADERBORN-D2-SELECTIVE__20260818T155301.056559Z__sealed-source-oof-selective-evaluation/outputs/selection_decisions.parquet",
+      "bytes": 2345815,
+      "sha256": "8b1ea27ff1317d2fc2bfc502fdffd8d5895dc27670208d0f104e4d0de32f92e7"
+    },
+    "base_validation": {
+      "path": "artifacts/research/runs/EXP-418B-PADERBORN-D2-BASE-RECONCILE__20260818T155124.893751Z__disclosed-compound-index-reconciled-base-validat/outputs/validation.json",
+      "bytes": 6819,
+      "sha256": "b14fcb57598ae3f4c7d03fba28c87f4ae2dc47f6a30dd8085d61a3bc0b80d6b3"
+    },
+    "selective_validation": {
+      "path": "artifacts/research/runs/EXP-420B-PADERBORN-D2-SELECTIVE-RECONCILE__20260818T162134.531828Z__disclosed-compound-index-reconciled-selective-va/outputs/validation.json",
+      "bytes": 14576,
+      "sha256": "7a57d075056778e39d0ff847c8a8944c97c65fa2bb90804558babae30ef3a75d"
+    },
+    "failed_bootstrap_command": {
+      "path": "artifacts/research/runs/EXP-421-PADERBORN-D2-BOOTSTRAP__20260818T162317.850393Z__frozen-bearing-identity-paired-bootstrap/command.json",
+      "bytes": 695,
+      "sha256": "87a408152e0b034ab8db78de5d51355b1269e008cceaf30e704a6731b6190a14"
+    },
+    "failed_bootstrap_metadata": {
+      "path": "artifacts/research/runs/EXP-421-PADERBORN-D2-BOOTSTRAP__20260818T162317.850393Z__frozen-bearing-identity-paired-bootstrap/metadata.json",
+      "bytes": 11511,
+      "sha256": "ce66f50ef18965ed78039f670fe4f22a446117528bd42e823babd3d65f93c51f"
+    },
+    "failed_bootstrap_stderr": {
+      "path": "artifacts/research/runs/EXP-421-PADERBORN-D2-BOOTSTRAP__20260818T162317.850393Z__frozen-bearing-identity-paired-bootstrap/stderr.log",
+      "bytes": 1261,
+      "sha256": "5cd122ceac9c0368f807db9d5d1a95debcea7aaa27d9eb18c5999d704686319c"
+    }
+  }
+}
