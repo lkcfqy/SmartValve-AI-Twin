@@ -1,13 +1,15 @@
 # Top-tier upgrade plan and final reassessment
 
-- Plan version: `0.7.0`
+- Plan version: `0.8.0`
 - Started: 2026-08-18
-- Reassessed: 2026-08-19 after the EXP-456 interruption and EXP-456R1 recovery launch
+- Reassessed: 2026-08-20 after release 0.11.3, public CI, and EXP-533
 - Original objective: convert the single-rig audit into a multi-rig, source-only, prospectively
   validated algorithmic contribution
-- Current status: **the original algorithmic gate failed; the v0.3 protocol contribution now has a
-  sealed D3 replication, equal-volume falsification, and complete sensor attribution, while the
-  final raw-architecture sensitivity is rerunning from scratch under the unchanged seal**
+- Current status: **the original algorithmic gate failed; the protocol contribution has sealed D3
+  replication, equal-volume falsification, complete sensor attribution, passed raw-architecture
+  sensitivity, a validated manuscript/release, and author-operated archive-source plus detached
+  public-commit reproduction. Public archival DOI, third-party reproduction, and human review are
+  the remaining non-format gates**
 
 ## What was accomplished
 
@@ -225,3 +227,25 @@ hash; the validator independently checks commands, counts, thresholds, and scope
 EXP-462 refuses to build unless this package passes and includes it in the archive. Both stages
 explicitly deny clean-checkout, external-reproduction, human-review, and submission-ready status,
 so this hardening cannot erase the remaining human and independent gates.
+
+## 2026-08-20 final technical preflight
+
+EXP-456R1/457/477 completed the frozen 270-fit raw/FFT/STFT family and dual validation. EXP-458
+through EXP-461 generated and independently validated the 42-output artifact package and 9,369-word
+empirical manuscript. EXP-526/527 passed the final amendment-003 eight-check quality pair;
+EXP-528/529 built and reopened the 532-file release 0.11.3; and EXP-530/531 retained the inspected
+24-page, five-figure working PDF unchanged.
+
+EXP-532 is retained as a runner-boundary failure. Corrected runner 0.3.1 did not alter any scientific
+input, output, threshold, or validator; EXP-532R1 passed all 24 archive-source steps, including
+427/427 tests, `78.08665941916446%` coverage, all security/dependency gates, and exact two-pass
+reproduction of all 42 outputs. Public commit
+`c9cd069caa51943e6413e105fc1f4775704643c5` then passed GitHub Actions, including the container
+image build. Separately sealed EXP-533 cloned that commit from GitHub, detached exactly at it, passed
+427/427 tests with `78.17207640938034%` coverage, revalidated the exact release and artifact hashes,
+and proved byte identity for the scientific source, scripts, and public generated package.
+
+This completes the author-operated machine preflight; it does not convert the failed algorithmic
+hypothesis into a method paper. The critical path is now archival hosting/DOI, independent
+third-party reproduction, advisor/domain/statistical review, human-owned submission facts, and the
+non-watermarked venue-final package.

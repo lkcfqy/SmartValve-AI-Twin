@@ -2,11 +2,14 @@
 
 ## Scope and source state
 
-The canonical checkout is `/home/fqy/lkcproject/SmartValve-AI-Twin` under WSL2 Ubuntu 24.04. The
-upstream source baseline is commit `0dc184370e37833c74f32c529a7ef30d5df351ce`. Research additions
-are intentionally uncommitted in this working tree; every formal run captures the Git status, diff
-hash, source-tree fingerprint, command, UTC timing, environment, hardware, input hashes, stdout,
-stderr, exit status, and output hashes. No commit or push is implied by this package.
+The development checkout is `/home/fqy/lkcproject/SmartValve-AI-Twin` under WSL2 Ubuntu 24.04.
+Public research revision `c9cd069caa51943e6413e105fc1f4775704643c5` is available on branch
+`research/bearing-protocol-audit-0.11.3`; its GitHub Actions run passed the complete test, coverage,
+security, Compose, and image-build gate. The earlier scientific runs retain their original
+repository state rooted at baseline commit `0dc184370e37833c74f32c529a7ef30d5df351ce`, including the
+then-uncommitted research additions. Every formal run captures Git status, diff hash, source-tree
+fingerprint, command, UTC timing, environment, hardware, input hashes, stdout, stderr, exit status,
+and output hashes rather than rewriting that history after publication.
 
 The final experiments used Python 3.12.3, NumPy 2.5.1, pandas 2.3.3, SciPy 1.18.0, scikit-learn
 1.9.0, and PyTorch 2.13.0+cu130. The machine exposed 16 logical CPUs, approximately 15 GiB WSL
@@ -101,10 +104,12 @@ recorded before outcome modeling, and uncompensated: the primary count is 2,319,
 | Independent pre-outcome raw topology validation | EXP-477-PADERBORN-RAW-TOPOLOGY-VALIDATION | validation `3e3f9f4886e650b50c8d3bc914b6a4cd711e24ef8b41c556cf8eb583772139e6` |
 | Final bearing artifacts | EXP-458/459R1 | manifest `4abf54dbdb8dd89c0f998ac8e96dc59d51734d28ee5e96f55c1dc15197b4aec7`; validation `425c0c4861aaee9c6c004c121b0334d5345c34e1e75cdb40adc440f810b8243d` |
 | Empirical manuscript | EXP-460/461 | manuscript `784392b35d9c8a69c9554e01c6ed5b936a75716c276a8a7aca47244f6a44532f`; validation `d77dac66e0a34c0f9c4f087bd3a14a11f06782f0a43e48fa7e9c6073ff794f35` |
-| Amendment-002 post-freeze quality | EXP-518/519 | summary `919f88939c2c27ba99d8635d774df6f4c31f17c56ce0c0c24ccb2e14b81e5729`; validation `bd057e4fea03f68b5b3cffa117091bdcc6cda5631ec53fb1f9fb8dbe69b53ca7` |
+| Final amendment-003 quality | EXP-526/527 | summary `144e1da0c173b06e5ad724a9e6317dd6e995ea6a2f2172772fdf4e8ddd301f24`; validation `0879773d4e0dc148d5f873595213f4871a2df34606c9bb483f9579a939dc860d` |
 | Withdrawn 0.11.1 archive | EXP-510/511/514 | archive `b12b4210e031031da28e2689f8da56b9c19408dca5ad0421fa6c196358ce4327`; archive-source run failed 7/427 |
 | Withdrawn 0.11.2 archive | EXP-520/521/524 | archive `7dc8b4fa4dc73acfdd7808c47f0d99dd3aa8a1c30e49acd59c1650157305d7b4`; archive-source quality passed but raw-free regeneration interface failed |
-| 0.11.3 correction preflight | EXP-525 | 22/22 focused artifact/release tests; final full chain pending |
+| Final 0.11.3 archive | EXP-528/529 | archive `c86ea0c8413702c48db752350caf6dda1ca80015adf306caf1bf99682facf66f`; manifest `cf19a4a8df140a095efaa5256ac506d2d8ad676d50794e505515d09276cb9418` |
+| 0.11.3 archive-source reproduction | EXP-532R1 | summary `008ba0617ab24897dd3e21bc5ca4fb74b900ae6f082e62f040da55af9c6a5174`; 427/427 tests and exact 42-output two-pass regeneration |
+| Detached public-commit reproduction | EXP-533 | commit `c9cd069caa51943e6413e105fc1f4775704643c5`; summary `bde9664ab3aef91d4dfa48151c18411829b494d4e300ccb54799254b3f8ffcc8` |
 | Empirical five-figure PDF preflight | EXP-490/491 | PDF `c041274804f7818b97f002d47ccde97baf23e67c42d6ad4506d89b73daf4b463`; validation `09ff92a7473a05c83f7673eb19eb52efb2f8459153639c97f12d6ef8bc263939` |
 
 EXP-456 raw/FFT/STFT fitting was externally interrupted at outcome-blind progress 79/270 and is
@@ -130,11 +135,14 @@ manuscript. EXP-518/519 passed and independently validated 427/427 tests, 8/8 fi
 from 0.11.1. EXP-520/521 then built and reopened 0.11.2, but EXP-524 retained a later failure at the
 raw-free artifact-regeneration boundary after its 427-test, coverage, security, dependency, archive,
 and quality-validation prefix passed. Amendment 003 and EXP-525 define and focus-test the bounded
-0.11.3 release-input mode; its complete post-freeze chain remains pending.
+release-input mode. EXP-526--531 complete the 0.11.3 quality/archive/PDF chain; EXP-532 is retained
+as a runner-boundary failure, EXP-532R1 passes the full archive-source reproduction, and EXP-533
+passes the author-operated detached public-commit reproduction.
 EXP-490/491 rendered and independently validated the 24-page five-figure watermarked PDF; the
 24/24-page and 5/5-figure bounded visual review is recorded in
-`research/BEARING_VISUAL_QA.md`. None of these local records claims a clean checkout, independent
-reproduction, human approval, or submission readiness.
+`research/BEARING_VISUAL_QA.md`. EXP-533 claims an exact clean detached checkout but explicitly not
+third-party independence, DOI acquisition, human approval, or submission readiness; the other
+author-operated records retain their narrower claim flags.
 
 Use the timestamped directory names in `paper/README.md` and `research/EXPERIMENT_LEDGER.md` when
 locating a run. Each directory's `command.json` is the authoritative expanded command.

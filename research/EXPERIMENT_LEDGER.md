@@ -3536,3 +3536,91 @@ under `artifacts/research/runs/`. Failed, null, and superseded runs remain liste
   chain, and from-scratch archive-source run must supersede all 0.11.2 candidates before public
   release. None of these author-operated records claims detached Git/DOI reproduction, third-party
   independence, human review, or submission readiness.
+
+## EXP-526/527 amendment-003 final quality pair
+
+- EXP-526 executed the frozen eight-check local-quality topology after amendment 003. All 427
+  tests passed with zero failures, errors, or skips; path coverage was `78.17207640938034%`;
+  Ruff, expanded medium/high Bandit, runtime/build, CPU-CI and GPU-research strict dependency
+  audits, and `git diff --check` all exited zero. Quality-summary and metadata SHA-256 values are
+  `144e1da0c173b06e5ad724a9e6317dd6e995ea6a2f2172772fdf4e8ddd301f24` and
+  `beef45ab37a0f4419e8dbe077b356c5fb00f10228a302b4a3df871c5ee2b76a9`.
+- EXP-527 independently rehashed the logs and verified 8/8 commands, the exact 427-test topology,
+  zero skips, and the same coverage. Validation and metadata SHA-256 values are
+  `0879773d4e0dc148d5f873595213f4871a2df34606c9bb483f9579a939dc860d` and
+  `a5144a8c2fdb2e16063f1c80ba2ba59007f548cb6b827cc07fec7dcbc6862bf7`.
+  Both records retain all clean-checkout, third-party, human-review, and submission claims as false.
+
+## EXP-528/529 deterministic release 0.11.3
+
+- EXP-528 built `smartvalve-bearing-evidence-release-0.11.3` from the final EXP-526/527 quality
+  pair and the amendment-003 raw-free input contract. The archive contains 532 files and
+  93,180,146 uncompressed bytes, excludes raw data and human submission fields, and retains
+  `technical_manuscript_submission_ready=false`. Archive, external manifest, and metadata SHA-256
+  values are `c86ea0c8413702c48db752350caf6dda1ca80015adf306caf1bf99682facf66f`,
+  `cf19a4a8df140a095efaa5256ac506d2d8ad676d50794e505515d09276cb9418`, and
+  `05ce396220d29d387f1fa0e12cf7f3fd40bb3c309f6ecc75c12dcb38449c2b72`.
+- EXP-529 independently reopened the archive and verified all 532 members, normalized metadata,
+  every member hash, required validation families, and privacy exclusions. Validation and metadata
+  SHA-256 values are `5ac36026d2b77e4df4a8bcffd48dca9e79c006d3448ec0a45f2a4f985fbe301a`
+  and `2e180b0829ae3ba545d1034e551970fc8ee6a52bbd7d6cf9c5925a29dd62fc80`.
+
+## EXP-530/531 release-0.11.3 PDF chain
+
+- EXP-530 rendered the release-bound empirical working PDF. It remained byte-identical to the
+  inspected 24-page, five-figure artifact at
+  `c041274804f7818b97f002d47ccde97baf23e67c42d6ad4506d89b73daf4b463`, with zero blank pages;
+  report and metadata SHA-256 values are
+  `96713fc6e86c5aa1e37ccde0e85e75229aac6e0fb6e36755a4bcd1e52b45862e` and
+  `8217da543e3ff7b5dda010ed17b4e3b37c0a83607137bf9816debc59b26e8ed2`.
+- EXP-531 independently verified 24 pages, five ordered figures, four release-bound live sources,
+  the unchanged PDF hash, and retained watermark/human/submission holds. Validation and metadata
+  SHA-256 values are `99537eef418616be963867236ded13cb518e655d94cc8c33f7749b3f7c069cdd`
+  and `cfa0fe43eb47bac4ecdff5465b6d09f8cf18071993dbf5d5f3a49d336c8a6694`.
+
+## EXP-532/532R1 archive-source reproduction and bounded runner correction
+
+- EXP-532 completed all 24 substantive archive-source steps but was retained as failed because
+  runner 0.3.0 treated expected wheel-build outputs in its disposable build-source copy as a
+  mutation of the tested archive extraction. It stopped with
+  `failed_supplementary_archive_source_clean_reproduction`; summary and metadata SHA-256 values are
+  `43d4829b5f70487f99f28d3ec319ce2a9ae6f9ed35434ca632b083f6d9e24a40` and
+  `c6990091871ec345918808fc53a798f76b62e9331dc2afa291688784e71d4187`.
+- Runner 0.3.1 separated the immutable tested extraction from the disposable non-editable build
+  copy and fail-closed on any build change outside `build/` and
+  `src/smartvalve_ai_twin.egg-info/`. EXP-532R1 then passed all 24 steps in 937.898 seconds: fresh
+  locked environment, freshly reacquired public fixtures, 427/427 tests with zero skips,
+  `78.08665941916446%` coverage, security and three dependency audits, 532/532 archive validation,
+  14 required evidence gates, exact two-pass reproduction of all 42 paper outputs, and an unchanged
+  tested source tree. Summary and metadata SHA-256 values are
+  `008ba0617ab24897dd3e21bc5ca4fb74b900ae6f082e62f040da55af9c6a5174` and
+  `8cf4856570dc217491b345939f4755de2ff95531e9f01728ec009581c81e662a`.
+  The run is author-operated and archive-source based; detached Git, DOI, third-party, human-review,
+  and submission claims remain false.
+
+## EXP-533 author-operated detached public-commit reproduction
+
+- The pre-outcome seal fixed public commit
+  `c9cd069caa51943e6413e105fc1f4775704643c5`, 427 tests, a 75% coverage floor, release 0.11.3,
+  its exact archive/manifest hashes, 532 members, failure conditions, and claim limits before the
+  run. Seal and orchestration-source SHA-256 values are
+  `be058730819ddaf794ad95ba8e472f802f5a53bb39bca6aefa4eb4b61ae3d70b` and
+  `56d7a0a3cc51c031649626bfd642a32529d11930fdd23ea3b53150b80f76c3cf`.
+- EXP-533 cloned the GitHub remote, detached at the exact frozen commit, installed a fresh
+  hash-locked CPU environment non-editably from an external `git archive`, reacquired all public
+  fixtures, and passed 25/25 required steps in 936.204 seconds. Both complete test passes retained
+  427/427 tests with zero failures, errors, or skips; coverage was `78.17207640938034%`; Ruff,
+  Bandit, and all three strict dependency audits passed.
+- The detached commit's validators independently accepted the exact 0.11.3 release and artifact
+  manifest. `src/smartvalve` (110 files), `scripts` (47 files), and `paper/generated` (42 files)
+  were byte-identical between the public commit and technical archive; the complete non-`.git`
+  checkout fingerprint and final Git status remained unchanged. Summary, metadata, release
+  validation, artifact validation, and binding SHA-256 values are
+  `bde9664ab3aef91d4dfa48151c18411829b494d4e300ccb54799254b3f8ffcc8`,
+  `6ad52aaf42da421538cb2d5fa313227310c701bbefae509d5008bcb3f385db78`,
+  `5ac36026d2b77e4df4a8bcffd48dca9e79c006d3448ec0a45f2a4f985fbe301a`,
+  `5fafce7e80c0e3e45459c7ea714c66a7f35e9bc744a5f6f24ad4f10a676b5045`, and
+  `ce7bb98718696cb9adbc46bdc58118506aa5894960fc29aafd753eb684bc121d`.
+  This closes the author-operated detached public-commit machine preflight. The supplied archive
+  was a local hash-locked author asset, not a DOI download; third-party reproduction, human review,
+  public archival DOI, full refit, and submission readiness remain explicitly false.

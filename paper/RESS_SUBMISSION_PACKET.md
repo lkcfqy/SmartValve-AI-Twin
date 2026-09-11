@@ -22,24 +22,32 @@ DOI.
 - [x] EXP-459R1 independently validates every final artifact without model refitting; the
       precision-only EXP-459 failure remains retained.
 - [x] EXP-460/461 render and independently validate the empirical-final manuscript.
-- [x] EXP-518/519 complete and independently validate the amendment-002 post-freeze local gate:
-      427/427 tests, zero skips, and 78.161188% path coverage.
+- [x] EXP-526/527 complete and independently validate the final amendment-003 local gate:
+      427/427 tests, zero skips, and 78.172076% path coverage.
 - [x] EXP-514 retains the seven-test archive-source failure that withdraws release 0.11.1; release
       amendment 002 and EXP-515 verify the bounded 0.11.2 structural correction.
 - [x] EXP-520/521 build and reopen 0.11.2; EXP-524 retains its later raw-free artifact-regeneration
       boundary failure, and amendment 003 plus EXP-525 focus-test the bounded 0.11.3 correction.
+- [x] EXP-528/529 build and independently reopen the final 532-file release 0.11.3; EXP-532 is
+      retained as a runner-boundary failure and EXP-532R1 passes all 24 archive-source steps,
+      including exact two-pass regeneration of 42 outputs.
+- [x] Public commit `c9cd069caa51943e6413e105fc1f4775704643c5` passes GitHub Actions and the
+      separately sealed author-operated EXP-533 detached-clone reproduction.
 - [x] EXP-490/491 render the watermarked empirical five-figure PDF and independently bind its
       ordered figure hashes, upstream validators, and release identity; this remains a preflight.
 - [x] The integrated manuscript contains the validated raw result and cites Table 6 and Figure 3.
 - [ ] A venue-uploadable manuscript is rendered and visually checked page by page.
-- [ ] A post-amendment-003 0.11.3 archive is independently reopened and passes the complete
-      archive-source clean run; earlier local or partially passing archive runs are not substituted.
-- [ ] A formal detached clean-checkout reproduction completes from the author-approved public
-      revision; the supplementary archive-source run is not substituted.
+- [x] A post-amendment-003 0.11.3 archive is independently reopened and passes the complete
+      author-operated archive-source clean run; earlier failed runs remain retained.
+- [x] An author-operated detached clean-checkout reproduction completes from the authorized public
+      revision and byte-binds the scientific source, scripts, and public artifacts to release 0.11.3.
+- [ ] An external reproducer repeats the detached run from the public archival deposit and records
+      identity, conflicts, deviations, and verdict.
 - [ ] Domain, statistical, and reproduction review issues are resolved.
 - [ ] All human author, CRediT, funding, conflict, and AI-disclosure fields are approved.
 - [ ] `RESS_HUMAN_SUBMISSION_FIELDS.md` is completed by the authors against the exact upload hashes.
-- [ ] A concrete public commit and evidence-archive DOI are inserted consistently.
+- [ ] The concrete public commit and evidence-archive DOI are inserted consistently; the commit is
+      available, but no DOI has yet been assigned.
 
 ## Upload map
 

@@ -1,6 +1,7 @@
 # Clean-environment reproduction protocol
 
-- Status: protocol prepared; final execution requires an author-approved public commit and archive
+- Status: author-operated detached-public-commit preflight passed; archival DOI and independent
+  third-party execution remain
 - Required quality runtime: Ubuntu 24.04, CPython 3.12, CPU execution, and a fresh virtual
   environment; the optional full refit uses a separate GPU environment
 - Evidence owner: independent reproducer identified in `research/EXTERNAL_REVIEW_PACKET.md`
@@ -10,6 +11,24 @@ This protocol separates three claims that must not be conflated: code quality in
 validation of the released evidence archive, and full model refitting from independently acquired
 raw data. The submission gate requires the first two. A third-party full refit is stronger evidence
 but may be limited by data licences and GPU time.
+
+## Current author-operated preflight
+
+EXP-532R1 passed the complete 0.11.3 archive-source chain from the exact local archive bytes:
+532/532 members, 427/427 tests with zero skips, `78.08665941916446%` coverage, all security and
+dependency gates, and exact two-pass regeneration of 42 paper outputs. EXP-533 then cloned the
+public GitHub repository, detached at
+`c9cd069caa51943e6413e105fc1f4775704643c5`, created another fresh locked environment, reacquired
+the public fixtures, and passed 427/427 tests with `78.17207640938034%` coverage. The detached
+commit's validators accepted archive SHA-256
+`c86ea0c8413702c48db752350caf6dda1ca80015adf306caf1bf99682facf66f` and manifest SHA-256
+`cf19a4a8df140a095efaa5256ac506d2d8ad676d50794e505515d09276cb9418`; its 110 scientific-source,
+47 validator/script, and 42 public generated files were byte-identical to the archive.
+
+Both runs were operated by the project author. EXP-533 used the local hash-locked archive rather
+than downloading it from a DOI. They close the author-operated machine preflight but do not fill
+the independent reproducer identity/verdict in Section 7, establish public artifact availability,
+or replace the required third-party run after archival deposit.
 
 ## 1. Freeze the reviewed revision
 
