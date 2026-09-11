@@ -39,7 +39,7 @@ research = [
 dev = [
   "CairoSVG==2.9.0",
   "defusedxml==0.7.1",
-  "httpx2>=2.5,<3",
+  "httpx2>=2.12,<3",
   "pypdf==6.16.1",
   "pytest>=9.0.3,<10",
   "pytest-cov>=6,<8",

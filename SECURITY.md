@@ -28,6 +28,21 @@ acknowledgement time is three business days.
   chain head and detect replacement without the independent HMAC key; neither mechanism encrypts
   data or replaces access-controlled, immutable off-host storage.
 
+## Dependency installation
+
+Package indexes and archive filenames are untrusted inputs. Build and CI environments pin
+`pip==26.2.1` with SHA-256 hashes, including the fix for the package-download path traversal
+tracked as `PYSEC-2026-3721` / `CVE-2026-13346`.
+Development HTTP tooling requires HTTPX2 2.12 or later; the CI lock pairs `httpx2==2.12.0`
+with `httpcore2==2.12.0` to include the fixes tracked as `PYSEC-2026-3844` and
+`PYSEC-2026-3846` through `PYSEC-2026-3849`.
+
+Pulling Git changes does not update installed Python packages. Install the updated
+`build-requirements.lock` with `python -m pip install --require-hashes -r build-requirements.lock`,
+then install the appropriate runtime, CPU-CI, or GPU-research lock with `--require-hashes`.
+Use a fresh environment when reproducing research; retain the original dependency provenance
+of archived runs.
+
 ## Maintainer checks
 
 Run `make security`, `make test`, `make docker-build`, `make sbom`, and `make image-scan`
